@@ -4,6 +4,9 @@ import { defineConfig } from "umi";
 import px2rem from "postcss-plugin-px2rem";
 import routers from "./routers";
 
+const productPath = process.env.NODE_ENV === "production"
+  ? "/scriptable-store/"
+  : "/";
 export default defineConfig({
   nodeModulesTransform: {
     type: "none"
@@ -15,9 +18,8 @@ export default defineConfig({
   dynamicImport: {
     loading: "@/components/PageLoading"
   },
-  publicPath: process.env.NODE_ENV === "production"
-    ? "/scriptable-store/"
-    : "/",
+  base: productPath,
+  publicPath: productPath,
   extraPostCSSPlugins: [
     //https://www.npmjs.com/package/postcss-plugin-px2rem
     px2rem({
