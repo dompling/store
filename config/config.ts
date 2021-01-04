@@ -33,7 +33,7 @@ export default defineConfig({
         "border-radius",
         "font-size"
       ],//这些属性不需要转换
-      selectorBlackList: ["t_npx"]//以包含t_npx的class不需要转换
+      exclude: "/node_modules"
     })
   ]
 });
