@@ -18,6 +18,7 @@ export default defineConfig({
   dynamicImport: {
     loading: "@/components/PageLoading"
   },
+  title: "ScriptableStore",
   base: productPath,
   publicPath: productPath,
   extraPostCSSPlugins: [
