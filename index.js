@@ -10,7 +10,6 @@ const webView = new WebView();
 let fm;
 try {
   fm = FileManager.iCloud();
-  fm.documentsDirectory();
 } catch (e) {
   console.log('设置文件缓存路径失败，请检查 iCloud 权限是否开启');
   console.error(e);
@@ -46,7 +45,7 @@ const downloadWidget = async function (widget) {
   downloadAlert.addCancelAction('取消');
 
   if ((await downloadAlert.presentAlert()) === 0) {
-    const scriptPath = fm.joinPath(fm.documentsDirectory(), widget.name);
+    const scriptPath = fm.joinPath(RootPath, widget.name);
     const scriptExists = fm.fileExists(scriptPath);
     if (scriptExists) {
       const alreadyExistsAlert = new Alert();
@@ -83,7 +82,6 @@ async function injectEventhandler() {
     window.addEventListener('catalog-event', (event) => { completion(event.detail) }, false);
   `;
   return webView.evaluateJavaScript(js, true).then(async (widget) => {
-    console.log(widget);
     return await downloadWidget(widget);
   });
 }
