@@ -5,15 +5,14 @@ import { IRouteComponentProps, history } from 'umi';
 import { getSubscribeInfo } from '@/utils';
 import { NoneText } from '@/components/PageLoading';
 import styles from './index.module.less';
-
-let completion: any;
+import { useModel } from '@@/plugin-model/useModel';
 
 const AppInfo: FC<IRouteComponentProps> = (props) => {
   const { match } = props;
   const { appId } = match.params as { appId: string };
   const appInfo = getSubscribeInfo(appId);
-  console.log(appInfo, completion);
-  const event = new CustomEvent('catalog-event', { detail: appInfo });
+  const catalogEvent = new CustomEvent('catalog-event', { detail: appInfo });
+  const { isScriptable } = useModel('initialiseModel', (model) => model);
   return (
     <>
       <NavBar
@@ -27,21 +26,19 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
             <Card.Header
               title="组件信息"
               extra={
-                completion ? (
+                isScriptable ? (
                   <CustomerIcon
                     icon={'https://img.icons8.com/clouds/344/download-2.png'}
                     onClick={() => {
-                      window.dispatchEvent(event);
+                      window.dispatchEvent(catalogEvent);
                     }}
                   />
                 ) : (
-                  <CustomerIcon
-                    icon={'https://img.icons8.com/clouds/344/download-2.png'}
-                    onClick={() => {
-                      window.open(appInfo?.scriptURL);
-                      // window.dispatchEvent(event);
-                    }}
-                  />
+                  <a href={appInfo.scriptURL} download={`${appInfo.name}.js`}>
+                    <CustomerIcon
+                      icon={'https://img.icons8.com/clouds/344/download-2.png'}
+                    />
+                  </a>
                 )
               }
             />
@@ -75,8 +72,8 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
               <Card full>
                 <Card.Header title="组件相册" />
                 <Card.Body>
-                  {appInfo.images.map((img) => {
-                    return <img src={img} alt="" />;
+                  {appInfo.images.map((img, index) => {
+                    return <img key={`img${index}`} src={img} alt="" />;
                   })}
                 </Card.Body>
               </Card>

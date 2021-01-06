@@ -44,7 +44,7 @@
         g = a.n(_),
         E = a('q1tI'),
         h = a.n(E),
-        v = function (e, t) {
+        b = function (e, t) {
           var a = {};
           for (var n in e)
             Object.prototype.hasOwnProperty.call(e, n) &&
@@ -57,7 +57,7 @@
           }
           return a;
         },
-        b = (function (e) {
+        v = (function (e) {
           function t() {
             return (
               i()(this, t),
@@ -85,7 +85,7 @@
                     o = e.onLeftClick,
                     i = e.leftContent,
                     s = e.rightContent,
-                    m = v(e, [
+                    m = b(e, [
                       'prefixCls',
                       'className',
                       'children',
@@ -122,73 +122,74 @@
             t
           );
         })(E['Component']),
-        y = b;
-      b.defaultProps = {
+        y = v;
+      v.defaultProps = {
         prefixCls: 'am-navbar',
         mode: 'dark',
         onLeftClick: function () {},
       };
       a('D2jH');
-      var O,
-        w = a('2ROE'),
-        j = a('i7U8'),
-        x = a('9kvl'),
-        k = a('0lfv'),
-        N = a('bIAK'),
-        C = a('La0L'),
-        L = a.n(C),
+      var O = a('2ROE'),
+        w = a('i7U8'),
+        j = a('9kvl'),
+        x = a('0lfv'),
+        k = a('bIAK'),
+        N = a('La0L'),
+        C = a.n(N),
+        L = a('I5X1'),
         I = (e) => {
           var t = e.match,
             a = t.params,
             c = a.appId,
-            l = Object(k['b'])(c);
-          console.log(l, O);
-          var o = new CustomEvent('catalog-event', { detail: l });
+            l = Object(x['b'])(c),
+            o = new CustomEvent('catalog-event', { detail: l }),
+            i = Object(L['a'])('initialiseModel', (e) => e),
+            s = i.isScriptable;
           return h.a.createElement(
             h.a.Fragment,
             null,
             h.a.createElement(y, {
               mode: 'light',
-              icon: h.a.createElement(w['a'], { type: 'left' }),
-              onLeftClick: () => x['a'].goBack(),
+              icon: h.a.createElement(O['a'], { type: 'left' }),
+              onLeftClick: () => j['a'].goBack(),
             }),
             l
               ? h.a.createElement(
                   'div',
-                  { className: L.a.container },
+                  { className: C.a.container },
                   h.a.createElement(
                     r['a'],
                     { full: !0 },
                     h.a.createElement(r['a'].Header, {
                       title: '\u7ec4\u4ef6\u4fe1\u606f',
-                      extra: O
-                        ? h.a.createElement(j['CustomerIcon'], {
+                      extra: s
+                        ? h.a.createElement(w['CustomerIcon'], {
                             icon:
                               'https://img.icons8.com/clouds/344/download-2.png',
                             onClick: () => {
                               window.dispatchEvent(o);
                             },
                           })
-                        : h.a.createElement(j['CustomerIcon'], {
-                            icon:
-                              'https://img.icons8.com/clouds/344/download-2.png',
-                            onClick: () => {
-                              window.open(
-                                null === l || void 0 === l
-                                  ? void 0
-                                  : l.scriptURL,
-                              );
+                        : h.a.createElement(
+                            'a',
+                            {
+                              href: l.scriptURL,
+                              download: ''.concat(l.name, '.js'),
                             },
-                          }),
+                            h.a.createElement(w['CustomerIcon'], {
+                              icon:
+                                'https://img.icons8.com/clouds/344/download-2.png',
+                            }),
+                          ),
                     }),
                     h.a.createElement(
                       r['a'].Body,
-                      { className: L.a.container_body },
+                      { className: C.a.container_body },
                       h.a.createElement(
                         n['a'],
                         { align: 'start', justify: 'start' },
                         h.a.createElement('img', {
-                          className: L.a.appImg,
+                          className: C.a.appImg,
                           src: l.thumb,
                           alt: l.name,
                         }),
@@ -203,7 +204,7 @@
                               null,
                               h.a.createElement(
                                 'h3',
-                                { className: L.a.appTitle },
+                                { className: C.a.appTitle },
                                 l.title,
                               ),
                             ),
@@ -212,7 +213,7 @@
                               null,
                               h.a.createElement(
                                 'div',
-                                { className: L.a.appDesc },
+                                { className: C.a.appDesc },
                                 l.description,
                               ),
                             ),
@@ -228,7 +229,7 @@
                   l.images &&
                     h.a.createElement(
                       'div',
-                      { className: L.a.photos },
+                      { className: C.a.photos },
                       h.a.createElement(
                         r['a'],
                         { full: !0 },
@@ -238,15 +239,19 @@
                         h.a.createElement(
                           r['a'].Body,
                           null,
-                          l.images.map((e) =>
-                            h.a.createElement('img', { src: e, alt: '' }),
+                          l.images.map((e, t) =>
+                            h.a.createElement('img', {
+                              key: 'img'.concat(t),
+                              src: e,
+                              alt: '',
+                            }),
                           ),
                         ),
                       ),
                     ),
                 )
               : h.a.createElement(
-                  N['a'],
+                  k['a'],
                   null,
                   '\u6ca1\u6709\u627e\u5230\u8be5\u7ec4\u4ef6',
                 ),
@@ -300,8 +305,8 @@
         g = (a('puyI'), a('xZH1')),
         E = a('q1tI'),
         h = a.n(E),
-        v = a('R0pf'),
-        b = a.n(v),
+        b = a('R0pf'),
+        v = a.n(b),
         y = a('0lfv'),
         O = (a('HVTF'), a('OT5E')),
         w = a('9kvl'),
@@ -347,7 +352,7 @@
             n = Object(_['a'])(e, ['icon']);
           return h.a.createElement(
             'img',
-            Object(f['a'])({ ref: t, className: b.a.icon, alt: '', src: a }, n),
+            Object(f['a'])({ ref: t, className: v.a.icon, alt: '', src: a }, n),
           );
         }),
         N = (e) => {
@@ -357,7 +362,7 @@
           return h.a.createElement(
             u['a'],
             {
-              className: b.a.subList,
+              className: v.a.subList,
               autoClose: !0,
               right: [
                 {
@@ -390,7 +395,7 @@
               d['a'],
               null,
               h.a.createElement('img', {
-                className: b.a.avatar,
+                className: v.a.avatar,
                 src: t.icon,
                 alt: '',
               }),
@@ -400,20 +405,20 @@
                 h.a.createElement(
                   d['a'],
                   {
-                    className: b.a.user_info,
+                    className: v.a.user_info,
                     direction: 'column',
                     justify: 'start',
                   },
                   h.a.createElement(
                     'div',
-                    { className: b.a.user_title },
+                    { className: v.a.user_title },
                     t.author,
                     ' \u7ec4\u4ef6',
                   ),
                   h.a.createElement('div', null, t.repo),
                   h.a.createElement(
                     'div',
-                    { className: b.a.user_text },
+                    { className: v.a.user_text },
                     '@',
                     t.author,
                   ),
@@ -447,20 +452,20 @@
           _ = d[1];
         return h.a.createElement(
           n['a'],
-          { className: b.a.container },
+          { className: v.a.container },
           h.a.createElement(s['a'], { toast: !0, animating: f }),
           h.a.createElement(
             c['a'],
             null,
             h.a.createElement(c['a'].Header, {
-              className: b.a.widgetTitle,
+              className: v.a.widgetTitle,
               title: '\u7ec4\u4ef6\u8ba2\u9605('.concat(
                 Object.keys(l).length,
                 ')',
               ),
               extra: h.a.createElement(
                 'div',
-                { className: b.a.extra },
+                { className: v.a.extra },
                 h.a.createElement(k, {
                   icon: 'https://img.icons8.com/clouds/344/cloud-refresh.png',
                   onClick: Object(i['a'])(
