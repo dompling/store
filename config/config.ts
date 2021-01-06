@@ -32,7 +32,6 @@ export default defineConfig({
     ]);
   },
   title: "ScriptableStore",
-  base: productPath,
   publicPath: productPath,
   extraPostCSSPlugins: [
     //https://www.npmjs.com/package/postcss-plugin-px2rem
