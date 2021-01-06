@@ -49,7 +49,7 @@ const downloadWidget = async function (widget) {
     const scriptExists = fm.fileExists(scriptPath);
     if (scriptExists) {
       const alreadyExistsAlert = new Alert();
-      alreadyExistsAlert.message = `脚本 '${widget.name}' 已经存在!`;
+      alreadyExistsAlert.message = `脚本 '${widget.title}' 已经存在!`;
       alreadyExistsAlert.addAction('更新');
       alreadyExistsAlert.addCancelAction('取消');
       if ((await alreadyExistsAlert.presentAlert()) === -1) return false;
