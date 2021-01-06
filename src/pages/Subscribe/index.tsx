@@ -30,8 +30,8 @@ const AppAuthor: FC<{
 }>
   = ({ dataSource, update, setLoading }) => {
   return (
-
     <SwipeAction
+      className={styles.subList}
       autoClose
       right={[
         {
@@ -65,18 +65,17 @@ const AppAuthor: FC<{
           className={styles.avatar}
           src={dataSource.icon}
           alt="" />
-        <Badge text={dataSource.counts} size="small" corner>
-          <div>
-            <Flex className={styles.user_info} direction="column"
-                  justify={"start"}>
-              <div
-                className={styles.user_title}>{dataSource.author} 组件
-              </div>
-              <div>{dataSource.repo}</div>
-              <div className={styles.user_text}>@{dataSource.author}</div>
-            </Flex>
-          </div>
-        </Badge>
+        <div>
+          <Flex className={styles.user_info} direction="column"
+                justify={"start"}>
+            <div
+              className={styles.user_title}>{dataSource.author} 组件
+            </div>
+            <div>{dataSource.repo}</div>
+            <div className={styles.user_text}>@{dataSource.author}</div>
+          </Flex>
+        </div>
+        <Badge text={dataSource.counts} size="small" />
         <div style={{ marginLeft: "auto" }}>
           <a href={dataSource.repo} target="_blank">
             <CustomerIcon
