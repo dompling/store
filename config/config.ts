@@ -5,7 +5,7 @@ import px2rem from "postcss-plugin-px2rem";
 import routers from "./routers";
 
 const productPath = process.env.NODE_ENV === "production"
-  ? "/scriptable-store/"
+  ? "/store/"
   : "/";
 export default defineConfig({
   nodeModulesTransform: {
