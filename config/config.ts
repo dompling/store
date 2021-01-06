@@ -18,6 +18,8 @@ export default defineConfig({
   dynamicImport: {
     loading: "@/components/PageLoading"
   },
+  hash: true,
+  history: { type: "hash" },
   title: "ScriptableStore",
   base: productPath,
   publicPath: productPath,

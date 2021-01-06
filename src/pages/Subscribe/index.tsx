@@ -30,6 +30,7 @@ const AppAuthor: FC<{
 }>
   = ({ dataSource, update, setLoading }) => {
   return (
+
     <SwipeAction
       autoClose
       right={[
@@ -59,33 +60,34 @@ const AppAuthor: FC<{
       ]}
       style={{ marginBottom: 10, padding: "10px 0" }}
     >
-      <Badge text={dataSource.counts} size="small" corner>
-        <Flex>
-          <img
-            className={styles.avatar}
-            src={dataSource.icon}
-            alt="" />
+      <Flex>
+        <img
+          className={styles.avatar}
+          src={dataSource.icon}
+          alt="" />
+        <Badge text={dataSource.counts} size="small" corner>
           <div>
             <Flex className={styles.user_info} direction="column"
                   justify={"start"}>
               <div
-                className={styles.user_title}>{dataSource.author}组件
+                className={styles.user_title}>{dataSource.author} 组件
               </div>
               <div>{dataSource.repo}</div>
-              <div className={styles.user_text}>{dataSource.author}</div>
+              <div className={styles.user_text}>@{dataSource.author}</div>
             </Flex>
           </div>
-          <div style={{ marginLeft: "auto" }}>
-            <a href={dataSource.repo} target="_blank">
-              <CustomerIcon
-                icon={"https://img.icons8.com/clouds/344/github.png"}
-                style={{ width: "3rem", height: "3rem" }}
-              />
-            </a>
-          </div>
-        </Flex>
-      </Badge>
+        </Badge>
+        <div style={{ marginLeft: "auto" }}>
+          <a href={dataSource.repo} target="_blank">
+            <CustomerIcon
+              icon={"https://img.icons8.com/clouds/344/github.png"}
+              style={{ width: "3rem", height: "3rem" }}
+            />
+          </a>
+        </div>
+      </Flex>
     </SwipeAction>
+
   );
 };
 
