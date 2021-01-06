@@ -30,21 +30,22 @@
       a('QE6f');
       var n = a('Xo8F'),
         r = (a('tLCQ'), a('XYLF')),
-        c = (a('ywh3'), a('+J+N'), a('QbLZ')),
-        l = a.n(c),
-        o = a('iCc5'),
-        i = a.n(o),
-        s = a('V7oC'),
-        m = a.n(s),
-        u = a('FYw3'),
-        p = a.n(u),
-        d = a('mRg0'),
-        f = a.n(d),
+        c = a('VTBJ'),
+        l = (a('ywh3'), a('+J+N'), a('QbLZ')),
+        o = a.n(l),
+        i = a('iCc5'),
+        s = a.n(i),
+        m = a('V7oC'),
+        u = a.n(m),
+        p = a('FYw3'),
+        d = a.n(p),
+        f = a('mRg0'),
+        g = a.n(f),
         _ = a('TSYQ'),
-        g = a.n(_),
-        E = a('q1tI'),
-        h = a.n(E),
-        b = function (e, t) {
+        E = a.n(_),
+        h = a('q1tI'),
+        b = a.n(h),
+        v = function (e, t) {
           var a = {};
           for (var n in e)
             Object.prototype.hasOwnProperty.call(e, n) &&
@@ -57,11 +58,11 @@
           }
           return a;
         },
-        v = (function (e) {
+        y = (function (e) {
           function t() {
             return (
-              i()(this, t),
-              p()(
+              s()(this, t),
+              d()(
                 this,
                 (t.__proto__ || Object.getPrototypeOf(t)).apply(
                   this,
@@ -71,8 +72,8 @@
             );
           }
           return (
-            f()(t, e),
-            m()(t, [
+            g()(t, e),
+            u()(t, [
               {
                 key: 'render',
                 value: function () {
@@ -82,10 +83,10 @@
                     n = e.children,
                     r = e.mode,
                     c = e.icon,
-                    o = e.onLeftClick,
+                    l = e.onLeftClick,
                     i = e.leftContent,
                     s = e.rightContent,
-                    m = b(e, [
+                    m = v(e, [
                       'prefixCls',
                       'className',
                       'children',
@@ -95,14 +96,14 @@
                       'leftContent',
                       'rightContent',
                     ]);
-                  return E['createElement'](
+                  return h['createElement'](
                     'div',
-                    l()({}, m, { className: g()(a, t, t + '-' + r) }),
-                    E['createElement'](
+                    o()({}, m, { className: E()(a, t, t + '-' + r) }),
+                    h['createElement'](
                       'div',
-                      { className: t + '-left', role: 'button', onClick: o },
+                      { className: t + '-left', role: 'button', onClick: l },
                       c
-                        ? E['createElement'](
+                        ? h['createElement'](
                             'span',
                             {
                               className: t + '-left-icon',
@@ -113,24 +114,23 @@
                         : null,
                       i,
                     ),
-                    E['createElement']('div', { className: t + '-title' }, n),
-                    E['createElement']('div', { className: t + '-right' }, s),
+                    h['createElement']('div', { className: t + '-title' }, n),
+                    h['createElement']('div', { className: t + '-right' }, s),
                   );
                 },
               },
             ]),
             t
           );
-        })(E['Component']),
-        y = v;
-      v.defaultProps = {
+        })(h['Component']),
+        O = y;
+      y.defaultProps = {
         prefixCls: 'am-navbar',
         mode: 'dark',
         onLeftClick: function () {},
       };
       a('D2jH');
-      var O = a('2ROE'),
-        w = a('VTBJ'),
+      var w = a('2ROE'),
         j = a('i7U8'),
         k = a('9kvl'),
         x = a('0lfv'),
@@ -141,87 +141,90 @@
         S = (e) => {
           var t = e.match,
             a = t.params,
-            c = a.appId,
-            l = Object(x['b'])(c),
-            o = new CustomEvent('catalog-event', {
-              detail: Object(w['a'])(
-                Object(w['a'])({}, l),
-                {},
-                { key: 'downloadButtonClicked' },
-              ),
-            }),
+            l = a.appId,
+            o = Object(x['b'])(l),
             i = Object(I['a'])('initialiseModel', (e) => e),
             s = i.isScriptable;
-          return h.a.createElement(
-            h.a.Fragment,
+          return b.a.createElement(
+            b.a.Fragment,
             null,
-            h.a.createElement(y, {
+            b.a.createElement(O, {
               mode: 'light',
-              icon: h.a.createElement(O['a'], { type: 'left' }),
+              icon: b.a.createElement(w['a'], { type: 'left' }),
               onLeftClick: () => k['a'].goBack(),
             }),
-            l
-              ? h.a.createElement(
+            o
+              ? b.a.createElement(
                   'div',
                   { className: L.a.container },
-                  h.a.createElement(
+                  b.a.createElement(
                     r['a'],
                     { full: !0 },
-                    h.a.createElement(r['a'].Header, {
+                    b.a.createElement(r['a'].Header, {
                       title: '\u7ec4\u4ef6\u4fe1\u606f',
                       extra: s
-                        ? h.a.createElement(j['CustomerIcon'], {
+                        ? b.a.createElement(j['CustomerIcon'], {
                             icon:
                               'https://img.icons8.com/clouds/344/download-2.png',
                             onClick: () => {
-                              window.dispatchEvent(o);
+                              var e = new CustomEvent('catalog-event', {
+                                detail: Object(c['a'])(
+                                  Object(c['a'])({}, o),
+                                  {},
+                                  { key: 'downloadButtonClicked' },
+                                ),
+                              });
+                              window.dispatchEvent(e),
+                                console.log(
+                                  '\u89e6\u53d1\u4e0b\u8f7d\u529f\u80fd',
+                                );
                             },
                           })
-                        : h.a.createElement(
+                        : b.a.createElement(
                             'a',
                             {
-                              href: l.scriptURL,
-                              download: ''.concat(l.name, '.js'),
+                              href: o.scriptURL,
+                              download: ''.concat(o.name, '.js'),
                             },
-                            h.a.createElement(j['CustomerIcon'], {
+                            b.a.createElement(j['CustomerIcon'], {
                               icon:
                                 'https://img.icons8.com/clouds/344/download-2.png',
                             }),
                           ),
                     }),
-                    h.a.createElement(
+                    b.a.createElement(
                       r['a'].Body,
                       { className: L.a.container_body },
-                      h.a.createElement(
+                      b.a.createElement(
                         n['a'],
                         { align: 'start', justify: 'start' },
-                        h.a.createElement('img', {
+                        b.a.createElement('img', {
                           className: L.a.appImg,
-                          src: l.thumb,
-                          alt: l.name,
+                          src: o.thumb,
+                          alt: o.name,
                         }),
-                        h.a.createElement(
+                        b.a.createElement(
                           n['a'].Item,
                           null,
-                          h.a.createElement(
+                          b.a.createElement(
                             n['a'],
                             { direction: 'column', align: 'start' },
-                            h.a.createElement(
+                            b.a.createElement(
                               n['a'],
                               null,
-                              h.a.createElement(
+                              b.a.createElement(
                                 'h3',
                                 { className: L.a.appTitle },
-                                l.title,
+                                o.title,
                               ),
                             ),
-                            h.a.createElement(
+                            b.a.createElement(
                               n['a'].Item,
                               null,
-                              h.a.createElement(
+                              b.a.createElement(
                                 'div',
                                 { className: L.a.appDesc },
-                                l.description,
+                                o.description,
                               ),
                             ),
                           ),
@@ -229,25 +232,25 @@
                       ),
                     ),
                   ),
-                  l.html &&
-                    h.a.createElement('div', {
-                      dangerouslySetInnerHTML: { __html: l.html },
+                  o.html &&
+                    b.a.createElement('div', {
+                      dangerouslySetInnerHTML: { __html: o.html },
                     }),
-                  l.images &&
-                    h.a.createElement(
+                  o.images &&
+                    b.a.createElement(
                       'div',
                       { className: L.a.photos },
-                      h.a.createElement(
+                      b.a.createElement(
                         r['a'],
                         { full: !0 },
-                        h.a.createElement(r['a'].Header, {
+                        b.a.createElement(r['a'].Header, {
                           title: '\u7ec4\u4ef6\u76f8\u518c',
                         }),
-                        h.a.createElement(
+                        b.a.createElement(
                           r['a'].Body,
                           null,
-                          l.images.map((e, t) =>
-                            h.a.createElement('img', {
+                          o.images.map((e, t) =>
+                            b.a.createElement('img', {
                               key: 'img'.concat(t),
                               src: e,
                               alt: '',
@@ -257,7 +260,7 @@
                       ),
                     ),
                 )
-              : h.a.createElement(
+              : b.a.createElement(
                   N['a'],
                   null,
                   '\u6ca1\u6709\u627e\u5230\u8be5\u7ec4\u4ef6',
@@ -308,8 +311,8 @@
         p = (a('B8GA'), a('8dL9')),
         d = (a('QE6f'), a('Xo8F')),
         f = a('wx14'),
-        _ = a('Ff2n'),
-        g = (a('puyI'), a('xZH1')),
+        g = a('Ff2n'),
+        _ = (a('puyI'), a('xZH1')),
         E = a('q1tI'),
         h = a.n(E),
         b = a('R0pf'),
@@ -353,10 +356,10 @@
             return e.apply(this, arguments);
           };
         })(),
-        k = g['a'].prompt,
+        k = _['a'].prompt,
         x = Object(E['forwardRef'])((e, t) => {
           var a = e.icon,
-            n = Object(_['a'])(e, ['icon']);
+            n = Object(g['a'])(e, ['icon']);
           return h.a.createElement(
             'img',
             Object(f['a'])({ ref: t, className: v.a.icon, alt: '', src: a }, n),
@@ -456,7 +459,7 @@
           p = h.a.useState(!1),
           d = Object(m['a'])(p, 2),
           f = d[0],
-          _ = d[1];
+          g = d[1];
         return h.a.createElement(
           n['a'],
           { className: v.a.container },
@@ -482,7 +485,7 @@
                         while (1)
                           switch ((e.prev = e.next)) {
                             case 0:
-                              (t = Object.keys(l)), _(!0), (a = 0), (n = t);
+                              (t = Object.keys(l)), g(!0), (a = 0), (n = t);
                             case 3:
                               if (!(a < n.length)) {
                                 e.next = 10;
@@ -493,7 +496,7 @@
                               a++, (e.next = 3);
                               break;
                             case 10:
-                              u(Object(y['a'])()), _(!1);
+                              u(Object(y['a'])()), g(!1);
                             case 12:
                             case 'end':
                               return e.stop();
@@ -516,9 +519,9 @@
                                 while (1)
                                   switch ((e.prev = e.next)) {
                                     case 0:
-                                      return _(!0), (e.next = 3), j(t);
+                                      return g(!0), (e.next = 3), j(t);
                                     case 3:
-                                      u(Object(y['a'])()), _(!1);
+                                      u(Object(y['a'])()), g(!1);
                                     case 5:
                                     case 'end':
                                       return e.stop();
@@ -550,7 +553,7 @@
                   key: e,
                   dataSource: a,
                   update: u,
-                  setLoading: _,
+                  setLoading: g,
                 });
               }),
             ),

@@ -11,9 +11,7 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
   const { match } = props;
   const { appId } = match.params as { appId: string };
   const appInfo = getSubscribeInfo(appId);
-  const catalogEvent = new CustomEvent('catalog-event', {
-    detail: { ...appInfo, key: 'downloadButtonClicked' },
-  });
+
   const { isScriptable } = useModel('initialiseModel', (model) => model);
   return (
     <>
@@ -32,7 +30,11 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
                   <CustomerIcon
                     icon={'https://img.icons8.com/clouds/344/download-2.png'}
                     onClick={() => {
+                      const catalogEvent = new CustomEvent('catalog-event', {
+                        detail: { ...appInfo, key: 'downloadButtonClicked' },
+                      });
                       window.dispatchEvent(catalogEvent);
+                      console.log('触发下载功能');
                     }}
                   />
                 ) : (

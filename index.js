@@ -48,7 +48,6 @@ const downloadWidget = async function (widget) {
   if ((await downloadAlert.presentAlert()) === 0) {
     const scriptPath = fm.joinPath(fm.documentsDirectory(), widget.name);
     const scriptExists = fm.fileExists(scriptPath);
-
     if (scriptExists) {
       const alreadyExistsAlert = new Alert();
       alreadyExistsAlert.message = `脚本 '${widget.name}' 已经存在!`;
@@ -74,6 +73,7 @@ const downloadWidget = async function (widget) {
       successAlert.message = `组件脚本 '${widget.title}' 下载失败!`;
       successAlert.addCancelAction('关闭');
     }
+    await successAlert.presentAlert();
     return true;
   }
 };
@@ -84,9 +84,7 @@ async function injectEventhandler() {
   `;
   return webView.evaluateJavaScript(js, true).then(async (widget) => {
     console.log(widget);
-    if (widget.key === 'downloadButtonClicked') {
-      return await downloadWidget(widget);
-    }
+    return await downloadWidget(widget);
   });
 }
 
