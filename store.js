@@ -38,7 +38,7 @@ const saveFile = async ({ moduleName, url }) => {
 
 const downloadWidget = async function (widget) {
   const downloadAlert = new Alert();
-  downloadAlert.message = `确定要下载 '${widget.title}' ${
+  downloadAlert.message = `确定要下载 ${widget.title} ${
     widget.depend ? '和' + widget.depend.length + '个依赖' : ''
   } 组件脚本吗?`;
   downloadAlert.addAction('确定');
