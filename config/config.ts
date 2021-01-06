@@ -6,7 +6,7 @@ import routers from './routers';
 
 const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
 export default defineConfig({
-  favicon: '/favicon.ico',
+  favicon: productPath + 'favicon.ico',
   nodeModulesTransform: {
     type: 'none',
   },
