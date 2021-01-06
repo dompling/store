@@ -45,7 +45,7 @@ const downloadWidget = async function (widget) {
   downloadAlert.addCancelAction('取消');
 
   if ((await downloadAlert.presentAlert()) === 0) {
-    const scriptPath = fm.joinPath(RootPath, widget.name);
+    const scriptPath = fm.joinPath(RootPath, `${widget.name}.js`);
     const scriptExists = fm.fileExists(scriptPath);
     if (scriptExists) {
       const alreadyExistsAlert = new Alert();
@@ -82,7 +82,8 @@ async function injectEventhandler() {
     window.addEventListener('catalog-event', (event) => { completion(event.detail) }, false);
   `;
   return webView.evaluateJavaScript(js, true).then(async (widget) => {
-    return await downloadWidget(widget);
+    await downloadWidget(widget);
+    return injectEventhandler();
   });
 }
 
