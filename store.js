@@ -86,12 +86,10 @@ async function injectEventhandler() {
   });
 }
 
-present = async (b) => {
+module.exports.present = async (b) => {
   baseUrl = !b ? defaultBaseURL : b;
   const queryParams = '?scriptable=1';
   await webView.loadURL(baseUrl + catalogPageURL + queryParams);
   injectEventhandler();
   return webView.present(true);
 };
-
-await present();
