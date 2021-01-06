@@ -4,7 +4,6 @@
 
 const defaultBaseURL = 'https://scriptablejs.gitee.io/store/#';
 let baseUrl;
-const downloadCountURL = '/api/downloadstatistic';
 const catalogPageURL = '/menu';
 const webView = new WebView();
 
@@ -27,7 +26,7 @@ async function loadScript(url) {
 
 const downloadWidget = async function (widget) {
   const downloadAlert = new Alert();
-  downloadAlert.message = `确定要下载 '${widget.name}' 小组件脚本吗?`;
+  downloadAlert.message = `确定要下载 '${widget.title}' 小组件脚本吗?`;
   downloadAlert.addAction('确定');
   downloadAlert.addCancelAction('取消');
 
@@ -42,61 +41,30 @@ const downloadWidget = async function (widget) {
       alreadyExistsAlert.message = `脚本 '${filename}' 已经存在!`;
       alreadyExistsAlert.addAction('更新');
       alreadyExistsAlert.addCancelAction('取消');
-
-      if ((await alreadyExistsAlert.presentAlert()) === -1) {
-        return false;
-      }
+      if ((await alreadyExistsAlert.presentAlert()) === -1) return false;
     }
     fm.writeString(scriptPath, content);
-    countDownload(widget.id, widget.scriptURL);
-
     const successAlert = new Alert();
-    if (widget.configurationRequired === true) {
-      successAlert.message = `小组件脚本 '${filename}' 保存成功。 The widget requires manual configuration. Do you want to open the homepage of the widget for further instructions?`;
-      successAlert.addAction('Yes, show Widget Homepage');
-      successAlert.addCancelAction('No');
-    } else {
-      successAlert.message = `Widget-Script '${filename}' saved and ready to use!`;
-      successAlert.addCancelAction('Close');
-    }
-    if ((await successAlert.presentAlert()) === 0) {
-      Safari.openInApp(widget.homepage);
-    }
+    successAlert.message = `组件脚本 '${filename}' 下载成功!`;
+    successAlert.addCancelAction('确定');
     return filename;
   }
 };
-
-async function countDownload(id, url) {
-  try {
-    const req = new Request(baseUrl + downloadCountURL);
-    req.method = 'POST';
-    req.body = JSON.stringify({ widget: id });
-    await req.load();
-  } catch (e) {
-    console.log(e);
-  }
-  const js = `
-    window.dispatchEvent(new CustomEvent('widget-saved', {detail: {url: '${url}'}}));
-  `;
-  return await webView.evaluateJavaScript(js);
-}
 
 async function injectEventhandler() {
   const js = `
     window.addEventListener('catalog-event', (event) => { completion(event.detail) }, false);
   `;
-  return webView.evaluateJavaScript(js, true).then(async (event) => {
-    if (event.name === 'downloadButtonClicked') {
-      await downloadWidget(event.widget);
+  return webView.evaluateJavaScript(js, true).then(async (widget) => {
+    if (widget.key === 'downloadButtonClicked') {
+      return await downloadWidget(widget);
     }
-    return injectEventhandler();
   });
 }
 
 present = async (b) => {
   baseUrl = !b ? defaultBaseURL : b;
-
-  const queryParams = Device.isUsingDarkAppearance() ? '?darkMode' : '';
+  const queryParams = 'scriptable=1';
   await webView.loadURL(baseUrl + catalogPageURL + queryParams);
   injectEventhandler();
   return webView.present(true);

@@ -11,7 +11,9 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
   const { match } = props;
   const { appId } = match.params as { appId: string };
   const appInfo = getSubscribeInfo(appId);
-  const catalogEvent = new CustomEvent('catalog-event', { detail: appInfo });
+  const catalogEvent = new CustomEvent('catalog-event', {
+    detail: { ...appInfo, key: 'downloadButtonClicked' },
+  });
   const { isScriptable } = useModel('initialiseModel', (model) => model);
   return (
     <>

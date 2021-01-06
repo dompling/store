@@ -130,20 +130,27 @@
       };
       a('D2jH');
       var O = a('2ROE'),
-        w = a('i7U8'),
-        j = a('9kvl'),
+        w = a('VTBJ'),
+        j = a('i7U8'),
+        k = a('9kvl'),
         x = a('0lfv'),
-        k = a('bIAK'),
-        N = a('La0L'),
-        C = a.n(N),
-        L = a('I5X1'),
-        I = (e) => {
+        N = a('bIAK'),
+        C = a('La0L'),
+        L = a.n(C),
+        I = a('I5X1'),
+        S = (e) => {
           var t = e.match,
             a = t.params,
             c = a.appId,
             l = Object(x['b'])(c),
-            o = new CustomEvent('catalog-event', { detail: l }),
-            i = Object(L['a'])('initialiseModel', (e) => e),
+            o = new CustomEvent('catalog-event', {
+              detail: Object(w['a'])(
+                Object(w['a'])({}, l),
+                {},
+                { key: 'downloadButtonClicked' },
+              ),
+            }),
+            i = Object(I['a'])('initialiseModel', (e) => e),
             s = i.isScriptable;
           return h.a.createElement(
             h.a.Fragment,
@@ -151,19 +158,19 @@
             h.a.createElement(y, {
               mode: 'light',
               icon: h.a.createElement(O['a'], { type: 'left' }),
-              onLeftClick: () => j['a'].goBack(),
+              onLeftClick: () => k['a'].goBack(),
             }),
             l
               ? h.a.createElement(
                   'div',
-                  { className: C.a.container },
+                  { className: L.a.container },
                   h.a.createElement(
                     r['a'],
                     { full: !0 },
                     h.a.createElement(r['a'].Header, {
                       title: '\u7ec4\u4ef6\u4fe1\u606f',
                       extra: s
-                        ? h.a.createElement(w['CustomerIcon'], {
+                        ? h.a.createElement(j['CustomerIcon'], {
                             icon:
                               'https://img.icons8.com/clouds/344/download-2.png',
                             onClick: () => {
@@ -176,7 +183,7 @@
                               href: l.scriptURL,
                               download: ''.concat(l.name, '.js'),
                             },
-                            h.a.createElement(w['CustomerIcon'], {
+                            h.a.createElement(j['CustomerIcon'], {
                               icon:
                                 'https://img.icons8.com/clouds/344/download-2.png',
                             }),
@@ -184,12 +191,12 @@
                     }),
                     h.a.createElement(
                       r['a'].Body,
-                      { className: C.a.container_body },
+                      { className: L.a.container_body },
                       h.a.createElement(
                         n['a'],
                         { align: 'start', justify: 'start' },
                         h.a.createElement('img', {
-                          className: C.a.appImg,
+                          className: L.a.appImg,
                           src: l.thumb,
                           alt: l.name,
                         }),
@@ -204,7 +211,7 @@
                               null,
                               h.a.createElement(
                                 'h3',
-                                { className: C.a.appTitle },
+                                { className: L.a.appTitle },
                                 l.title,
                               ),
                             ),
@@ -213,7 +220,7 @@
                               null,
                               h.a.createElement(
                                 'div',
-                                { className: C.a.appDesc },
+                                { className: L.a.appDesc },
                                 l.description,
                               ),
                             ),
@@ -229,7 +236,7 @@
                   l.images &&
                     h.a.createElement(
                       'div',
-                      { className: C.a.photos },
+                      { className: L.a.photos },
                       h.a.createElement(
                         r['a'],
                         { full: !0 },
@@ -251,13 +258,13 @@
                     ),
                 )
               : h.a.createElement(
-                  k['a'],
+                  N['a'],
                   null,
                   '\u6ca1\u6709\u627e\u5230\u8be5\u7ec4\u4ef6',
                 ),
           );
         };
-      t['default'] = I;
+      t['default'] = S;
     },
     La0L: function (e, t, a) {
       e.exports = {
@@ -286,7 +293,7 @@
       'use strict';
       a.r(t),
         a.d(t, 'CustomerIcon', function () {
-          return k;
+          return x;
         });
       a('mw1O');
       var n = a('nJCp'),
@@ -346,8 +353,8 @@
             return e.apply(this, arguments);
           };
         })(),
-        x = g['a'].prompt,
-        k = Object(E['forwardRef'])((e, t) => {
+        k = g['a'].prompt,
+        x = Object(E['forwardRef'])((e, t) => {
           var a = e.icon,
             n = Object(_['a'])(e, ['icon']);
           return h.a.createElement(
@@ -431,7 +438,7 @@
                 h.a.createElement(
                   'a',
                   { href: t.repo, target: '_blank' },
-                  h.a.createElement(k, {
+                  h.a.createElement(x, {
                     icon: 'https://img.icons8.com/clouds/344/github.png',
                     style: { width: '3rem', height: '3rem' },
                   }),
@@ -466,7 +473,7 @@
               extra: h.a.createElement(
                 'div',
                 { className: v.a.extra },
-                h.a.createElement(k, {
+                h.a.createElement(x, {
                   icon: 'https://img.icons8.com/clouds/344/cloud-refresh.png',
                   onClick: Object(i['a'])(
                     o.a.mark(function e() {
@@ -495,10 +502,10 @@
                     }),
                   ),
                 }),
-                h.a.createElement(k, {
+                h.a.createElement(x, {
                   icon: 'https://img.icons8.com/clouds/344/add.png',
                   onClick: () =>
-                    x('\u8f93\u5165\u7ec4\u4ef6\u8ba2\u9605\u5730\u5740', '', [
+                    k('\u8f93\u5165\u7ec4\u4ef6\u8ba2\u9605\u5730\u5740', '', [
                       { text: '\u53d6\u6d88' },
                       {
                         text: '\u786e\u5b9a',
