@@ -20,6 +20,17 @@ export default defineConfig({
   },
   hash: true,
   history: { type: "hash" },
+  chainWebpack: (config) => {
+    const isDev = process.env.NODE_ENV === "development";
+    const hash = !isDev ? ".[contenthash:8]" : "";
+    config.output.chunkFilename(`js/[name]${hash}.async.js`);
+    config.plugin("extract-css").tap(args => [
+      {
+        ...args[0],
+        chunkFilename: `css/[name]${hash}.chunk.css`
+      }
+    ]);
+  },
   title: "ScriptableStore",
   base: productPath,
   publicPath: productPath,
