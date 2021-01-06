@@ -1,27 +1,27 @@
-import React, { FC, ReactElement } from "react";
-import { TabBar } from "antd-mobile";
-import { IRouteComponentProps, history } from "umi";
-import styles from "./layout.module.less";
+import React, { FC, ReactElement } from 'react';
+import { TabBar } from 'antd-mobile';
+import { IRouteComponentProps, history } from 'umi';
+import styles from './layout.module.less';
 
 const MenuIcon: FC<{ icon: string }> = ({ icon }) => {
   return <div className={`${styles.tabBarIcon} ${styles[icon]}`} />;
 };
 
 const menuConfig: {
-  title: string,
-  link: string,
-  icon: ReactElement,
+  title: string;
+  link: string;
+  icon: ReactElement;
 }[] = [
   {
-    title: "首页",
-    link: "/menu",
-    icon: <MenuIcon icon={"homeIcon"} />
+    title: '首页',
+    link: '/menu',
+    icon: <MenuIcon icon={'homeIcon'} />,
   },
   {
-    title: "订阅",
-    link: "/menu/subscribe",
-    icon: <MenuIcon icon={"subscribe"} />
-  }
+    title: '订阅',
+    link: '/menu/subscribe',
+    icon: <MenuIcon icon={'subscribe'} />,
+  },
 ];
 
 const layout: FC<IRouteComponentProps> = (props) => {
@@ -29,7 +29,7 @@ const layout: FC<IRouteComponentProps> = (props) => {
   return (
     <div className={styles.container}>
       <main>{children}</main>
-      <footer className={styles["fixed-bottom"]}>
+      <footer className={styles['fixed-bottom']}>
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
@@ -51,7 +51,6 @@ const layout: FC<IRouteComponentProps> = (props) => {
               />
             );
           })}
-
         </TabBar>
       </footer>
     </div>
