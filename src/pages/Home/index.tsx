@@ -36,14 +36,14 @@ export default () => {
           }}
         />
       </div>
-      <Accordion defaultActiveKey="0">
-        {Object.keys(data).length ? (
-          Object.keys(data).map((key, index: number) => {
+      {Object.keys(data).length ? (
+        <Accordion defaultActiveKey={Object.keys(data)}>
+          {Object.keys(data).map((key) => {
             const appsInfo = data[key];
             const { apps, author, icon } = appsInfo as API.subscribe;
             return (
               <Accordion.Panel
-                key={index}
+                key={key}
                 header={
                   <div className={styles.avatar}>
                     <img className={styles.avatar_img} src={icon} alt="" />
@@ -72,11 +72,11 @@ export default () => {
                 />
               </Accordion.Panel>
             );
-          })
-        ) : (
-          <NoneText>暂无数据</NoneText>
-        )}
-      </Accordion>
+          })}
+        </Accordion>
+      ) : (
+        <NoneText>暂无数据</NoneText>
+      )}
     </div>
   );
 };
