@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
+import type { FC } from 'react';
+import type { IRouteComponentProps } from 'umi';
+import { history } from 'umi';
 import { NavBar, Icon, Flex, Card } from 'antd-mobile';
 import { CustomerIcon } from '@/pages/Subscribe';
-import { IRouteComponentProps, history } from 'umi';
+
 import { getSubscribeInfo } from '@/utils';
 import { NoneText } from '@/components/PageLoading';
 import styles from './index.module.less';
@@ -15,11 +18,7 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
   const { isScriptable } = useModel('initialiseModel', (model) => model);
   return (
     <>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      />
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
       {appInfo ? (
         <div className={styles.container}>
           <Card full>
@@ -39,38 +38,28 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
                   />
                 ) : (
                   <a href={appInfo.scriptURL} download={`${appInfo.name}.js`}>
-                    <CustomerIcon
-                      icon={'https://img.icons8.com/clouds/344/download-2.png'}
-                    />
+                    <CustomerIcon icon={'https://img.icons8.com/clouds/344/download-2.png'} />
                   </a>
                 )
               }
             />
             <Card.Body className={styles.container_body}>
               <Flex align={'start'} justify={'start'}>
-                <img
-                  className={styles.appImg}
-                  src={appInfo.thumb}
-                  alt={appInfo.name}
-                />
+                <img className={styles.appImg} src={appInfo.thumb} alt={appInfo.name} />
                 <Flex.Item>
                   <Flex direction={'column'} align={'start'}>
                     <Flex>
                       <h3 className={styles.appTitle}>{appInfo.title}</h3>
                     </Flex>
                     <Flex.Item>
-                      <div className={styles.appDesc}>
-                        {appInfo.description}
-                      </div>
+                      <div className={styles.appDesc}>{appInfo.description}</div>
                     </Flex.Item>
                   </Flex>
                 </Flex.Item>
               </Flex>
             </Card.Body>
           </Card>
-          {appInfo.html && (
-            <div dangerouslySetInnerHTML={{ __html: appInfo.html }} />
-          )}
+          {appInfo.html && <div dangerouslySetInnerHTML={{ __html: appInfo.html }} />}
           {appInfo.images && (
             <div className={styles.photos}>
               <Card full>

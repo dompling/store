@@ -1,6 +1,8 @@
-import React, { FC, ReactElement, useEffect } from 'react';
+import type { FC, ReactElement } from 'react';
+import React, { useEffect } from 'react';
 import { TabBar } from 'antd-mobile';
-import { IRouteComponentProps, history, useModel } from 'umi';
+import type { IRouteComponentProps } from 'umi';
+import { history, useModel } from 'umi';
 import styles from './layout.module.less';
 
 const MenuIcon: FC<{ icon: string }> = ({ icon }) => {
@@ -24,17 +26,14 @@ const menuConfig: {
   },
 ];
 
-const layout: FC<IRouteComponentProps> = (props) => {
+const Layout: FC<IRouteComponentProps> = (props) => {
   const { children, location } = props;
   const { scriptable } = location.query as { scriptable: string };
-  const { setScriptable, isScriptable } = useModel(
-    'initialiseModel',
-    (model) => model,
-  );
+  const { setScriptable, isScriptable } = useModel('initialiseModel', (model) => model);
   useEffect(() => {
-    if (!!scriptable !== isScriptable && !isScriptable)
-      setScriptable(!!scriptable);
+    if (!!scriptable !== isScriptable && !isScriptable) setScriptable(!!scriptable);
   });
+
   return (
     <div className={styles.container}>
       <main>{children}</main>
@@ -65,4 +64,4 @@ const layout: FC<IRouteComponentProps> = (props) => {
     </div>
   );
 };
-export default layout;
+export default Layout;

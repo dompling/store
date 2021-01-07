@@ -1,30 +1,20 @@
-import React, { FC, Dispatch, SetStateAction, forwardRef } from 'react';
-import {
-  SwipeAction,
-  Card,
-  Flex,
-  WingBlank,
-  Badge,
-  Modal,
-  ActivityIndicator,
-} from 'antd-mobile';
+import type { FC, Dispatch, SetStateAction } from 'react';
+import React, { forwardRef } from 'react';
+import { SwipeAction, Card, Flex, WingBlank, Badge, Modal, ActivityIndicator } from 'antd-mobile';
 import styles from './index.module.less';
 import { getSubscribe, setSubscribe } from '@/utils';
 import { fetchJSONStore } from '@/service/api';
+import { NoneText } from '@/components/PageLoading';
 
-const prompt = Modal.prompt;
+const { prompt } = Modal;
 export type CIconProps = { icon: string } & React.HtmlHTMLAttributes<any>;
 
-export const CustomerIcon = forwardRef<any, CIconProps>(
-  ({ icon, ...props }, ref) => {
-    return (
-      <img ref={ref} className={styles.icon} alt="" src={icon} {...props} />
-    );
-  },
-);
+export const CustomerIcon = forwardRef<any, CIconProps>(({ icon, ...props }, ref) => {
+  return <img ref={ref} className={styles.icon} alt="" src={icon} {...props} />;
+});
 
 const AppAuthor: FC<{
-  update: Dispatch<SetStateAction<{ [key: string]: API.subscribe }>>;
+  update: Dispatch<SetStateAction<Record<string, API.subscribe>>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
   dataSource: {
     url: string;
@@ -67,11 +57,7 @@ const AppAuthor: FC<{
       <Flex>
         <img className={styles.avatar} src={dataSource.icon} alt="" />
         <div>
-          <Flex
-            className={styles.user_info}
-            direction="column"
-            justify={'start'}
-          >
+          <Flex className={styles.user_info} direction="column" justify={'start'}>
             <div className={styles.user_title}>{dataSource.author} 组件</div>
             <div>{dataSource.repo}</div>
             <div className={styles.user_text}>@{dataSource.author}</div>
@@ -93,9 +79,7 @@ const AppAuthor: FC<{
 
 export default () => {
   const dataSource = getSubscribe();
-  const [data, setData] = React.useState<{ [key: string]: API.subscribe }>(
-    dataSource,
-  );
+  const [data, setData] = React.useState<Record<string, API.subscribe>>(dataSource);
   const [loading, setLoading] = React.useState<boolean>(false);
   return (
     <WingBlank className={styles.container}>
@@ -111,7 +95,9 @@ export default () => {
                 onClick={async () => {
                   const fetchUri = Object.keys(data);
                   setLoading(true);
+                  // eslint-disable-next-line no-restricted-syntax
                   for (const url of fetchUri) {
+                    // eslint-disable-next-line no-await-in-loop
                     await fetchJSONStore(url);
                   }
                   setData(getSubscribe());
@@ -139,18 +125,22 @@ export default () => {
           }
         />
         <Card.Body style={{ minHeight: 100 }}>
-          {Object.keys(data).map((github) => {
-            const item = data[github];
-            const dataItem = { ...item, counts: item.apps.length, url: github };
-            return (
-              <AppAuthor
-                key={github}
-                dataSource={dataItem}
-                update={setData}
-                setLoading={setLoading}
-              />
-            );
-          })}
+          {Object.keys(data).length ? (
+            Object.keys(data).map((github) => {
+              const item = data[github];
+              const dataItem = { ...item, counts: item.apps.length, url: github };
+              return (
+                <AppAuthor
+                  key={github}
+                  dataSource={dataItem}
+                  update={setData}
+                  setLoading={setLoading}
+                />
+              );
+            })
+          ) : (
+            <NoneText style={{ height: '5rem' }}>暂未添加相关订阅</NoneText>
+          )}
         </Card.Body>
       </Card>
     </WingBlank>

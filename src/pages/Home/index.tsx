@@ -1,15 +1,14 @@
-import React from "react";
-import { SearchBar, Grid, Accordion } from "antd-mobile";
-import { NoneText } from "@/components/PageLoading";
-import { getSubscribe } from "@/utils";
-import { Link } from "umi";
-import styles from "./index.module.less";
+import React from 'react';
+import { SearchBar, Grid, Accordion } from 'antd-mobile';
+import { NoneText } from '@/components/PageLoading';
+import { getSubscribe } from '@/utils';
+import { Link } from 'umi';
+import styles from './index.module.less';
 
 let timer: any;
 export default () => {
   const dataSource = getSubscribe();
-  const [data, setData] = React.useState<{ [key: string]: API.subscribe }>(
-    dataSource);
+  const [data, setData] = React.useState<Record<string, API.subscribe>>(dataSource);
 
   return (
     <div className={styles.container}>
@@ -26,11 +25,10 @@ export default () => {
             }
             if (timer) clearTimeout(timer);
             timer = setTimeout(() => {
-              const newData: { [key: string]: API.subscribe } = {};
-              Object.keys(dataSource).map(key => {
+              const newData: Record<string, API.subscribe> = {};
+              Object.keys(dataSource).forEach((key) => {
                 const dataItem = data[key];
-                const apps = dataItem.apps.filter(
-                  app => app.title.indexOf(value) > -1);
+                const apps = dataItem.apps.filter((app) => app.title.indexOf(value) > -1);
                 if (apps) newData[key] = { ...dataItem, apps };
               });
               setData(newData);
@@ -39,17 +37,20 @@ export default () => {
         />
       </div>
       <Accordion defaultActiveKey="0">
-        {Object.keys(data).length ? Object.keys(data).map(
-          (key, index: number) => {
-            const dataSource = data[key];
-            const { apps, author, icon } = dataSource as API.subscribe;
+        {Object.keys(data).length ? (
+          Object.keys(data).map((key, index: number) => {
+            const appsInfo = data[key];
+            const { apps, author, icon } = appsInfo as API.subscribe;
             return (
-              <Accordion.Panel key={index} header={(
-                <div className={styles.avatar}>
-                  <img className={styles.avatar_img} src={icon} alt="" />
-                  {author}
-                </div>
-              )}>
+              <Accordion.Panel
+                key={index}
+                header={
+                  <div className={styles.avatar}>
+                    <img className={styles.avatar_img} src={icon} alt="" />
+                    {author}
+                  </div>
+                }
+              >
                 <Grid
                   data={apps}
                   columnNum={4}
@@ -60,8 +61,7 @@ export default () => {
                     return (
                       <Link to={`/app/info/${item.name}`}>
                         <div className={styles.list_item}>
-                          <img alt="" src={item.thumb}
-                               className={styles.list_item_img} />
+                          <img alt="" src={item.thumb} className={styles.list_item_img} />
                           <div className={styles.list_item_desc}>
                             <span>{item.title}</span>
                           </div>
@@ -72,8 +72,11 @@ export default () => {
                 />
               </Accordion.Panel>
             );
-          }) : <NoneText>暂无数据</NoneText>}
+          })
+        ) : (
+          <NoneText>暂无数据</NoneText>
+        )}
       </Accordion>
     </div>
   );
-}
+};
