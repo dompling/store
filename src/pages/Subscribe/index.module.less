@@ -4,52 +4,8 @@
   .widgetTitle {
     :global {
       .am-card-header-content {
-        color: rgba(0, 0, 0, .6);
+        color: rgba(0, 0, 0, 0.6);
         font-size: 0.7rem;
-      }
-    }
-  }
-
-  .subList {
-    border-bottom: 1px solid #F6F6F6;
-
-    .avatar {
-      width: 3rem;
-      height: 3rem;
-      border: 1px solid #F6F6F6;
-      border-radius: 50%;
-      margin-right: 1rem;
-    }
-
-    .user_info {
-      font-size: 0.8rem;
-      color: rgba(0, 0, 0, .6);
-      width: 11rem;
-
-
-      > div {
-        width: 100%;
-        line-height: 1.5;
-        text-align: left;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-
-      .user_title {
-        color: rgba(0, 0, 0, .87);
-        font-weight: 500;
-      }
-
-      .user_text {
-        color: #3a91cf;
-      }
-    }
-
-
-    .extra {
-      .icon {
-        margin-left: 1rem;
       }
     }
   }
@@ -58,4 +14,53 @@
 .icon {
   width: 2.2rem;
   height: 2.2rem;
+}
+
+.subList,
+.row-dragging {
+  border-bottom: 1px solid #f6f6f6;
+
+  img.avatar {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #f6f6f6;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+
+  .user_info {
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.6);
+    width: 11rem;
+
+    > div {
+      width: 100%;
+      line-height: 1.5;
+      text-align: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .user_title {
+      color: rgba(0, 0, 0, 0.87);
+      font-weight: 500;
+    }
+
+    .user_text {
+      color: #3a91cf;
+    }
+  }
+
+  .extra {
+    .icon {
+      margin-left: 1rem;
+    }
+  }
+}
+
+:global {
+  .drag-visible {
+    visibility: visible;
+  }
 }

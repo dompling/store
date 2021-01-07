@@ -1,5 +1,7 @@
 import type { FC, Dispatch, SetStateAction } from 'react';
 import React, { forwardRef } from 'react';
+import arrayMove from 'array-move';
+import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { SwipeAction, Card, Flex, WingBlank, Badge, Modal, ActivityIndicator } from 'antd-mobile';
 import styles from './index.module.less';
 import { getSubscribe, setSubscribe } from '@/utils';
@@ -13,14 +15,20 @@ export const CustomerIcon = forwardRef<any, CIconProps>(({ icon, ...props }, ref
   return <img ref={ref} className={styles.icon} alt="" src={icon} {...props} />;
 });
 
-const AppAuthor: FC<{
+type AppAuthorProps = {
   update: Dispatch<SetStateAction<Record<string, API.subscribe>>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
   dataSource: {
     url: string;
     counts: number;
   } & API.subscribe;
-}> = ({ dataSource, update, setLoading }) => {
+};
+
+const DragHandle = SortableHandle(({ src, ...props }: React.ImgHTMLAttributes<any>) => (
+  <img className={styles.avatar} src={src} alt="" {...props} />
+));
+
+const AppAuthor: FC<AppAuthorProps> = ({ dataSource, update, setLoading }) => {
   return (
     <SwipeAction
       className={styles.subList}
@@ -55,7 +63,7 @@ const AppAuthor: FC<{
       style={{ marginBottom: 10, padding: '10px 0' }}
     >
       <Flex>
-        <img className={styles.avatar} src={dataSource.icon} alt="" />
+        <DragHandle src={dataSource.icon} />
         <div>
           <Flex className={styles.user_info} direction="column" justify={'start'}>
             <div className={styles.user_title}>{dataSource.author} 组件</div>
@@ -76,6 +84,12 @@ const AppAuthor: FC<{
     </SwipeAction>
   );
 };
+
+const SortableItem = SortableElement((props: AppAuthorProps) => <AppAuthor {...props} />);
+
+const SortableList = SortableContainer(({ children }: any) => {
+  return <div>{children}</div>;
+});
 
 export default () => {
   const dataSource = getSubscribe();
@@ -125,22 +139,42 @@ export default () => {
           }
         />
         <Card.Body style={{ minHeight: 100 }}>
-          {Object.keys(data).length ? (
-            Object.keys(data).map((github) => {
-              const item = data[github];
-              const dataItem = { ...item, counts: item.apps.length, url: github };
-              return (
-                <AppAuthor
-                  key={github}
-                  dataSource={dataItem}
-                  update={setData}
-                  setLoading={setLoading}
-                />
-              );
-            })
-          ) : (
-            <NoneText style={{ height: '5rem' }}>暂未添加相关订阅</NoneText>
-          )}
+          <SortableList
+            useDragHandle
+            helperClass={styles['row-dragging']}
+            onSortEnd={({ oldIndex, newIndex }: any) => {
+              const sortDataKey = Object.keys(data);
+              const updateSort = arrayMove(sortDataKey, oldIndex, newIndex);
+              const newDataSource: any = {};
+              updateSort.forEach((key) => {
+                newDataSource[key] = dataSource[key];
+              });
+              setSubscribe(newDataSource);
+              setData(newDataSource);
+            }}
+          >
+            {Object.keys(data).length ? (
+              Object.keys(data).map((github, index) => {
+                const item = data[github];
+                const dataItem = {
+                  ...item,
+                  counts: item.apps.length,
+                  url: github,
+                };
+                return (
+                  <SortableItem
+                    key={github}
+                    index={index}
+                    dataSource={dataItem}
+                    update={setData}
+                    setLoading={setLoading}
+                  />
+                );
+              })
+            ) : (
+              <NoneText style={{ height: '5rem' }}>暂未添加相关订阅</NoneText>
+            )}
+          </SortableList>
         </Card.Body>
       </Card>
     </WingBlank>

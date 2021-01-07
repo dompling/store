@@ -2,3 +2,5 @@
 /scripts
 /config
 .history
+.idea
+store.js
