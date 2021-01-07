@@ -10,7 +10,13 @@ export default () => (
 );
 
 export const NoneText: FC = ({ children }) => (
-  <div style={{ display: 'flex', height: '100vh', padding: '100px 0' }}>
-    <div style={{ margin: 'auto' }}>{children}</div>
+  <div
+    style={{
+      display: 'flex',
+      height: '80vh',
+      fontSize: '0.4rem',
+    }}
+  >
+    <div style={{ margin: 'auto', textAlign: 'center' }}>{children}</div>
   </div>
 );

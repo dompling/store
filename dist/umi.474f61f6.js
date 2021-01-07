@@ -30,7 +30,7 @@
       {
         0: '4bfc0509',
         1: '1c142b50',
-        2: '78ef7d9d',
+        2: 'fce5a2db',
         3: '92c4da5d',
         4: '9ba99ed4',
         5: 'f3b01dbc',
@@ -15417,8 +15417,12 @@
       var t = e.children;
       return i.a.createElement(
         'div',
-        { style: { display: 'flex', height: '100vh', padding: '100px 0' } },
-        i.a.createElement('div', { style: { margin: 'auto' } }, t),
+        { style: { display: 'flex', height: '80vh', fontSize: '0.4rem' } },
+        i.a.createElement(
+          'div',
+          { style: { margin: 'auto', textAlign: 'center' } },
+          t,
+        ),
       );
     };
   },
