@@ -24,8 +24,8 @@ type AppAuthorProps = {
   } & API.subscribe;
 };
 
-const DragHandle = SortableHandle(({ src, ...props }: React.ImgHTMLAttributes<any>) => (
-  <img className={styles.avatar} src={src} alt="" {...props} />
+const DragHandle = SortableHandle(({ counts }: { counts: number }) => (
+  <Badge style={{ userSelect: 'none' }} text={counts} size="small" />
 ));
 
 const AppAuthor: FC<AppAuthorProps> = ({ dataSource, update, setLoading }) => {
@@ -63,7 +63,7 @@ const AppAuthor: FC<AppAuthorProps> = ({ dataSource, update, setLoading }) => {
       style={{ marginBottom: 10, padding: '10px 0' }}
     >
       <Flex>
-        <DragHandle src={dataSource.icon} />
+        <img className={styles.avatar} alt="" src={dataSource.icon} />
         <div>
           <Flex className={styles.user_info} direction="column" justify={'start'}>
             <div className={styles.user_title}>{dataSource.author} 组件</div>
@@ -71,7 +71,7 @@ const AppAuthor: FC<AppAuthorProps> = ({ dataSource, update, setLoading }) => {
             <div className={styles.user_text}>@{dataSource.author}</div>
           </Flex>
         </div>
-        <Badge text={dataSource.counts} size="small" />
+        <DragHandle counts={dataSource.counts} />
         <div style={{ marginLeft: 'auto' }}>
           <a href={dataSource.repo} target="_blank">
             <CustomerIcon
