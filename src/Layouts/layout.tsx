@@ -32,7 +32,8 @@ const layout: FC<IRouteComponentProps> = (props) => {
     (model) => model,
   );
   useEffect(() => {
-    if (!!scriptable !== isScriptable) setScriptable(!!scriptable);
+    if (!!scriptable !== isScriptable && !isScriptable)
+      setScriptable(!!scriptable);
   });
   return (
     <div className={styles.container}>
