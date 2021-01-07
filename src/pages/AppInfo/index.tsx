@@ -59,7 +59,14 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
               </Flex>
             </Card.Body>
           </Card>
-          {appInfo.html && <div dangerouslySetInnerHTML={{ __html: appInfo.html }} />}
+          {appInfo.html && (
+            <Card full>
+              <Card.Header title="组件描述" />
+              <Card.Body>
+                <div dangerouslySetInnerHTML={{ __html: appInfo.html.join('') }} />
+              </Card.Body>
+            </Card>
+          )}
           {appInfo.images && (
             <div className={styles.photos}>
               <Card full>

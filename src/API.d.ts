@@ -1,5 +1,5 @@
 declare namespace API {
-  export interface apps {
+  export type apps = {
     version: string;
     description: string;
     scriptURL: string;
@@ -7,19 +7,19 @@ declare namespace API {
     name: string;
     homepage: string;
     title: string;
-    html?: string;
+    html?: string[];
     images?: string[];
     depend: {
       name: string;
       scriptURL: string;
-    } []
-  }
+    }[];
+  };
 
-  export interface subscribe {
+  export type subscribe = {
     scriptable: boolean;
     author: string;
     icon: string;
     repo: string;
-    apps: apps[]
-  }
+    apps: apps[];
+  };
 }
