@@ -92,7 +92,7 @@ async function injectEventhandler() {
 
 module.exports.present = async (b) => {
   baseUrl = !b ? defaultBaseURL : b;
-  const queryParams = '?scriptable=1';
+  const queryParams = '?scriptable=1&t=' + new Date().getTime();
   await webView.loadURL(baseUrl + catalogPageURL + queryParams);
   injectEventhandler();
   return webView.present(true);
