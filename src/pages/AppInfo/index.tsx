@@ -2,13 +2,18 @@ import React from 'react';
 import type { FC } from 'react';
 import type { IRouteComponentProps } from 'umi';
 import { history } from 'umi';
+import SwiperCore, { Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavBar, Icon, Flex, Card } from 'antd-mobile';
 import { CustomerIcon } from '@/pages/Subscribe';
-
 import { getSubscribeInfo } from '@/utils';
 import { NoneText } from '@/components/PageLoading';
-import styles from './index.module.less';
 import { useModel } from '@@/plugin-model/useModel';
+import styles from './index.module.less';
+import 'swiper/components/scrollbar/scrollbar.less';
+import 'swiper/swiper.less';
+
+SwiperCore.use([Scrollbar]);
 
 const AppInfo: FC<IRouteComponentProps> = (props) => {
   const { match } = props;
@@ -72,9 +77,15 @@ const AppInfo: FC<IRouteComponentProps> = (props) => {
               <Card full>
                 <Card.Header title="组件相册" />
                 <Card.Body>
-                  {appInfo.images.map((img, index) => {
-                    return <img key={`img${index}`} src={img} alt="" />;
-                  })}
+                  <Swiper scrollbar={{ draggable: true }} spaceBetween={10} slidesPerView={1.2}>
+                    {appInfo.images.map((img, index) => {
+                      return (
+                        <SwiperSlide key={`img${index}`}>
+                          <img style={{ maxWidth: '100%', width: 'auto' }} src={img} alt="" />
+                        </SwiperSlide>
+                      );
+                    })}
+                  </Swiper>
                 </Card.Body>
               </Card>
             </div>

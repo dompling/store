@@ -31,6 +31,7 @@
     "rc-tween-one": "^2.7.3",
     "react-sortable-hoc": "^1.11.0",
     "react-sticky": "^6.0.3",
+    "swiper": "^6.4.5",
     "umi": "^3.3.3"
   },
   "devDependencies": {
