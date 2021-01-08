@@ -19,16 +19,16 @@ export default () => {
             setData(dataSource);
           }}
           onChange={(value) => {
+            if (timer) clearTimeout(timer);
             if (!value) {
               setData(dataSource);
               return;
             }
-            if (timer) clearTimeout(timer);
             timer = setTimeout(() => {
               const newData: Record<string, API.subscribe> = {};
               Object.keys(dataSource).forEach((key) => {
-                const dataItem = data[key];
-                const apps = dataItem.apps.filter((app) => app.title.indexOf(value) > -1);
+                const dataItem = dataSource[key];
+                const apps = dataItem.apps.filter((app) => app.title.includes(value));
                 if (apps) newData[key] = { ...dataItem, apps };
               });
               setData(newData);
