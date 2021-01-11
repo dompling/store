@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FC } from 'react';
 import type { IRouteComponentProps } from 'umi';
-import { history } from 'umi';
+import { history, useParams } from 'umi';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NavBar, Icon, Flex, Card } from 'antd-mobile';
@@ -15,11 +15,9 @@ import 'swiper/swiper.less';
 
 SwiperCore.use([Scrollbar]);
 
-const AppInfo: FC<IRouteComponentProps> = (props) => {
-  const { match } = props;
-  const { appId } = match.params as { appId: string };
+const AppInfo: FC<IRouteComponentProps> = () => {
+  const { appId } = useParams<{ appId: string }>();
   const appInfo = getSubscribeInfo(appId);
-
   const { isScriptable } = useModel('initialiseModel', (model) => model);
   return (
     <>

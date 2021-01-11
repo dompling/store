@@ -3,42 +3,37 @@ import { SearchBar, Grid, Accordion } from 'antd-mobile';
 import { NoneText } from '@/components/PageLoading';
 import { getSubscribe } from '@/utils';
 import { Link } from 'umi';
+import { useDebounce } from '@umijs/hooks';
 import styles from './index.module.less';
 
-let timer: any;
 export default () => {
   const dataSource = getSubscribe();
   const [data, setData] = React.useState<Record<string, API.subscribe>>(dataSource);
-
+  const debouncedValue = useDebounce(data, 500);
   return (
     <div className={styles.container}>
       <div className={styles.search}>
         <SearchBar
           placeholder="请输入"
-          onClear={() => {
-            setData(dataSource);
-          }}
+          onClear={() => setData(dataSource)}
           onChange={(value) => {
-            if (timer) clearTimeout(timer);
             if (!value) {
               setData(dataSource);
               return;
             }
-            timer = setTimeout(() => {
-              const newData: Record<string, API.subscribe> = {};
-              Object.keys(dataSource).forEach((key) => {
-                const dataItem = dataSource[key];
-                const apps = dataItem.apps.filter((app) => app.title.includes(value));
-                if (apps) newData[key] = { ...dataItem, apps };
-              });
-              setData(newData);
-            }, 500);
+            const newData: Record<string, API.subscribe> = {};
+            Object.keys(dataSource).forEach((key) => {
+              const dataItem = dataSource[key];
+              const apps = dataItem.apps.filter((app) => app.title.includes(value));
+              if (apps) newData[key] = { ...dataItem, apps };
+            });
+            setData(newData);
           }}
         />
       </div>
-      {Object.keys(data).length ? (
-        <Accordion defaultActiveKey={Object.keys(data)}>
-          {Object.keys(data).map((key) => {
+      {Object.keys(debouncedValue).length ? (
+        <Accordion defaultActiveKey={Object.keys(debouncedValue)}>
+          {Object.keys(debouncedValue).map((key) => {
             const appsInfo = data[key];
             const { apps, author, icon } = appsInfo as API.subscribe;
             return (

@@ -23,6 +23,7 @@
     "@ant-design/pro-layout": "^6.5.0",
     "@types/scriptable-ios": "^1.6.1",
     "@typescript-eslint/parser": "^4.12.0",
+    "@umijs/hooks": "^1.9.3",
     "@umijs/preset-react": "1.x",
     "antd-mobile": "^2.3.4",
     "array-move": "^3.0.1",
