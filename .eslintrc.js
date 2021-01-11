@@ -7,6 +7,7 @@ module.exports = {
   },
   rules: {
     'react/no-array-index-key': 'off',
+    'react-hooks/rules-of-hooks': 'off',
     'no-console': 'off',
   },
 };
