@@ -22,7 +22,6 @@ const AppInfo: FC<IRouteComponentProps> = () => {
   return (
     <>
       <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
-
       {appInfo ? (
         <div className={styles.container}>
           <Card full>
