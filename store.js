@@ -79,8 +79,9 @@ const downloadWidget = async function (widget) {
 
 async function Toast(msg, timer = 3, type = 'success') {
   const js = `
-     window.addEventListener('Toast',(e)=>{
+     window.addEventListener('Toast',function(e){
         e.detail["${type}"]("${msg}",${timer});
+        this.removeEventListener('Toast', arguments.callee);
      });
      window.dispatchEvent(window.Toast);
      `;
@@ -89,8 +90,9 @@ async function Toast(msg, timer = 3, type = 'success') {
 
 async function setLoading(loading) {
   const js = `
-     window.addEventListener('setLoading',(e)=>{
-        e.detail.setLoading(${loading},"下载中")
+     window.addEventListener('setLoading',function(e){
+        e.detail.setLoading(${loading},"下载中");
+        this.removeEventListener('setLoading', arguments.callee);
      });
      window.dispatchEvent(window.loadingEvent);
      `;
