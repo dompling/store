@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC } from 'react';
 import type { IRouteComponentProps } from 'umi';
 import { history, useParams } from 'umi';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { NavBar, Icon, Flex, Card } from 'antd-mobile';
+import { NavBar, Icon, Flex, Card, ActivityIndicator } from 'antd-mobile';
 import { CustomerIcon } from '@/pages/Subscribe';
 import { getSubscribeInfo } from '@/utils';
 import { NoneText } from '@/components/PageLoading';
@@ -17,11 +17,13 @@ SwiperCore.use([Scrollbar]);
 
 const AppInfo: FC<IRouteComponentProps> = () => {
   const { appId, author } = useParams<{ appId: string; author: string }>();
+  const [loading, setLoading] = useState<boolean>(false);
   const appInfo = getSubscribeInfo(author, appId);
   const { isScriptable } = useModel('initialiseModel', (model) => model);
   return (
     <>
       <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
+      <ActivityIndicator toast text="Loading..." animating={loading} />
       {appInfo ? (
         <div className={styles.container}>
           <Card full>
@@ -33,7 +35,11 @@ const AppInfo: FC<IRouteComponentProps> = () => {
                     icon={'https://img.icons8.com/clouds/344/download-2.png'}
                     onClick={() => {
                       const catalogEvent = new CustomEvent('catalog-event', {
-                        detail: { ...appInfo, key: 'downloadButtonClicked' },
+                        detail: {
+                          ...appInfo,
+                          key: 'downloadButtonClicked',
+                          setLoading,
+                        },
                       });
                       window.dispatchEvent(catalogEvent);
                       console.log('触发下载功能');
