@@ -17,7 +17,7 @@ export default defineConfig({
   dynamicImport: {
     loading: '@/components/PageLoading',
   },
-
+  fastRefresh: {},
   hash: true,
   history: { type: 'hash' },
   chainWebpack: (config) => {

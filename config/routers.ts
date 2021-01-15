@@ -27,10 +27,10 @@ export default [
         path: '/app/info/:author/:appId',
         component: '@/pages/AppInfo',
       },
-      {
-        path: '/404',
-        component: '@/pages/404',
-      },
     ],
+  },
+  {
+    path: '/404',
+    component: '@/pages/404',
   },
 ] as IRoute[];
