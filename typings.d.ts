@@ -10,4 +10,5 @@ declare module '*.svg' {
 
 interface Window {
   loadingEvent: CustomEvent;
+  Toast: CustomEvent;
 }

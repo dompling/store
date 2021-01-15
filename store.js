@@ -57,9 +57,9 @@ const downloadWidget = async function (widget) {
     }
     const successAlert = new Alert();
     try {
-      successAlert.message = `组件脚本 ${widget.title} ${text}成功!`;
+      successAlert.message = `组件脚本${widget.title}${text}成功!`;
       successAlert.addCancelAction('确定');
-      setLoading();
+      setLoading(true);
       await saveFile({ moduleName: widget.name, url: widget.scriptURL });
       console.log(successAlert.message);
       if (widget.depend) {
@@ -71,7 +71,7 @@ const downloadWidget = async function (widget) {
           console.log(`依赖：${dependElement.name}下载成功`);
         }
       }
-      setLoading();
+      setLoading(false);
     } catch (e) {
       console.log(e);
       successAlert.message = `组件脚本 ${widget.title} ${text}失败!`;
@@ -82,8 +82,23 @@ const downloadWidget = async function (widget) {
   }
 };
 
-async function setLoading() {
-  const js = `window.dispatchEvent(window.loadingEvent)`;
+async function Toast(msg, timer = 2, type = 'success') {
+  const js = `
+     window.addEventListener('Toast',(e)=>{
+        e.detail[${type}](${msg},${timer});
+     });
+     window.dispatchEvent(window.Toast);
+     `;
+  return webView.evaluateJavaScript(js);
+}
+
+async function setLoading(loading) {
+  const js = `
+     window.addEventListener('setLoading',(e)=>{
+        e.detail.setLoading(${loading},"下载中")
+     });
+     window.dispatchEvent(window.loadingEvent);
+     `;
   return webView.evaluateJavaScript(js);
 }
 

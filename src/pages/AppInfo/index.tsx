@@ -17,16 +17,12 @@ SwiperCore.use([Scrollbar]);
 
 const AppInfo: FC<IRouteComponentProps> = () => {
   const { appId, author } = useParams<{ appId: string; author: string }>();
-  const [loading, setLoading] = useState<boolean>(false);
   const appInfo = getSubscribeInfo(author, appId);
   const { isScriptable } = useModel('initialiseModel', (model) => model);
-  useEffect(() => {
-    window.loadingEvent = new CustomEvent('setLoading', { detail: { setLoading } });
-  }, [setLoading, loading]);
   return (
     <>
       <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
-      <ActivityIndicator toast text="下载中..." animating={loading} />
+
       {appInfo ? (
         <div className={styles.container}>
           <Card full>
