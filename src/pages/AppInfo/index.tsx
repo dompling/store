@@ -22,14 +22,11 @@ const AppInfo: FC<IRouteComponentProps> = () => {
   const { isScriptable } = useModel('initialiseModel', (model) => model);
   useEffect(() => {
     window.loadingEvent = new CustomEvent('setLoading', { detail: { setLoading } });
-    window.addEventListener('setLoading', () => {
-      setLoading(!loading);
-    });
   }, [setLoading, loading]);
   return (
     <>
       <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
-      <ActivityIndicator toast text="Loading..." animating={loading} />
+      <ActivityIndicator toast text="下载中..." animating={loading} />
       {appInfo ? (
         <div className={styles.container}>
           <Card full>

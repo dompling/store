@@ -38,7 +38,7 @@ const saveFile = async ({ moduleName, url }) => {
 
 const downloadWidget = async function (widget) {
   const downloadAlert = new Alert();
-  downloadAlert.message = `确定要下载 ${widget.title} ${
+  downloadAlert.message = `确定要下载${widget.title}${
     widget.depend ? '和' + widget.depend.length + '个依赖' : ''
   } 组件脚本吗?`;
   downloadAlert.addAction('确定');
@@ -50,7 +50,7 @@ const downloadWidget = async function (widget) {
     if (scriptExists) {
       text = '更新';
       const alreadyExistsAlert = new Alert();
-      alreadyExistsAlert.message = `脚本 '${widget.title}' 已经存在!`;
+      alreadyExistsAlert.message = `脚本${widget.title}已经存在!`;
       alreadyExistsAlert.addAction('更新');
       alreadyExistsAlert.addCancelAction('取消');
       if ((await alreadyExistsAlert.presentAlert()) === -1) return false;
@@ -59,6 +59,7 @@ const downloadWidget = async function (widget) {
     try {
       successAlert.message = `组件脚本 ${widget.title} ${text}成功!`;
       successAlert.addCancelAction('确定');
+      setLoading();
       await saveFile({ moduleName: widget.name, url: widget.scriptURL });
       console.log(successAlert.message);
       if (widget.depend) {
@@ -70,6 +71,7 @@ const downloadWidget = async function (widget) {
           console.log(`依赖：${dependElement.name}下载成功`);
         }
       }
+      setLoading();
     } catch (e) {
       console.log(e);
       successAlert.message = `组件脚本 ${widget.title} ${text}失败!`;
@@ -79,6 +81,11 @@ const downloadWidget = async function (widget) {
     return true;
   }
 };
+
+async function setLoading() {
+  const js = `window.dispatchEvent(window.loadingEvent)`;
+  return webView.evaluateJavaScript(js);
+}
 
 async function injectEventhandler() {
   const js = `
@@ -92,10 +99,12 @@ async function injectEventhandler() {
   });
 }
 
-module.exports.present = async (b) => {
+const present = async (b) => {
   baseUrl = !b ? defaultBaseURL : b;
   const queryParams = '?scriptable=1&t=' + new Date().getTime();
   await webView.loadURL(baseUrl + catalogPageURL + queryParams);
   injectEventhandler();
   return webView.present(true);
 };
+
+await present();
