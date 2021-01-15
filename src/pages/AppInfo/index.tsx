@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { FC } from 'react';
 import type { IRouteComponentProps } from 'umi';
 import { history, useParams } from 'umi';
@@ -20,6 +20,12 @@ const AppInfo: FC<IRouteComponentProps> = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const appInfo = getSubscribeInfo(author, appId);
   const { isScriptable } = useModel('initialiseModel', (model) => model);
+  useEffect(() => {
+    window.loadingEvent = new CustomEvent('setLoading', { detail: { setLoading } });
+    window.addEventListener('setLoading', () => {
+      setLoading(!loading);
+    });
+  }, [setLoading, loading]);
   return (
     <>
       <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
@@ -38,9 +44,6 @@ const AppInfo: FC<IRouteComponentProps> = () => {
                         detail: {
                           ...appInfo,
                           key: 'downloadButtonClicked',
-                          setLoading: (value: boolean) => {
-                            setLoading(value);
-                          },
                         },
                       });
                       window.dispatchEvent(catalogEvent);

@@ -82,7 +82,9 @@ const downloadWidget = async function (widget) {
 
 async function injectEventhandler() {
   const js = `
-    window.addEventListener('catalog-event', (event) => { completion(event.detail) }, false);
+     window.addEventListener('catalog-event', (event) => {
+        completion(event.detail);
+     }, false);
   `;
   return webView.evaluateJavaScript(js, true).then(async (widget) => {
     await downloadWidget(widget);
