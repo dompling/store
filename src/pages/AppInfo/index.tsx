@@ -16,8 +16,8 @@ import 'swiper/swiper.less';
 SwiperCore.use([Scrollbar]);
 
 const AppInfo: FC<IRouteComponentProps> = () => {
-  const { appId } = useParams<{ appId: string }>();
-  const appInfo = getSubscribeInfo(appId);
+  const { appId, author } = useParams<{ appId: string; author: string }>();
+  const appInfo = getSubscribeInfo(author, appId);
   const { isScriptable } = useModel('initialiseModel', (model) => model);
   return (
     <>

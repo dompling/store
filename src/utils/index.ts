@@ -1,11 +1,14 @@
-export const getSubscribe = (): { [key: string]: API.subscribe } => {
+export const getSubscribe = (): Record<string, API.subscribe> => {
   return JSON.parse(localStorage.getItem('dataSource') || '{}');
 };
 
-export const getSubscribeInfo = (id: string): API.apps | undefined => {
+export const getSubscribeInfo = (author: string, id: string): API.apps | undefined => {
   const dataSource = getSubscribe();
-  const apps: API.apps[] = [];
-  Object.keys(dataSource).forEach((key) => apps.push(...dataSource[key].apps));
+  const resKey =
+    Object.keys(dataSource).find((key) => {
+      return dataSource[key].author === author;
+    }) || '';
+  const apps: API.apps[] = dataSource[resKey].apps || [];
   return apps.find((item) => item.name === id);
 };
 

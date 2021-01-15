@@ -54,7 +54,7 @@ export default () => {
                   renderItem={(dataItem) => {
                     const item = dataItem as API.apps;
                     return (
-                      <Link to={`/app/info/${item.name}`}>
+                      <Link to={`/app/info/${author}/${item.name}`}>
                         <div className={styles.list_item}>
                           <img alt="" src={item.thumb} className={styles.list_item_img} />
                           <div className={styles.list_item_desc}>

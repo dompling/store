@@ -1,30 +1,30 @@
-import { IRoute } from "umi";
+import { IRoute } from 'umi';
 
 export default [
   {
-    path: "/",
-    redirect: "/menu"
+    path: '/',
+    redirect: '/menu',
   },
   {
-    path: "/menu",
-    component: "@/Layouts/layout",
+    path: '/menu',
+    component: '@/Layouts/layout',
     routes: [
       {
-        path: "/menu",
-        component: "@/pages/Home"
+        path: '/menu',
+        component: '@/pages/Home',
       },
       {
-        path: "/menu/subscribe",
-        component: "@/pages/Subscribe"
-      }
-    ]
+        path: '/menu/subscribe',
+        component: '@/pages/Subscribe',
+      },
+    ],
   },
   {
-    path: "/app/info/:appId",
-    component: "@/pages/AppInfo"
+    path: '/app/info/:author/:appId',
+    component: '@/pages/AppInfo',
   },
   {
-    path: "/404",
-    component: "@/pages/404"
-  }
+    path: '/404',
+    component: '@/pages/404',
+  },
 ] as IRoute[];
