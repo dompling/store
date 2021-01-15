@@ -55,13 +55,9 @@ const downloadWidget = async function (widget) {
       alreadyExistsAlert.addCancelAction('取消');
       if ((await alreadyExistsAlert.presentAlert()) === -1) return false;
     }
-    const successAlert = new Alert();
     try {
-      successAlert.message = `组件脚本${widget.title}${text}成功!`;
-      successAlert.addCancelAction('确定');
       setLoading(true);
       await saveFile({ moduleName: widget.name, url: widget.scriptURL });
-      console.log(successAlert.message);
       if (widget.depend) {
         for (const dependElement of widget.depend) {
           await saveFile({
@@ -72,23 +68,23 @@ const downloadWidget = async function (widget) {
         }
       }
       setLoading(false);
+      Toast(`组件脚本${widget.title}${text}成功，请在组件列表中找到${widget.name}运行！`);
     } catch (e) {
       console.log(e);
-      successAlert.message = `组件脚本 ${widget.title} ${text}失败!`;
-      successAlert.addCancelAction('关闭');
+      Toast(`组件脚本${widget.title}${text}失败!`, 3, 'error');
     }
-    await successAlert.presentAlert();
     return true;
   }
 };
 
-async function Toast(msg, timer = 2, type = 'success') {
+async function Toast(msg, timer = 3, type = 'success') {
   const js = `
      window.addEventListener('Toast',(e)=>{
-        e.detail[${type}](${msg},${timer});
+        e.detail["${type}"]("${msg}",${timer});
      });
      window.dispatchEvent(window.Toast);
      `;
+  console.log(js);
   return webView.evaluateJavaScript(js);
 }
 
@@ -114,12 +110,10 @@ async function injectEventhandler() {
   });
 }
 
-const present = async (b) => {
+module.exports.present = async (b) => {
   baseUrl = !b ? defaultBaseURL : b;
   const queryParams = '?scriptable=1&t=' + new Date().getTime();
   await webView.loadURL(baseUrl + catalogPageURL + queryParams);
   injectEventhandler();
   return webView.present(true);
 };
-
-await present();
