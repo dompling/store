@@ -84,7 +84,6 @@ async function Toast(msg, timer = 3, type = 'success') {
      });
      window.dispatchEvent(window.Toast);
      `;
-  console.log(js);
   return webView.evaluateJavaScript(js);
 }
 
