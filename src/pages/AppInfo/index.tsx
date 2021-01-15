@@ -38,7 +38,9 @@ const AppInfo: FC<IRouteComponentProps> = () => {
                         detail: {
                           ...appInfo,
                           key: 'downloadButtonClicked',
-                          setLoading,
+                          setLoading: (value: boolean) => {
+                            setLoading(value);
+                          },
                         },
                       });
                       window.dispatchEvent(catalogEvent);
