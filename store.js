@@ -77,19 +77,6 @@ const downloadWidget = async function (widget) {
   }
 };
 
-async function comfirm(title = '', message = '', event) {
-  const js = `
-     window.addEventListener('Confirm',(e)=>{
-        e.detail.confirm("${title}","${message}",${event});
-     });
-     window.dispatchEvent(window.Confirm);
-     window.addEventListener('confirmSuccess',()=> completion(1) );
-     `;
-  webView.evaluateJavaScript(js, true).then(() => {
-    event();
-  });
-}
-
 async function Toast(msg, timer = 3, type = 'success') {
   const js = `
      window.addEventListener('Toast',(e)=>{
