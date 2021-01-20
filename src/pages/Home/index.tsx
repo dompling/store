@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SearchBar, Grid, Accordion } from 'antd-mobile';
 import { NoneText } from '@/components/PageLoading';
 import { getSubscribe } from '@/utils';
-import { Link } from 'umi';
+import { Link, useRequest } from 'umi';
 import { useDebounce } from '@umijs/hooks';
+import { fetchJSONStore } from '@/service/api';
 import styles from './index.module.less';
+
+const updateApi = async () => {
+  const dataSource = getSubscribe();
+  const fetchUri = Object.keys(dataSource);
+  // eslint-disable-next-line no-restricted-syntax
+  for (const url of fetchUri) {
+    // eslint-disable-next-line no-await-in-loop
+    await fetchJSONStore(url);
+  }
+};
 
 export default () => {
   const dataSource = getSubscribe();
   const [data, setData] = React.useState<Record<string, API.subscribe>>(dataSource);
   const debouncedValue = useDebounce(data, 500);
+  useEffect(() => {
+    updateApi().then(() => {
+      setData(getSubscribe());
+    });
+  }, [setData]);
   return (
     <div className={styles.container}>
       <div className={styles.search}>
