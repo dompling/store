@@ -37,48 +37,30 @@ const saveFile = async ({ moduleName, url, version }) => {
 };
 
 const downloadWidget = async function (widget) {
-  const downloadAlert = new Alert();
-  downloadAlert.message = `确定要下载${widget.title}${
-    widget.depend ? '和' + widget.depend.length + '个依赖' : ''
-  } 组件脚本吗?`;
-  downloadAlert.addAction('确定');
-  downloadAlert.addCancelAction('取消');
-  let text = '下载';
-  if ((await downloadAlert.presentAlert()) === 0) {
-    const scriptPath = fm.joinPath(RootPath, `${widget.name}.js`);
-    const scriptExists = fm.fileExists(scriptPath);
-    if (scriptExists) {
-      text = '更新';
-      const alreadyExistsAlert = new Alert();
-      alreadyExistsAlert.message = `脚本${widget.title}已经存在!`;
-      alreadyExistsAlert.addAction('更新');
-      alreadyExistsAlert.addCancelAction('取消');
-      if ((await alreadyExistsAlert.presentAlert()) === -1) return false;
-    }
-    try {
-      setLoading(true);
-      await saveFile({
-        moduleName: widget.name,
-        url: widget.scriptURL,
-        version: widget.version,
-      });
-      if (widget.depend) {
-        for (const dependElement of widget.depend) {
-          await saveFile({
-            moduleName: dependElement.name,
-            url: dependElement.scriptURL,
-          });
-          console.log(`依赖：${dependElement.name}下载成功`);
-        }
+  const text = '下载';
+  try {
+    setLoading(true);
+    await saveFile({
+      moduleName: widget.name,
+      url: widget.scriptURL,
+      version: widget.version,
+    });
+    if (widget.depend) {
+      for (const dependElement of widget.depend) {
+        await saveFile({
+          moduleName: dependElement.name,
+          url: dependElement.scriptURL,
+        });
+        console.log(`依赖：${dependElement.name}下载成功`);
       }
-      setLoading(false);
-      Toast(`组件脚本${widget.title}${text}成功，请在组件列表中找到${widget.name}运行！`);
-    } catch (e) {
-      console.log(e);
-      Toast(`组件脚本${widget.title}${text}失败!`, 3, 'error');
     }
-    return true;
+    setLoading(false);
+    Toast(`组件脚本${widget.title}${text}成功，请在组件列表中找到${widget.name}运行！`);
+  } catch (e) {
+    console.log(e);
+    Toast(`组件脚本${widget.title}${text}失败!`, 3, 'error');
   }
+  return true;
 };
 
 async function Toast(msg, timer = 3, type = 'success') {
@@ -114,7 +96,20 @@ async function asyncVersion(version) {
 async function getLocalStoreWidget(widget) {
   const scriptPath = fm.joinPath(RootPath, `${widget.name}.js`);
   const scriptExists = fm.fileExists(scriptPath);
-  if (scriptExists) await asyncVersion(widget.version);
+  if (scriptExists) {
+    const scriptContent = fm.readString(scriptPath);
+    const m = scriptContent.match(/version[\s]*([\d]+(\.[\d]+){0,2})/m);
+    if (m && m[1]) {
+      await asyncVersion(m[1]);
+      if (m[1] !== widget.version) {
+        const alreadyExistsAlert = new Alert();
+        alreadyExistsAlert.message = `检测${widget.title}存在新版本，是否更新？`;
+        alreadyExistsAlert.addAction('更新');
+        alreadyExistsAlert.addCancelAction('取消');
+        if ((await alreadyExistsAlert.presentAlert()) === -1) return false;
+      }
+    }
+  }
 }
 
 async function injectEventhandler() {
@@ -125,6 +120,7 @@ async function injectEventhandler() {
     if (widget.key === 'downloadButtonClicked') {
       await downloadWidget(widget);
     }
+    console.log(widget.key);
     if (widget.key === 'fetchAppInfo') {
       await getLocalStoreWidget(widget);
     }

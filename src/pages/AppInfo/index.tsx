@@ -29,13 +29,13 @@ const AppInfo: FC<IRouteComponentProps> = () => {
         },
       }),
     );
-    // eslint-disable-next-line func-names
-    window.addEventListener('getLocalWidgetVersion', function (event: any) {
+
+    function setLocalWidgetVersion(event: any) {
       setVersion(event.detail);
-      // @ts-ignore
-      // eslint-disable-next-line @typescript-eslint/no-invalid-this,no-caller,no-restricted-properties
-      this.removeEventListener('getLocalWidgetVersion', arguments.callee);
-    });
+      window.removeEventListener('getLocalWidgetVersion', setLocalWidgetVersion);
+    }
+
+    window.addEventListener('getLocalWidgetVersion', setLocalWidgetVersion);
   }, [appInfo, setVersion]);
   return (
     <>
