@@ -88,7 +88,7 @@ async function setLoading(loading) {
 async function asyncVersion(version) {
   const js = `
   window.dispatchEvent(
-    new CustomEvent("getLocalWidgetVersion",{detail:${version}})
+    new CustomEvent("getLocalWidgetVersion",{detail:"${version}"})
   );`;
   return webView.evaluateJavaScript(js);
 }
@@ -98,7 +98,7 @@ async function getLocalStoreWidget(widget) {
   const scriptExists = fm.fileExists(scriptPath);
   if (scriptExists) {
     const scriptContent = fm.readString(scriptPath);
-    const m = scriptContent.match(/version[\s]*([\d]+(\.[\d]+){0,2})/m);
+    const m = scriptContent.match(/version:(.*)/m);
     if (m && m[1]) {
       await asyncVersion(m[1]);
       if (m[1] !== widget.version) {
@@ -107,6 +107,7 @@ async function getLocalStoreWidget(widget) {
         alreadyExistsAlert.addAction('更新');
         alreadyExistsAlert.addCancelAction('取消');
         if ((await alreadyExistsAlert.presentAlert()) === -1) return false;
+        await downloadWidget(widget);
       }
     }
   }
@@ -120,7 +121,7 @@ async function injectEventhandler() {
     if (widget.key === 'downloadButtonClicked') {
       await downloadWidget(widget);
     }
-    console.log(widget.key);
+
     if (widget.key === 'fetchAppInfo') {
       await getLocalStoreWidget(widget);
     }
