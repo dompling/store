@@ -103,14 +103,31 @@ async function setLoading(loading) {
   return webView.evaluateJavaScript(js);
 }
 
+async function asyncVersion(version) {
+  const js = `
+  window.dispatchEvent(
+    new CustomEvent("getLocalWidgetVersion",{detail:${version}})
+  );`;
+  return webView.evaluateJavaScript(js);
+}
+
+async function getLocalStoreWidget(widget) {
+  const scriptPath = fm.joinPath(RootPath, `${widget.name}.js`);
+  const scriptExists = fm.fileExists(scriptPath);
+  if (scriptExists) await asyncVersion(widget.version);
+}
+
 async function injectEventhandler() {
   const js = `
-     window.addEventListener('catalog-event', (event) => {
-        completion(event.detail);
-     }, false);
+     window.addEventListener('catalog-event', (event) => completion(event.detail), false);
   `;
   return webView.evaluateJavaScript(js, true).then(async (widget) => {
-    await downloadWidget(widget);
+    if (widget.key === 'downloadButtonClicked') {
+      await downloadWidget(widget);
+    }
+    if (widget.key === 'fetchAppInfo') {
+      await getLocalStoreWidget(widget);
+    }
     return injectEventhandler();
   });
 }

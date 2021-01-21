@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { FC } from 'react';
 import type { IRouteComponentProps } from 'umi';
 import { history, useParams } from 'umi';
@@ -19,6 +19,24 @@ const AppInfo: FC<IRouteComponentProps> = () => {
   const { appId, author } = useParams<{ appId: string; author: string }>();
   const appInfo = getSubscribeInfo(author, appId);
   const { isScriptable } = useModel('initialiseModel', (model) => model);
+  const [version, setVersion] = useState<string>('暂无更新');
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent('catalog-event', {
+        detail: {
+          ...appInfo,
+          key: 'fetchAppInfo',
+        },
+      }),
+    );
+    // eslint-disable-next-line func-names
+    window.addEventListener('getLocalWidgetVersion', function (event: any) {
+      setVersion(event.detail);
+      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/no-invalid-this
+      this.removeEventListener('getLocalWidgetVersion');
+    });
+  }, [appInfo, setVersion]);
   return (
     <>
       <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
@@ -64,9 +82,17 @@ const AppInfo: FC<IRouteComponentProps> = () => {
                 </div>
                 <Flex.Item>
                   <Flex direction={'column'} align={'start'}>
-                    <Flex>
+                    <div>
                       <h3 className={styles.appTitle}>{appInfo.title}</h3>
-                    </Flex>
+                      <div
+                        style={{
+                          textAlign: 'center',
+                          fontSize: 12,
+                        }}
+                      >
+                        本地版本：{version}
+                      </div>
+                    </div>
                     <Flex.Item>
                       <div className={styles.appDesc}>{appInfo.description}</div>
                     </Flex.Item>
