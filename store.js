@@ -22,17 +22,17 @@ const saveFileName = (fileName) => {
   return !hasSuffix ? `${fileName}.js` : fileName;
 };
 
-const write = (fileName, content) => {
+const write = (fileName, content, version = '') => {
   let file = saveFileName(fileName);
   const filePath = fm.joinPath(RootPath, file);
-  fm.writeString(filePath, content);
+  fm.writeString(filePath, `${content}\n//version:${version}`);
   return true;
 };
 
-const saveFile = async ({ moduleName, url }) => {
+const saveFile = async ({ moduleName, url, version }) => {
   const req = new Request(encodeURI(url));
   const content = await req.loadString();
-  write(`${moduleName}`, content);
+  write(`${moduleName}`, content, version);
   return true;
 };
 
@@ -57,7 +57,11 @@ const downloadWidget = async function (widget) {
     }
     try {
       setLoading(true);
-      await saveFile({ moduleName: widget.name, url: widget.scriptURL });
+      await saveFile({
+        moduleName: widget.name,
+        url: widget.scriptURL,
+        version: widget.version,
+      });
       if (widget.depend) {
         for (const dependElement of widget.depend) {
           await saveFile({

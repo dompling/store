@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { FC } from 'react';
 import type { IRouteComponentProps } from 'umi';
 import { history, useParams } from 'umi';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { NavBar, Icon, Flex, Card, ActivityIndicator } from 'antd-mobile';
+import { NavBar, Icon, Flex, Card } from 'antd-mobile';
 import { CustomerIcon } from '@/pages/Subscribe';
 import { getSubscribeInfo } from '@/utils';
 import { NoneText } from '@/components/PageLoading';
@@ -51,7 +51,17 @@ const AppInfo: FC<IRouteComponentProps> = () => {
             />
             <Card.Body className={styles.container_body}>
               <Flex align={'start'} justify={'start'}>
-                <img className={styles.appImg} src={appInfo.thumb} alt={appInfo.name} />
+                <div>
+                  <img className={styles.appImg} src={appInfo.thumb} alt={appInfo.name} />
+                  <div
+                    style={{
+                      textAlign: 'center',
+                      fontSize: 12,
+                    }}
+                  >
+                    版本号：{appInfo.version}
+                  </div>
+                </div>
                 <Flex.Item>
                   <Flex direction={'column'} align={'start'}>
                     <Flex>
