@@ -33,8 +33,8 @@ const AppInfo: FC<IRouteComponentProps> = () => {
     window.addEventListener('getLocalWidgetVersion', function (event: any) {
       setVersion(event.detail);
       // @ts-ignore
-      // eslint-disable-next-line @typescript-eslint/no-invalid-this
-      this.removeEventListener('getLocalWidgetVersion');
+      // eslint-disable-next-line @typescript-eslint/no-invalid-this,no-caller,no-restricted-properties
+      this.removeEventListener('getLocalWidgetVersion', arguments.callee);
     });
   }, [appInfo, setVersion]);
   return (
