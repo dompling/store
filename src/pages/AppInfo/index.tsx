@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import type { FC, RefObject } from 'react';
+import React, { useEffect, useState } from 'react';
+import type { FC } from 'react';
 import type { IRouteComponentProps } from 'umi';
 import { history, useParams } from 'umi';
 import SwiperCore, { Scrollbar } from 'swiper';
