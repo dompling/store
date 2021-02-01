@@ -37,27 +37,27 @@ export default defineConfig({
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '57x57',
-      href: precomposed,
+      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '120x120',
-      href: precomposed,
+      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '72x72',
-      href: precomposed,
+      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '152x152',
-      href: precomposed,
+      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '114x114',
-      href: precomposed,
+      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
     },
   ],
   dva: {},
