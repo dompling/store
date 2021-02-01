@@ -32,7 +32,7 @@ export default defineConfig({
     ]);
   },
   dva: {},
-  title: 'ScriptableStore',
+  title: '小组件商店',
   publicPath: productPath,
   extraPostCSSPlugins: [
     //https://www.npmjs.com/package/postcss-plugin-px2rem
