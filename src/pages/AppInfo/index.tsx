@@ -88,7 +88,7 @@ const AppInfo: FC<IRouteComponentProps> = () => {
                   />
                 ) : (
                   <a
-                    href={`scriptable:///run?scriptName=WebStore&openEditor=true&title=${appInfo.title}&name=${appInfo.name}&scriptURL=${appInfo.scriptURL}&version=${appInfo.version}${depend}`}
+                    href={`scriptable:///run?scriptName=WebStore&title=${appInfo.title}&name=${appInfo.name}&scriptURL=${appInfo.scriptURL}&version=${appInfo.version}${depend}`}
                     download={`${appInfo.name}.js`}
                   >
                     <CustomerIcon icon={'https://img.icons8.com/clouds/344/download-2.png'} />
