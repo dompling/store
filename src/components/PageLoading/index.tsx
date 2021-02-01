@@ -14,7 +14,7 @@ export const NoneText: FC<{ style?: CSSProperties }> = ({ children, style }) => 
   <div
     style={{
       display: 'flex',
-      height: '80vh',
+      height: '50vh',
       fontSize: '0.4rem',
       color: '#888',
       ...style,
