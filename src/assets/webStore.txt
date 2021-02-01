@@ -2,7 +2,6 @@
 // These must be at the very top of the file. Do not edit.
 // icon-color: teal; icon-glyph: book-open;
 
-const catalogPageURL = '/menu';
 let fm;
 try {
   fm = FileManager.iCloud();
@@ -110,4 +109,5 @@ const present = async () => {
 if (config.runsInApp) {
   await present();
 }
+
 Script.complete();

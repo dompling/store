@@ -3,6 +3,31 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Toast } from 'antd-mobile';
 import type { IRouteComponentProps } from 'umi';
 
+window.Clipboard = (function (window, document) {
+  let textArea: HTMLElement;
+
+  function createTextArea(text: string) {
+    textArea = document.createElement('textArea');
+    // @ts-ignore
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    // @ts-ignore
+    textArea.select();
+  }
+
+  function copyToClipboard() {
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+  }
+
+  const copy = (text: string) => {
+    createTextArea(text);
+    copyToClipboard();
+  };
+
+  return { copy };
+})(window, document);
+
 window.Toast = new CustomEvent('Toast', {
   detail: {
     success: (msg: string, timer = 2) => Toast.success(msg, timer),
