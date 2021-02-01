@@ -5,6 +5,7 @@ import px2rem from 'postcss-plugin-px2rem';
 import routers from './routers';
 
 const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
+
 export default defineConfig({
   favicon: productPath + 'favicon.ico',
   nodeModulesTransform: {
@@ -31,6 +32,12 @@ export default defineConfig({
       },
     ]);
   },
+  links: [
+    {
+      rel: 'apple-touch-icon-precomposed',
+      href: `https://scriptablejs.gitee.io/store/favicon.ico`,
+    },
+  ],
   dva: {},
   title: '小组件商店',
   publicPath: productPath,
