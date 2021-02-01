@@ -89,7 +89,6 @@ export default defineConfig({
         'border-right',
         'border-bottom',
         'border-radius',
-        'font-size',
       ], //这些属性不需要转换
       exclude: '/node_modules',
     }),
