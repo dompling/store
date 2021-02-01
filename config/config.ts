@@ -6,6 +6,7 @@ import routers from './routers';
 
 const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
 
+// @ts-ignore
 export default defineConfig({
   favicon: productPath + 'favicon.ico',
   nodeModulesTransform: {
@@ -35,7 +36,18 @@ export default defineConfig({
   links: [
     {
       rel: 'apple-touch-icon-precomposed',
-      href: `https://scriptablejs.gitee.io/store/favicon.ico`,
+      sizes: '57x57',
+      href: 'https://scriptablejs.gitee.io/store/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon-precomposed',
+      sizes: '72x72',
+      href: 'https://scriptablejs.gitee.io/store/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon-precomposed',
+      sizes: '114x114',
+      href: 'https://scriptablejs.gitee.io/store/favicon.ico',
     },
   ],
   dva: {},
