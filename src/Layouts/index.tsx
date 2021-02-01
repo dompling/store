@@ -51,7 +51,7 @@ const Index: FC<IRouteComponentProps> = ({ children }) => {
   return (
     <>
       <ActivityIndicator toast text={`${message}...`} animating={loading} />
-      {children}
+      <main>{children}</main>
     </>
   );
 };

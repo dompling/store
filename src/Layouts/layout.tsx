@@ -35,8 +35,8 @@ const Layout: FC<IRouteComponentProps> = (props) => {
   });
 
   return (
-    <div className={styles.container}>
-      <main>{children}</main>
+    <>
+      {children}
       <footer className={styles['fixed-bottom']}>
         <TabBar
           unselectedTintColor="#949494"
@@ -61,7 +61,7 @@ const Layout: FC<IRouteComponentProps> = (props) => {
           })}
         </TabBar>
       </footer>
-    </div>
+    </>
   );
 };
 export default Layout;
