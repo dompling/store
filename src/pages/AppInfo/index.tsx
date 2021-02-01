@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import type { FC } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import type { FC, RefObject } from 'react';
 import type { IRouteComponentProps } from 'umi';
 import { history, useParams } from 'umi';
 import SwiperCore, { Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { NavBar, Icon, Flex, Card } from 'antd-mobile';
+import { NavBar, Icon, Flex, Card, NoticeBar } from 'antd-mobile';
 import { CustomerIcon } from '@/pages/Subscribe';
+import webStore from '@/assets/webStore.txt';
 import { getSubscribeInfo } from '@/utils';
 import { NoneText } from '@/components/PageLoading';
 import { useModel } from '@@/plugin-model/useModel';
@@ -37,9 +38,34 @@ const AppInfo: FC<IRouteComponentProps> = () => {
 
     window.addEventListener('getLocalWidgetVersion', setLocalWidgetVersion);
   }, [appInfo, setVersion]);
+  const depend = appInfo && appInfo.depend ? `&depend=${JSON.stringify(appInfo.depend)}` : '';
+
   return (
     <>
       <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()} />
+      {!isScriptable && (
+        <div style={{ marginTop: 10 }}>
+          <NoticeBar
+            mode="link"
+            marqueeProps={{ loop: true }}
+            action={
+              <span
+                onClick={() => {
+                  window.Clipboard.copy(webStore);
+                  const a: any = document.createElement('a');
+                  a.href = 'scriptable:///add';
+                  a.click();
+                }}
+              >
+                复制
+              </span>
+            }
+          >
+            使用网页版安装，请确保 Scriptable 里面存在 WebStore，点此复制代码,自动打开 app
+            之后，请自行修改脚本名字为 WebStore
+          </NoticeBar>
+        </div>
+      )}
       {appInfo ? (
         <div className={styles.container}>
           <Card full>
@@ -61,7 +87,10 @@ const AppInfo: FC<IRouteComponentProps> = () => {
                     }}
                   />
                 ) : (
-                  <a href={appInfo.scriptURL} download={`${appInfo.name}.js`}>
+                  <a
+                    href={`scriptable:///run?scriptName=WebStore&openEditor=true&title=${appInfo.title}&name=${appInfo.name}&scriptURL=${appInfo.scriptURL}&version=${appInfo.version}${depend}`}
+                    download={`${appInfo.name}.js`}
+                  >
                     <CustomerIcon icon={'https://img.icons8.com/clouds/344/download-2.png'} />
                   </a>
                 )
