@@ -1,9 +1,13 @@
 body {
-  font-size: 1.4rem;
+  font-size: 1rem;
+}
+
+main {
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @supports ((height: constant(safe-area-inset-top)) or (height: env(safe-area-inset-top))) {
-  body {
+  main {
     margin-top: constant(safe-area-inset-top);
     margin-top: env(safe-area-inset-top);
     margin-bottom: constant(safe-area-inset-bottom);
