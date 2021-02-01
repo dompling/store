@@ -41,7 +41,17 @@ export default defineConfig({
     },
     {
       rel: 'apple-touch-icon-precomposed',
+      sizes: '120x120',
+      href: 'https://scriptablejs.gitee.io/store/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon-precomposed',
       sizes: '72x72',
+      href: 'https://scriptablejs.gitee.io/store/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon-precomposed',
+      sizes: '152x152',
       href: 'https://scriptablejs.gitee.io/store/favicon.ico',
     },
     {
