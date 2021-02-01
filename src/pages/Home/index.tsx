@@ -47,7 +47,7 @@ export default () => {
           }}
         />
       </div>
-      {!Object.keys(debouncedValue).length ? (
+      {Object.keys(debouncedValue).length ? (
         <Accordion defaultActiveKey={Object.keys(debouncedValue)}>
           {Object.keys(debouncedValue).map((key) => {
             const appsInfo = data[key];
