@@ -5,7 +5,7 @@ import px2rem from 'postcss-plugin-px2rem';
 import routers from './routers';
 
 const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
-const precomposed = productPath + 'favicon.png';
+const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
 // @ts-ignore
 export default defineConfig({
   favicon: productPath + 'favicon.ico',
@@ -37,27 +37,27 @@ export default defineConfig({
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '57x57',
-      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
+      href: precomposed,
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '120x120',
-      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
+      href: precomposed,
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '72x72',
-      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
+      href: precomposed,
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '152x152',
-      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
+      href: precomposed,
     },
     {
       rel: 'apple-touch-icon-precomposed',
       sizes: '114x114',
-      href: 'https://pic.90sjimg.com/design/00/23/31/57/58f83bb35915f.png',
+      href: precomposed,
     },
   ],
   dva: {},
