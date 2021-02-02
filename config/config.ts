@@ -5,8 +5,8 @@ import px2rem from 'postcss-plugin-px2rem';
 import routers from './routers';
 
 const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
-const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
-// const precomposed = productPath + 'icon.png';
+// const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
+const precomposed = 'http://scriptablejs.gitee.io/store/icon.png';
 // @ts-ignore
 export default defineConfig({
   favicon: productPath + 'favicon.ico',
