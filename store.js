@@ -2,7 +2,7 @@
 // These must be at the very top of the file. Do not edit.
 // icon-color: teal; icon-glyph: book-open;
 
-const defaultBaseURL = 'https://scriptablejs.gitee.io/store/#';
+const defaultBaseURL = 'http://scriptablejs.gitee.io/store/#';
 let baseUrl;
 const catalogPageURL = '/menu';
 const webView = new WebView();
