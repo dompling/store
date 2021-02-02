@@ -4,6 +4,7 @@ import { TabBar } from 'antd-mobile';
 import type { IRouteComponentProps } from 'umi';
 import { history, useModel } from 'umi';
 import styles from './layout.module.less';
+import { avatar_url } from '@/utils';
 
 const MenuIcon: FC<{ icon: string }> = ({ icon }) => {
   return <div className={`${styles.tabBarIcon} ${styles[icon]}`} />;
@@ -42,9 +43,7 @@ const Layout: FC<IRouteComponentProps> = (props) => {
 
   useEffect(() => {
     if (!!scriptable !== isScriptable && !isScriptable) setScriptable(!!scriptable);
-    const src = BoxJS.data.usercfgs
-      ? BoxJS.data.usercfgs.icon
-      : 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
+    const src = BoxJS.data.usercfgs ? BoxJS.data.usercfgs.icon : avatar_url;
     menuConfig[2].icon = <img alt={'头像'} src={src} className={styles.avatar} />;
     setMenu(menuConfig);
   }, [BoxJS.data, isScriptable, scriptable, setScriptable]);

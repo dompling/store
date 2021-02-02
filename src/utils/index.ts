@@ -15,3 +15,5 @@ export const getSubscribeInfo = (author: string, id: string): API.apps | undefin
 export const setSubscribe = (dataSource: any) => {
   return localStorage.setItem('dataSource', JSON.stringify(dataSource));
 };
+
+export const avatar_url = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';

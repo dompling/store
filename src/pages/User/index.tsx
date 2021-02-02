@@ -4,7 +4,7 @@ import { useModel } from '@@/plugin-model/useModel';
 import styles from '@/pages/User/index.module.less';
 import { NoneText } from '@/components/PageLoading';
 import { saveCache } from '@/service/api';
-import { getSubscribe, setSubscribe } from '@/utils';
+import { avatar_url, getSubscribe, setSubscribe } from '@/utils';
 import { useRequest } from '@umijs/hooks';
 
 const { Item } = List;
@@ -24,7 +24,7 @@ const Index = () => {
           <Flex justify={'center'} direction={'column'} className={styles.avatarView}>
             <img
               alt={'头像'}
-              src={BoxJS.data.usercfgs.icon || 'https://img.icons8.com/nolan/452/windows-10.png'}
+              src={BoxJS.data.usercfgs.icon || avatar_url}
               className={styles.avatar}
             />
             <span>{BoxJS.data.usercfgs.name}</span>
