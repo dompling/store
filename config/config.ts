@@ -5,7 +5,8 @@ import px2rem from 'postcss-plugin-px2rem';
 import routers from './routers';
 
 const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
-const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
+// const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
+const precomposed = productPath + 'icon.png';
 // @ts-ignore
 export default defineConfig({
   favicon: productPath + 'favicon.ico',
@@ -51,27 +52,6 @@ export default defineConfig({
   links: [
     {
       rel: 'apple-touch-icon',
-      sizes: '57x57',
-      href: precomposed,
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '120x120',
-      href: precomposed,
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '72x72',
-      href: precomposed,
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '152x152',
-      href: precomposed,
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '114x114',
       href: precomposed,
     },
   ],
