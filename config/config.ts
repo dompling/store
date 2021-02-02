@@ -36,6 +36,10 @@ export default defineConfig({
   },
   metas: [
     {
+      name: 'apple-mobile-web-app-title',
+      content: '小组件商店',
+    },
+    {
       name: 'apple-mobile-web-app-capable',
       content: 'yes',
     },
