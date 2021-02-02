@@ -29,7 +29,7 @@ const menuConfig: menuProps[] = [
   {
     title: '',
     link: '/menu/myInfo',
-    icon: <MenuIcon icon={'my'} />,
+    icon: <MenuIcon icon={''} />,
   },
 ];
 
@@ -42,11 +42,10 @@ const Layout: FC<IRouteComponentProps> = (props) => {
 
   useEffect(() => {
     if (!!scriptable !== isScriptable && !isScriptable) setScriptable(!!scriptable);
-    if (BoxJS.data.usercfgs) {
-      menuConfig[2].icon = (
-        <img alt={'头像'} src={BoxJS.data.usercfgs.icon} className={styles.avatar} />
-      );
-    }
+    const src = BoxJS.data.usercfgs
+      ? BoxJS.data.usercfgs.icon
+      : 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
+    menuConfig[2].icon = <img alt={'头像'} src={src} className={styles.avatar} />;
     setMenu(menuConfig);
   }, [BoxJS.data, isScriptable, scriptable, setScriptable]);
 
