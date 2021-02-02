@@ -37,7 +37,7 @@ export default defineConfig({
   metas: [
     {
       name: 'apple-mobile-web-app-title',
-      content: '小组件商店',
+      content: 'WidgetStore',
     },
     {
       name: 'apple-mobile-web-app-capable',
@@ -60,7 +60,7 @@ export default defineConfig({
     },
   ],
   dva: {},
-  title: '小组件商店',
+  title: 'WidgetStore',
   publicPath: productPath,
   extraPostCSSPlugins: [
     //https://www.npmjs.com/package/postcss-plugin-px2rem
