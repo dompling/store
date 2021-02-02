@@ -2,6 +2,10 @@ import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Toast } from 'antd-mobile';
 import type { IRouteComponentProps } from 'umi';
+import { useRequest } from '@umijs/hooks';
+import { getBoxJS } from '@/service/api';
+import { useModel } from '@@/plugin-model/useModel';
+import PageLoading from '@/components/PageLoading';
 
 window.Clipboard = (function (window, document) {
   let textArea: HTMLElement;
@@ -38,6 +42,8 @@ window.Toast = new CustomEvent('Toast', {
 const Index: FC<IRouteComponentProps> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
+  const box = useRequest(getBoxJS, { manual: true });
+  const BoxJS = useModel('boxjsModel', (model) => model);
   useEffect(() => {
     window.loadingEvent = new CustomEvent('setLoading', {
       detail: {
@@ -47,11 +53,14 @@ const Index: FC<IRouteComponentProps> = ({ children }) => {
         },
       },
     });
-  }, [setLoading, loading]);
+    box.run().then((response) => {
+      if (response) BoxJS.setBoxJS(response);
+    });
+  }, []);
   return (
     <>
       <ActivityIndicator toast text={`${message}...`} animating={loading} />
-      <main>{children}</main>
+      {!box.loading ? <main>{children}</main> : <PageLoading />}
     </>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { SearchBar, Grid, Accordion } from 'antd-mobile';
 import { NoneText } from '@/components/PageLoading';
 import { getSubscribe } from '@/utils';
-import { Link, useRequest } from 'umi';
+import { Link } from 'umi';
 import { useDebounce } from '@umijs/hooks';
 import { fetchJSONStore } from '@/service/api';
 import styles from './index.module.less';

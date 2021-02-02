@@ -21,6 +21,10 @@ export default [
             path: '/menu/subscribe',
             component: '@/pages/Subscribe',
           },
+          {
+            path: '/menu/myInfo',
+            component: '@/pages/User',
+          },
         ],
       },
       {
