@@ -6,7 +6,7 @@ import routers from './routers';
 
 const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
 // const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
-const precomposed = 'http://scriptablejs.gitee.io/store/icon.png';
+const precomposed = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
 // @ts-ignore
 export default defineConfig({
   favicon: productPath + 'favicon.ico',
