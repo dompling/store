@@ -9,7 +9,7 @@ const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
 const precomposed = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
 // @ts-ignore
 export default defineConfig({
-  outputPath: 'dist',
+  outputPath: 'docs',
   favicon: productPath + 'favicon.ico',
   nodeModulesTransform: {
     type: 'none',
