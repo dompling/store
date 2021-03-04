@@ -6,8 +6,6 @@
 
 - YouTube: [WidgetStore 使用方式](https://youtu.be/qeNbKMtThKc)
 
-<video src="https://youtu.be/qeNbKMtThKc"></video>
-
 ## 收集订阅：
 
 - 作者：<a href="https://raw.githubusercontent.com/dompling/Scriptable/master/install.json" download="install.js">@2Ya - 订阅安装包</a>
