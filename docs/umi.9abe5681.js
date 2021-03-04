@@ -218,7 +218,7 @@
     (a.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (a.p = '/docs/'),
+    (a.p = '/store/'),
     (a.oe = function (e) {
       throw (console.error(e), e);
     });

@@ -4,12 +4,12 @@ import { defineConfig } from 'umi';
 import px2rem from 'postcss-plugin-px2rem';
 import routers from './routers';
 
-const productPath = process.env.NODE_ENV === 'production' ? '/docs/' : '/';
+const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
 // const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
 const precomposed = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
 // @ts-ignore
 export default defineConfig({
-  outputPath: 'docs',
+  outputPath: 'dist',
   favicon: productPath + 'favicon.ico',
   nodeModulesTransform: {
     type: 'none',
