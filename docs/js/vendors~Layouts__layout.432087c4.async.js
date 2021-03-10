@@ -1,131 +1,25 @@
 (window['webpackJsonp'] = window['webpackJsonp'] || []).push([
   [12],
   {
-    '5Qd4': function (t, e, n) {
-      var r = n('USwo');
-      r(r.S + r.F, 'Object', { assign: n('By1P') });
+    '1/M5': function (t, e, n) {
+      n('u4Or');
+      var r = n('zpmP').Object;
+      t.exports = function (t, e) {
+        return r.getOwnPropertyDescriptor(t, e);
+      };
     },
-    '8dL9': function (t, e, n) {
+    '15ye': function (t, e, n) {
       'use strict';
-      var r = n('QbLZ'),
-        a = n.n(r),
-        o = n('YEIV'),
-        i = n.n(o),
-        s = n('iCc5'),
-        c = n.n(s),
-        u = n('V7oC'),
-        l = n.n(u),
-        f = n('FYw3'),
-        p = n.n(f),
-        h = n('mRg0'),
-        v = n.n(h),
-        b = n('TSYQ'),
-        d = n.n(b),
-        g = n('q1tI'),
-        T = function (t, e) {
-          var n = {};
-          for (var r in t)
-            Object.prototype.hasOwnProperty.call(t, r) && e.indexOf(r) < 0 && (n[r] = t[r]);
-          if (null != t && 'function' === typeof Object.getOwnPropertySymbols) {
-            var a = 0;
-            for (r = Object.getOwnPropertySymbols(t); a < r.length; a++)
-              e.indexOf(r[a]) < 0 && (n[r[a]] = t[r[a]]);
-          }
-          return n;
-        },
-        m = (function (t) {
-          function e() {
-            return (
-              c()(this, e),
-              p()(this, (e.__proto__ || Object.getPrototypeOf(e)).apply(this, arguments))
-            );
-          }
-          return (
-            v()(e, t),
-            l()(e, [
-              {
-                key: 'render',
-                value: function () {
-                  var t,
-                    e,
-                    n = this.props,
-                    r = n.className,
-                    o = n.prefixCls,
-                    s = n.children,
-                    c = n.text,
-                    u = n.size,
-                    l = n.overflowCount,
-                    f = n.dot,
-                    p = n.corner,
-                    h = n.hot,
-                    v = T(n, [
-                      'className',
-                      'prefixCls',
-                      'children',
-                      'text',
-                      'size',
-                      'overflowCount',
-                      'dot',
-                      'corner',
-                      'hot',
-                    ]);
-                  (l = l), (c = 'number' === typeof c && c > l ? l + '+' : c), f && (c = '');
-                  var b = d()(
-                      ((t = {}),
-                      i()(t, o + '-dot', f),
-                      i()(t, o + '-dot-large', f && 'large' === u),
-                      i()(t, o + '-text', !f && !p),
-                      i()(t, o + '-corner', p),
-                      i()(t, o + '-corner-large', p && 'large' === u),
-                      t),
-                    ),
-                    m = d()(
-                      o,
-                      r,
-                      ((e = {}),
-                      i()(e, o + '-not-a-wrapper', !s),
-                      i()(e, o + '-corner-wrapper', p),
-                      i()(e, o + '-hot', !!h),
-                      i()(e, o + '-corner-wrapper-large', p && 'large' === u),
-                      e),
-                    );
-                  return g['createElement'](
-                    'span',
-                    { className: m },
-                    s,
-                    (c || f) && g['createElement']('sup', a()({ className: b }, v), c),
-                  );
-                },
-              },
-            ]),
-            e
-          );
-        })(g['Component']);
-      (e['a'] = m),
-        (m.defaultProps = {
-          prefixCls: 'am-badge',
-          size: 'small',
-          overflowCount: 99,
-          dot: !1,
-          corner: !1,
-        });
-    },
-    B8GA: function (t, e, n) {
-      'use strict';
-      n('ywh3'), n('DA46');
-    },
-    By1P: function (t, e, n) {
-      'use strict';
-      var r = n('C61u'),
-        a = n('mHY4'),
-        o = n('/tXR'),
-        i = n('GRew'),
-        s = n('CYMq'),
-        c = n('n7vu'),
+      var r = n('Xp5O'),
+        a = n('S5+y'),
+        o = n('lGtr'),
+        i = n('DMUv'),
+        s = n('MhL/'),
+        c = n('bAmN'),
         u = Object.assign;
       t.exports =
         !u ||
-        n('S4vA')(function () {
+        n('mf7F')(function () {
           var t = {},
             e = {},
             n = Symbol(),
@@ -156,116 +50,147 @@
             }
           : u;
     },
-    DA46: function (t, e, n) {},
-    JO7F: function (t, e, n) {
-      t.exports = { default: n('ZblS'), __esModule: !0 };
-    },
-    JpO0: function (t, e, n) {
-      var r = n('CYMq'),
-        a = n('znrX');
-      n('czaS')('getPrototypeOf', function () {
-        return function (t) {
-          return a(r(t));
-        };
-      });
-    },
-    Lr1a: function (t, e, n) {
-      n('JpO0'), (t.exports = n('VSTI').Object.getPrototypeOf);
-    },
-    P2sY: function (t, e, n) {
-      t.exports = { default: n('uccp'), __esModule: !0 };
-    },
-    QbLZ: function (t, e, n) {
+    '1eom': function (t, e, n) {
       'use strict';
-      e.__esModule = !0;
-      var r = n('P2sY'),
-        a = o(r);
-      function o(t) {
-        return t && t.__esModule ? t : { default: t };
-      }
-      e.default =
-        a.default ||
-        function (t) {
-          for (var e = 1; e < arguments.length; e++) {
-            var n = arguments[e];
-            for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (t[r] = n[r]);
+      var r = n('bS4n'),
+        a = n.n(r),
+        o = n('/umX'),
+        i = n.n(o),
+        s = n('6ato'),
+        c = n.n(s),
+        u = n('2dj7'),
+        l = n.n(u),
+        f = n('Xtzg'),
+        p = n.n(f),
+        h = n('0dFU'),
+        v = n.n(h),
+        b = n('iczh'),
+        d = n.n(b),
+        g = n('xwgP'),
+        m = function (t, e) {
+          var n = {};
+          for (var r in t)
+            Object.prototype.hasOwnProperty.call(t, r) && e.indexOf(r) < 0 && (n[r] = t[r]);
+          if (null != t && 'function' === typeof Object.getOwnPropertySymbols) {
+            var a = 0;
+            for (r = Object.getOwnPropertySymbols(t); a < r.length; a++)
+              e.indexOf(r[a]) < 0 && (n[r[a]] = t[r[a]]);
           }
-          return t;
-        };
-    },
-    X4g2: function (t, e, n) {
-      'use strict';
-      e['a'] = function (t) {
-        return Object.keys(t).reduce(function (e, n) {
+          return n;
+        },
+        T = (function (t) {
+          function e() {
+            return (
+              c()(this, e),
+              p()(this, (e.__proto__ || Object.getPrototypeOf(e)).apply(this, arguments))
+            );
+          }
           return (
-            ('aria-' !== n.substr(0, 5) && 'data-' !== n.substr(0, 5) && 'role' !== n) ||
-              (e[n] = t[n]),
+            v()(e, t),
+            l()(e, [
+              {
+                key: 'render',
+                value: function () {
+                  var t,
+                    e,
+                    n = this.props,
+                    r = n.className,
+                    o = n.prefixCls,
+                    s = n.children,
+                    c = n.text,
+                    u = n.size,
+                    l = n.overflowCount,
+                    f = n.dot,
+                    p = n.corner,
+                    h = n.hot,
+                    v = m(n, [
+                      'className',
+                      'prefixCls',
+                      'children',
+                      'text',
+                      'size',
+                      'overflowCount',
+                      'dot',
+                      'corner',
+                      'hot',
+                    ]);
+                  (l = l), (c = 'number' === typeof c && c > l ? l + '+' : c), f && (c = '');
+                  var b = d()(
+                      ((t = {}),
+                      i()(t, o + '-dot', f),
+                      i()(t, o + '-dot-large', f && 'large' === u),
+                      i()(t, o + '-text', !f && !p),
+                      i()(t, o + '-corner', p),
+                      i()(t, o + '-corner-large', p && 'large' === u),
+                      t),
+                    ),
+                    T = d()(
+                      o,
+                      r,
+                      ((e = {}),
+                      i()(e, o + '-not-a-wrapper', !s),
+                      i()(e, o + '-corner-wrapper', p),
+                      i()(e, o + '-hot', !!h),
+                      i()(e, o + '-corner-wrapper-large', p && 'large' === u),
+                      e),
+                    );
+                  return g['createElement'](
+                    'span',
+                    { className: T },
+                    s,
+                    (c || f) && g['createElement']('sup', a()({ className: b }, v), c),
+                  );
+                },
+              },
+            ]),
             e
           );
-        }, {});
-      };
+        })(g['Component']);
+      (e['a'] = T),
+        (T.defaultProps = {
+          prefixCls: 'am-badge',
+          size: 'small',
+          overflowCount: 99,
+          dot: !1,
+          corner: !1,
+        });
     },
-    'Yz+Y': function (t, e, n) {
-      t.exports = { default: n('Lr1a'), __esModule: !0 };
+    '3FWR': function (t, e, n) {},
+    '6ZY3': function (t, e, n) {
+      t.exports = { default: n('n1sw'), __esModule: !0 };
     },
-    ZblS: function (t, e, n) {
-      n('kcqV');
-      var r = n('VSTI').Object;
-      t.exports = function (t, e) {
-        return r.getOwnPropertyDescriptor(t, e);
-      };
-    },
-    czaS: function (t, e, n) {
-      var r = n('USwo'),
-        a = n('VSTI'),
-        o = n('S4vA');
-      t.exports = function (t, e) {
-        var n = (a.Object || {})[t] || Object[t],
-          i = {};
-        (i[t] = e(n)),
-          r(
-            r.S +
-              r.F *
-                o(function () {
-                  n(1);
-                }),
-            'Object',
-            i,
-          );
-      };
-    },
-    jZWL: function (t, e, n) {
+    AYeB: function (t, e, n) {
       'use strict';
-      var r = n('QbLZ'),
+      var r = n('bS4n'),
         a = n.n(r),
-        o = n('iCc5'),
+        o = n('6ato'),
         i = n.n(o),
-        s = n('V7oC'),
+        s = n('2dj7'),
         c = n.n(s),
-        u = n('FYw3'),
+        u = n('Xtzg'),
         l = n.n(u),
-        f = n('mRg0'),
+        f = n('0dFU'),
         p = n.n(f),
-        h = n('q1tI'),
+        h = n('xwgP'),
         v = n.n(h),
         b = 1,
         d = 2,
         g = 4,
-        T = 8,
-        m = 16,
+        m = 8,
+        T = 16,
         y = d | g,
-        C = T | m,
-        P = y | C,
-        S = { time: 251 },
-        x = { threshold: 10, velocity: 0.3 };
-      function E(t, e) {
+        P = m | T,
+        C = y | P,
+        x = { time: 251 },
+        S = { threshold: 10, velocity: 0.3 };
+      function k(t, e) {
         return Math.sqrt(t * t + e * e);
       }
       function O(t, e) {
         var n = Math.atan2(e, t);
         return 180 / (Math.PI / n);
       }
-      function k() {
+      function E() {
         return Date.now();
       }
       function w(t) {
@@ -278,7 +203,7 @@
             i = a.y,
             s = o - n,
             c = i - r;
-          return { x: s, y: c, z: E(s, c), angle: O(s, c) };
+          return { x: s, y: c, z: k(s, c), angle: O(s, c) };
         }
       }
       function _(t, e, n) {
@@ -290,7 +215,7 @@
           c = i.y,
           u = s - a,
           l = c - o,
-          f = E(u, l);
+          f = k(u, l);
         return { x: u, y: l, z: f, time: n, velocity: f / n, angle: O(u, l) };
       }
       function B(t, e) {
@@ -298,11 +223,11 @@
           r = e.angle;
         return r - n;
       }
-      function I(t, e) {
+      function M(t, e) {
         return t + e[0].toUpperCase() + e.slice(1);
       }
-      function M(t, e) {
-        return Math.abs(t) >= x.threshold && Math.abs(e) > x.velocity;
+      function I(t, e) {
+        return Math.abs(t) >= S.threshold && Math.abs(e) > S.velocity;
       }
       function j(t, e) {
         return !!(e & t);
@@ -321,10 +246,10 @@
             ? d
             : g
           : s < 0
-          ? T
-          : m;
+          ? m
+          : T;
       }
-      function V(t) {
+      function N(t) {
         var e = void 0;
         switch (t) {
           case b:
@@ -335,18 +260,18 @@
           case g:
             e = 'right';
             break;
-          case T:
+          case m:
             e = 'up';
             break;
-          case m:
+          case T:
             e = 'down';
             break;
           default:
         }
         return e;
       }
-      var A = { all: P, vertical: C, horizontal: y },
-        N = (function (t) {
+      var z = { all: C, vertical: P, horizontal: y },
+        A = (function (t) {
           function e(t) {
             i()(this, e);
             var n = l()(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this, t));
@@ -368,7 +293,7 @@
                 for (var r = arguments.length, a = Array(r > 2 ? r - 2 : 0), o = 2; o < r; o++)
                   a[o - 2] = arguments[o];
                 if (e) {
-                  var i = I(t, e);
+                  var i = M(t, e);
                   n.triggerEvent.apply(n, [i].concat(a));
                 }
               }),
@@ -385,7 +310,7 @@
                 n.cleanPressTimer(),
                   (n.pressTimer = setTimeout(function () {
                     n.setGestureState({ press: !0 }), n.triggerEvent('onPress');
-                  }, S.time));
+                  }, x.time));
               }),
               (n.cleanPressTimer = function () {
                 n.pressTimer && clearTimeout(n.pressTimer);
@@ -407,7 +332,7 @@
                 });
               }),
               (n.triggerUserCb = function (t, e) {
-                var r = I('onTouch', t);
+                var r = M('onTouch', t);
                 r in n.props && n.props[r](e);
               }),
               (n._handleTouchStart = function (t) {
@@ -421,7 +346,7 @@
               (n.initGestureStatus = function (t) {
                 n.cleanGestureState();
                 var e = n.getTouches(t),
-                  r = k(),
+                  r = E(),
                   a = w(e);
                 n.setGestureState({
                   startTime: r,
@@ -501,7 +426,7 @@
                 if (a && s) {
                   var c = G(o[0], r[0]);
                   n.setGestureState({ direction: c });
-                  var u = V(c);
+                  var u = N(c);
                   if (!n.allowGesture()) return void (e || n.setGestureState({ availablePan: !1 }));
                   e
                     ? (n.triggerCombineEvent('onPan', u), n.triggerSubEvent('onPan', 'move'))
@@ -516,7 +441,7 @@
                 r && n.triggerCombineEvent('onPinch', t), a && n.triggerCombineEvent('onRotate', t);
               }),
               (n.updateGestureStatus = function (t) {
-                var e = k();
+                var e = E();
                 if ((n.setGestureState({ time: e }), t.touches && t.touches.length)) {
                   var r = n.gesture,
                     a = r.startTime,
@@ -563,11 +488,11 @@
                   if (r) {
                     var u = r.z,
                       l = r.velocity,
-                      f = M(u, l);
+                      f = I(u, l);
                     if (
                       (n.setGestureState({ swipe: f }), s && n.triggerAllowEvent('onPan', t), f)
                     ) {
-                      var p = V(c);
+                      var p = N(c);
                       return void n.triggerAllowEvent('onSwipe', p);
                     }
                   }
@@ -579,15 +504,15 @@
                   e = t.enablePinch,
                   r = t.enableRotate,
                   a = n.directionSetting;
-                return e || r || a === P
+                return e || r || a === C
                   ? 'pan-x pan-y'
-                  : a === C
+                  : a === P
                   ? 'pan-x'
                   : a === y
                   ? 'pan-y'
                   : 'auto';
               }),
-              (n.directionSetting = A[t.direction]),
+              (n.directionSetting = z[t.direction]),
               n
             );
           }
@@ -622,25 +547,70 @@
             e
           );
         })(h['Component']);
-      e['a'] = N;
-      N.defaultProps = { enableRotate: !1, enablePinch: !1, direction: 'all' };
+      e['a'] = A;
+      A.defaultProps = { enableRotate: !1, enablePinch: !1, direction: 'all' };
     },
-    k5k0: function (t, e, n) {},
-    kcqV: function (t, e, n) {
-      var r = n('bKEA'),
-        a = n('TSC6').f;
-      n('czaS')('getOwnPropertyDescriptor', function () {
-        return function (t, e) {
-          return a(r(t), e);
-        };
-      });
+    BBVc: function (t, e, n) {
+      'use strict';
+      n('zr+F'), n('3FWR'), n('knoH'), n('xx5R');
     },
-    tfYw: function (t, e, n) {
+    Ds8w: function (t, e, n) {
+      t.exports = { default: n('XXnF'), __esModule: !0 };
+    },
+    XXnF: function (t, e, n) {
+      n('vvQG'), (t.exports = n('zpmP').Object.getPrototypeOf);
+    },
+    bS4n: function (t, e, n) {
       'use strict';
       e.__esModule = !0;
-      var r = n('Yz+Y'),
+      var r = n('6ZY3'),
+        a = o(r);
+      function o(t) {
+        return t && t.__esModule ? t : { default: t };
+      }
+      e.default =
+        a.default ||
+        function (t) {
+          for (var e = 1; e < arguments.length; e++) {
+            var n = arguments[e];
+            for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (t[r] = n[r]);
+          }
+          return t;
+        };
+    },
+    fL18: function (t, e, n) {
+      t.exports = { default: n('1/M5'), __esModule: !0 };
+    },
+    gAgb: function (t, e, n) {
+      var r = n('fCtq');
+      r(r.S + r.F, 'Object', { assign: n('15ye') });
+    },
+    k6n4: function (t, e, n) {
+      var r = n('fCtq'),
+        a = n('zpmP'),
+        o = n('mf7F');
+      t.exports = function (t, e) {
+        var n = (a.Object || {})[t] || Object[t],
+          i = {};
+        (i[t] = e(n)),
+          r(
+            r.S +
+              r.F *
+                o(function () {
+                  n(1);
+                }),
+            'Object',
+            i,
+          );
+      };
+    },
+    knoH: function (t, e, n) {},
+    lT7c: function (t, e, n) {
+      'use strict';
+      e.__esModule = !0;
+      var r = n('Ds8w'),
         a = s(r),
-        o = n('JO7F'),
+        o = n('fL18'),
         i = s(o);
       function s(t) {
         return t && t.__esModule ? t : { default: t };
@@ -657,32 +627,28 @@
         return void 0 !== c ? c.call(r) : void 0;
       };
     },
-    uccp: function (t, e, n) {
-      n('5Qd4'), (t.exports = n('VSTI').Object.assign);
+    n1sw: function (t, e, n) {
+      n('gAgb'), (t.exports = n('zpmP').Object.assign);
     },
-    v1HX: function (t, e, n) {
+    qkV3: function (t, e, n) {
       'use strict';
-      n('ywh3'), n('k5k0'), n('zjKI'), n('B8GA');
-    },
-    yu99: function (t, e, n) {
-      'use strict';
-      var r = n('QbLZ'),
+      var r = n('bS4n'),
         a = n.n(r),
-        o = n('iCc5'),
+        o = n('6ato'),
         i = n.n(o),
-        s = n('V7oC'),
+        s = n('2dj7'),
         c = n.n(s),
-        u = n('FYw3'),
+        u = n('Xtzg'),
         l = n.n(u),
-        f = n('mRg0'),
+        f = n('0dFU'),
         p = n.n(f),
-        h = n('q1tI'),
+        h = n('xwgP'),
         v = n.n(h),
-        b = n('X4g2'),
-        d = n('tfYw'),
+        b = n('zCLS'),
+        d = n('lT7c'),
         g = n.n(d),
-        T = n('jZWL');
-      function m(t) {
+        m = n('AYeB');
+      function T(t) {
         return { transform: t, WebkitTransform: t, MozTransform: t };
       }
       function y(t) {
@@ -692,16 +658,16 @@
           (t = n ? '0px, ' + t + e + ', 0px' : '' + t + e + ', 0px, 0px'), 'translate3d(' + t + ')'
         );
       }
-      function C(t, e) {
+      function P(t, e) {
         var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 'px',
           r = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
           a = arguments.length > 4 && void 0 !== arguments[4] && arguments[4];
-        a ? (r ? (t.style.top = '' + e + n) : (t.style.left = '' + e + n)) : P(t.style, y(e, n, r));
+        a ? (r ? (t.style.top = '' + e + n) : (t.style.left = '' + e + n)) : C(t.style, y(e, n, r));
       }
-      function P(t, e) {
+      function C(t, e) {
         (t.transform = e), (t.webkitTransform = e), (t.mozTransform = e);
       }
-      var S = function (t, e) {
+      var x = function (t, e) {
           var n = {};
           for (var r in t)
             Object.prototype.hasOwnProperty.call(t, r) && e.indexOf(r) < 0 && (n[r] = t[r]);
@@ -712,7 +678,7 @@
           }
           return n;
         },
-        x = (function (t) {
+        S = (function (t) {
           function e() {
             i()(this, e);
             var t = l()(this, (e.__proto__ || Object.getPrototypeOf(e)).apply(this, arguments));
@@ -744,11 +710,11 @@
                   var t = this.props,
                     e = (t.active, t.fixX),
                     n = t.fixY,
-                    r = S(t, ['active', 'fixX', 'fixY']),
+                    r = x(t, ['active', 'fixX', 'fixY']),
                     o = a()(
                       {},
-                      e && this.offsetX ? m(y(-this.offsetX, 'px', !1)) : {},
-                      n && this.offsetY ? m(y(-this.offsetY, 'px', !0)) : {},
+                      e && this.offsetX ? T(y(-this.offsetX, 'px', !1)) : {},
+                      n && this.offsetY ? T(y(-this.offsetY, 'px', !0)) : {},
                     );
                   return v.a.createElement(
                     'div',
@@ -761,8 +727,8 @@
             e
           );
         })(v.a.PureComponent);
-      x.defaultProps = { fixX: !0, fixY: !0 };
-      var E = function (t, e) {
+      S.defaultProps = { fixX: !0, fixY: !0 };
+      var k = function (t, e) {
           var n = {};
           for (var r in t)
             Object.prototype.hasOwnProperty.call(t, r) && e.indexOf(r) < 0 && (n[r] = t[r]);
@@ -780,7 +746,7 @@
             (this.showPrev = !1),
             (this.showNext = !1);
         },
-        k = (function (t) {
+        E = (function (t) {
           function e(t) {
             i()(this, e);
             var n = l()(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this, t));
@@ -813,7 +779,7 @@
                           : -n.layout.scrollWidth + n.layout.clientWidth;
                       (o = Math.min(o, 0)),
                         (o = Math.max(o, i)),
-                        C(n.layout, o, 'px', a),
+                        P(n.layout, o, 'px', a),
                         (e = o),
                         n.setState({ showPrev: -o > 0, showNext: o > i });
                     }
@@ -935,25 +901,25 @@
                     d = this.state,
                     g = d.isMoving,
                     y = d.transform,
-                    C = d.showNext,
-                    P = d.showPrev,
-                    S = this.isTabBarVertical(),
-                    x = i.length > c,
+                    P = d.showNext,
+                    C = d.showPrev,
+                    x = this.isTabBarVertical(),
+                    S = i.length > c,
                     O = this.getTabSize(c, i.length),
-                    k = i.map(function (e, n) {
-                      return t.renderTab(e, n, O, S);
+                    E = i.map(function (e, n) {
+                      return t.renderTab(e, n, O, x);
                     }),
                     w = n;
                   r && !g && (w += ' ' + n + '-animated');
                   var _ = { backgroundColor: f || '' },
-                    B = x ? a()({}, m(y)) : {},
-                    I = this.onPan,
-                    M = (I.setCurrentOffset, E(I, ['setCurrentOffset'])),
+                    B = S ? a()({}, T(y)) : {},
+                    M = this.onPan,
+                    I = (M.setCurrentOffset, k(M, ['setCurrentOffset'])),
                     j = {
                       style: a()(
                         {},
-                        S ? { height: O + '%' } : { width: O + '%' },
-                        S ? { top: O * l + '%' } : { left: O * l + '%' },
+                        x ? { height: O + '%' } : { width: O + '%' },
+                        x ? { top: O * l + '%' } : { left: O * l + '%' },
                         p,
                       ),
                       className: n + '-underline',
@@ -961,10 +927,10 @@
                   return v.a.createElement(
                     'div',
                     { className: w + ' ' + n + '-' + h, style: _ },
-                    P && v.a.createElement('div', { className: n + '-prevpage' }),
+                    C && v.a.createElement('div', { className: n + '-prevpage' }),
                     v.a.createElement(
-                      T['a'],
-                      a()({}, M, { direction: S ? 'vertical' : 'horizontal' }),
+                      m['a'],
+                      a()({}, I, { direction: x ? 'vertical' : 'horizontal' }),
                       v.a.createElement(
                         'div',
                         {
@@ -973,11 +939,11 @@
                           style: B,
                           ref: this.setContentLayout,
                         },
-                        k,
+                        E,
                         b ? b(j) : v.a.createElement('div', j),
                       ),
                     ),
-                    C && v.a.createElement('div', { className: n + '-nextpage' }),
+                    P && v.a.createElement('div', { className: n + '-nextpage' }),
                   );
                 },
               },
@@ -985,7 +951,7 @@
             e
           );
         })(v.a.PureComponent);
-      k.defaultProps = {
+      E.defaultProps = {
         prefixCls: 'rmc-tabs-tab-bar',
         animated: !0,
         tabs: [],
@@ -1189,7 +1155,7 @@
         tabDirection: 'horizontal',
         distanceToChangeTab: 0.3,
       };
-      var I = function (t) {
+      var M = function (t) {
           switch (t) {
             case 2:
             case 4:
@@ -1201,7 +1167,7 @@
               return 'none';
           }
         },
-        M = (function (t) {
+        I = (function (t) {
           function e() {
             i()(this, e);
             var t = l()(this, (e.__proto__ || Object.getPrototypeOf(e)).apply(this, arguments));
@@ -1234,7 +1200,7 @@
                   onPanStart: function (t) {
                     n.props.swipeable &&
                       n.props.animated &&
-                      ((r = I(t.direction)), n.setState({ isMoving: !0 }));
+                      ((r = M(t.direction)), n.setState({ isMoving: !0 }));
                   },
                   onPanMove: function (t) {
                     var o = n.props,
@@ -1256,7 +1222,7 @@
                         : -n.layout.scrollWidth + n.layout.clientWidth;
                       (l = Math.min(l, 0)),
                         (l = Math.max(l, f)),
-                        C(n.layout, l, 'px', u, c),
+                        P(n.layout, l, 'px', u, c),
                         (e = l);
                     }
                   },
@@ -1268,7 +1234,7 @@
                       n.setState({ isMoving: !1 }),
                         a === n.state.currentTab
                           ? n.props.usePaged &&
-                            P(
+                            C(
                               n.layout.style,
                               n.getContentPosByIndex(
                                 a,
@@ -1311,7 +1277,7 @@
               (n.setContentLayout = function (t) {
                 n.layout = t;
               }),
-              (n.state = a()({}, n.state, new M(), {
+              (n.state = a()({}, n.state, new I(), {
                 contentPos: n.getContentPosByIndex(
                   n.getTabIndex(t),
                   n.isTabVertical(t.tabDirection),
@@ -1390,13 +1356,13 @@
                             { position: 'relative' },
                             this.isTabVertical() ? { top: p } : { left: p },
                           )
-                        : m(p)
+                        : T(p)
                       : a()(
                           { position: 'relative' },
                           this.isTabVertical() ? { top: 100 * -l + '%' } : { left: 100 * -l + '%' },
                         ),
                     g = this.getTabBarBaseProps(),
-                    T = g.instanceId;
+                    m = g.instanceId;
                   return v.a.createElement(
                     'div',
                     { className: b, style: d, ref: this.setContentLayout },
@@ -1411,14 +1377,14 @@
                           ? (t.tabCache[a] = t.getSubElement(n, a, e))
                           : s && (t.tabCache[a] = void 0),
                         v.a.createElement(
-                          x,
+                          S,
                           {
                             key: i,
                             className: o,
                             active: l === a,
                             role: 'tabpanel',
                             'aria-hidden': l !== a,
-                            'aria-labelledby': 'm-tabs-' + T + '-' + a,
+                            'aria-labelledby': 'm-tabs-' + m + '-' + a,
                             fixX: h,
                             fixY: !h,
                           },
@@ -1445,11 +1411,11 @@
                       v.a.createElement(
                         'div',
                         { key: 'tabBar', className: e + '-tab-bar-wrap' },
-                        this.renderTabBar(c, k),
+                        this.renderTabBar(c, E),
                       ),
                       !i &&
                         v.a.createElement(
-                          T['a'],
+                          m['a'],
                           a()({ key: '$content', onSwipe: this.onSwipe }, u),
                           this.renderContent(),
                         ),
@@ -1465,7 +1431,7 @@
             e
           );
         })(B);
-      (j.DefaultTabBar = k),
+      (j.DefaultTabBar = E),
         (j.defaultProps = a()({}, B.defaultProps, { prefixCls: 'rmc-tabs', useOnPan: !0 }));
       var G = (function (t) {
         function e() {
@@ -1475,9 +1441,9 @@
           );
         }
         return p()(e, t), e;
-      })(k);
-      G.defaultProps = a()({}, k.defaultProps, { prefixCls: 'am-tabs-default-bar' });
-      var V = (function (t) {
+      })(E);
+      G.defaultProps = a()({}, E.defaultProps, { prefixCls: 'am-tabs-default-bar' });
+      var N = (function (t) {
           function e() {
             i()(this, e);
             var t = l()(this, (e.__proto__ || Object.getPrototypeOf(e)).apply(this, arguments));
@@ -1505,10 +1471,10 @@
             e
           );
         })(h['PureComponent']),
-        A = V;
-      (V.DefaultTabBar = G), (V.defaultProps = { prefixCls: 'am-tabs' });
-      var N = n('8dL9'),
-        z = (function (t) {
+        z = N;
+      (N.DefaultTabBar = G), (N.defaultProps = { prefixCls: 'am-tabs' });
+      var A = n('1eom'),
+        V = (function (t) {
           function e() {
             i()(this, e);
             var t = l()(this, (e.__proto__ || Object.getPrototypeOf(e)).apply(this, arguments));
@@ -1532,14 +1498,14 @@
                       });
                 return r
                   ? h['createElement'](
-                      N['a'],
+                      A['a'],
                       { text: r, className: c + '-badge tab-badge' },
                       ' ',
                       l,
                       ' ',
                     )
                   : n
-                  ? h['createElement'](N['a'], { dot: !0, className: c + '-badge tab-dot' }, l)
+                  ? h['createElement'](A['a'], { dot: !0, className: c + '-badge tab-dot' }, l)
                   : l;
               }),
               (t.onClick = function () {
@@ -1582,8 +1548,8 @@
             e
           );
         })(h['PureComponent']),
-        L = z,
-        Y = (function (t) {
+        L = V,
+        F = (function (t) {
           function e() {
             return (
               i()(this, e),
@@ -1606,7 +1572,7 @@
             e
           );
         })(h['Component']);
-      Y.defaultProps = { prefixCls: 'am-tab-bar-item', title: '' };
+      F.defaultProps = { prefixCls: 'am-tab-bar-item', title: '' };
       var R = (function (t) {
         function e() {
           i()(this, e);
@@ -1684,7 +1650,7 @@
                     'div',
                     { className: e },
                     h['createElement'](
-                      A,
+                      z,
                       {
                         tabs: c,
                         renderTabBar: this.renderTabBar,
@@ -1717,9 +1683,43 @@
         prerenderingSiblingsNumber: 1,
         tabBarPosition: 'bottom',
       }),
-        (R.Item = Y);
+        (R.Item = F);
       e['a'] = R;
     },
-    zjKI: function (t, e, n) {},
+    tJT9: function (t, e, n) {},
+    u4Or: function (t, e, n) {
+      var r = n('iorM'),
+        a = n('N7Rc').f;
+      n('k6n4')('getOwnPropertyDescriptor', function () {
+        return function (t, e) {
+          return a(r(t), e);
+        };
+      });
+    },
+    vvQG: function (t, e, n) {
+      var r = n('MhL/'),
+        a = n('9BGc');
+      n('k6n4')('getPrototypeOf', function () {
+        return function (t) {
+          return a(r(t));
+        };
+      });
+    },
+    xx5R: function (t, e, n) {
+      'use strict';
+      n('zr+F'), n('tJT9');
+    },
+    zCLS: function (t, e, n) {
+      'use strict';
+      e['a'] = function (t) {
+        return Object.keys(t).reduce(function (e, n) {
+          return (
+            ('aria-' !== n.substr(0, 5) && 'data-' !== n.substr(0, 5) && 'role' !== n) ||
+              (e[n] = t[n]),
+            e
+          );
+        }, {});
+      };
+    },
   },
 ]);

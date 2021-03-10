@@ -98,7 +98,7 @@ const present = async () => {
   } else {
     const a = new Alert();
     a.title = data.scriptURL;
-    a.message = '参数存在错误';
+    a.message = '该脚本不在 App 中执行，请不用运行这段程序';
     a.addAction('确定');
     a.addCancelAction('取消');
     await a.presentAlert();

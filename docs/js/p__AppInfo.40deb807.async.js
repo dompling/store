@@ -28,31 +28,31 @@
     Idy6: function (e, t, a) {
       'use strict';
       a.r(t);
-      a('QE6f');
-      var n = a('Xo8F'),
-        r = (a('tLCQ'), a('XYLF')),
-        c = (a('AcIj'), a('Vz9s')),
-        i = (a('1Cgs'), a('zvbH')),
-        l = (a('D2jH'), a('2ROE')),
-        s = a('VTBJ'),
-        o = a('ODXe'),
-        d = a('q1tI'),
+      a('JHCA');
+      var n = a('vTGJ'),
+        r = (a('ka6A'), a('JqU2')),
+        c = (a('17wr'), a('QKZ7')),
+        i = (a('alSR'), a('1F0g')),
+        l = (a('buIX'), a('2te2')),
+        s = a('arx1'),
+        o = a('DREN'),
+        d = a('xwgP'),
         u = a.n(d),
-        m = a('Ty5D'),
+        m = a('q5+0'),
         p = a('9kvl'),
-        g = a('bTu8'),
-        f = a('Ap4+'),
-        E = a('xqva'),
-        b = a('Ndxo'),
+        g = a('QF4/'),
+        f = a('gQRb'),
+        b = a('crqR'),
+        E = a('pFj+'),
         v = a('i7U8'),
         w =
-          "// Variables used by Scriptable.\n// These must be at the very top of the file. Do not edit.\n// icon-color: teal; icon-glyph: book-open;\n\nlet fm;\ntry {\n  fm = FileManager.iCloud();\n} catch (e) {\n  console.log('\u8bbe\u7f6e\u6587\u4ef6\u7f13\u5b58\u8def\u5f84\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5 iCloud \u6743\u9650\u662f\u5426\u5f00\u542f');\n  console.error(e);\n  fm = FileManager.local();\n}\nconst RootPath = fm.documentsDirectory();\n\nconst saveFileName = (fileName) => {\n  const hasSuffix = fileName.lastIndexOf('.') + 1;\n  return !hasSuffix ? `${fileName}.js` : fileName;\n};\n\nconst write = (fileName, content, version = '') => {\n  let file = saveFileName(fileName);\n  const filePath = fm.joinPath(RootPath, file);\n  fm.writeString(filePath, `${content}\\n//version:${version}`);\n  return true;\n};\n\nconst saveFile = async ({ moduleName, url, version }) => {\n  const req = new Request(encodeURI(url));\n  const content = await req.loadString();\n  write(`${moduleName}`, content, version);\n  return true;\n};\n\nasync function downloadWidget(widget) {\n  const text = '\u4e0b\u8f7d';\n  const a = new Alert();\n  try {\n    await saveFile({\n      moduleName: widget.name,\n      url: widget.scriptURL,\n      version: widget.version,\n    });\n    if (widget.depend) {\n      const depend = JSON.parse(widget.depend);\n      for (const dependElement of depend) {\n        await saveFile({\n          moduleName: dependElement.name,\n          url: dependElement.scriptURL,\n        });\n        console.log(`\u4f9d\u8d56\uff1a${dependElement.name}\u4e0b\u8f7d\u6210\u529f`);\n      }\n    }\n    a.message = `\u7ec4\u4ef6\u811a\u672c${widget.title}${text}\u6210\u529f\uff0c\u8bf7\u5728\u7ec4\u4ef6\u5217\u8868\u4e2d\u627e\u5230${widget.name}\u8fd0\u884c\uff01`;\n  } catch (e) {\n    console.log(e);\n    a.message = `\u7ec4\u4ef6\u811a\u672c${widget.title}${text}\u5931\u8d25!`;\n  }\n  a.addCancelAction('\u786e\u5b9a');\n  await a.presentAlert();\n  return true;\n}\n\nasync function getLocalStoreWidget(widget) {\n  const scriptPath = fm.joinPath(RootPath, `${widget.name}.js`);\n  const scriptExists = fm.fileExists(scriptPath);\n  const alreadyExistsAlert = new Alert();\n  if (scriptExists) {\n    const scriptContent = fm.readString(scriptPath);\n    const m = scriptContent.match(/version:(.*)/m);\n    if (m && m[1]) {\n      if (m[1] !== widget.version) {\n        alreadyExistsAlert.message = `\u68c0\u6d4b${widget.title}\u5b58\u5728\u65b0\u7248\u672c\uff0c\u662f\u5426\u66f4\u65b0\uff1f`;\n        alreadyExistsAlert.addAction('\u66f4\u65b0');\n        alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n      } else {\n        alreadyExistsAlert.message = `${widget.title}\u5df2\u7ecf\u662f\u6700\u65b0\u7248\u672c\uff0c\u9700\u8981\u7ee7\u7eed\u4e0b\u8f7d\u5417\uff1f`;\n        alreadyExistsAlert.addAction('\u786e\u5b9a');\n        alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n      }\n    } else {\n      alreadyExistsAlert.message = `\u786e\u5b9a\u8981\u5b89\u88c5${widget.title}\u5417\uff1f`;\n      alreadyExistsAlert.addAction('\u786e\u5b9a');\n      alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n    }\n  } else {\n    alreadyExistsAlert.message = `\u786e\u5b9a\u8981\u5b89\u88c5${widget.title}\u5417\uff1f`;\n    alreadyExistsAlert.addAction('\u786e\u5b9a');\n    alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n  }\n  if ((await alreadyExistsAlert.presentAlert()) === -1) return false;\n  await downloadWidget(widget);\n}\n\nconst present = async () => {\n  let data = args.queryParameters;\n  if (data.name && data.scriptURL && data.version) {\n    await getLocalStoreWidget(data);\n  } else {\n    const a = new Alert();\n    a.title = data.scriptURL;\n    a.message = '\u53c2\u6570\u5b58\u5728\u9519\u8bef';\n    a.addAction('\u786e\u5b9a');\n    a.addCancelAction('\u53d6\u6d88');\n    await a.presentAlert();\n    return false;\n  }\n};\n\nif (config.runsInApp) {\n  await present();\n}\n\nScript.complete();\n",
+          "// Variables used by Scriptable.\n// These must be at the very top of the file. Do not edit.\n// icon-color: teal; icon-glyph: book-open;\n\nlet fm;\ntry {\n  fm = FileManager.iCloud();\n} catch (e) {\n  console.log('\u8bbe\u7f6e\u6587\u4ef6\u7f13\u5b58\u8def\u5f84\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5 iCloud \u6743\u9650\u662f\u5426\u5f00\u542f');\n  console.error(e);\n  fm = FileManager.local();\n}\nconst RootPath = fm.documentsDirectory();\n\nconst saveFileName = (fileName) => {\n  const hasSuffix = fileName.lastIndexOf('.') + 1;\n  return !hasSuffix ? `${fileName}.js` : fileName;\n};\n\nconst write = (fileName, content, version = '') => {\n  let file = saveFileName(fileName);\n  const filePath = fm.joinPath(RootPath, file);\n  fm.writeString(filePath, `${content}\\n//version:${version}`);\n  return true;\n};\n\nconst saveFile = async ({ moduleName, url, version }) => {\n  const req = new Request(encodeURI(url));\n  const content = await req.loadString();\n  write(`${moduleName}`, content, version);\n  return true;\n};\n\nasync function downloadWidget(widget) {\n  const text = '\u4e0b\u8f7d';\n  const a = new Alert();\n  try {\n    await saveFile({\n      moduleName: widget.name,\n      url: widget.scriptURL,\n      version: widget.version,\n    });\n    if (widget.depend) {\n      const depend = JSON.parse(widget.depend);\n      for (const dependElement of depend) {\n        await saveFile({\n          moduleName: dependElement.name,\n          url: dependElement.scriptURL,\n        });\n        console.log(`\u4f9d\u8d56\uff1a${dependElement.name}\u4e0b\u8f7d\u6210\u529f`);\n      }\n    }\n    a.message = `\u7ec4\u4ef6\u811a\u672c${widget.title}${text}\u6210\u529f\uff0c\u8bf7\u5728\u7ec4\u4ef6\u5217\u8868\u4e2d\u627e\u5230${widget.name}\u8fd0\u884c\uff01`;\n  } catch (e) {\n    console.log(e);\n    a.message = `\u7ec4\u4ef6\u811a\u672c${widget.title}${text}\u5931\u8d25!`;\n  }\n  a.addCancelAction('\u786e\u5b9a');\n  await a.presentAlert();\n  return true;\n}\n\nasync function getLocalStoreWidget(widget) {\n  const scriptPath = fm.joinPath(RootPath, `${widget.name}.js`);\n  const scriptExists = fm.fileExists(scriptPath);\n  const alreadyExistsAlert = new Alert();\n  if (scriptExists) {\n    const scriptContent = fm.readString(scriptPath);\n    const m = scriptContent.match(/version:(.*)/m);\n    if (m && m[1]) {\n      if (m[1] !== widget.version) {\n        alreadyExistsAlert.message = `\u68c0\u6d4b${widget.title}\u5b58\u5728\u65b0\u7248\u672c\uff0c\u662f\u5426\u66f4\u65b0\uff1f`;\n        alreadyExistsAlert.addAction('\u66f4\u65b0');\n        alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n      } else {\n        alreadyExistsAlert.message = `${widget.title}\u5df2\u7ecf\u662f\u6700\u65b0\u7248\u672c\uff0c\u9700\u8981\u7ee7\u7eed\u4e0b\u8f7d\u5417\uff1f`;\n        alreadyExistsAlert.addAction('\u786e\u5b9a');\n        alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n      }\n    } else {\n      alreadyExistsAlert.message = `\u786e\u5b9a\u8981\u5b89\u88c5${widget.title}\u5417\uff1f`;\n      alreadyExistsAlert.addAction('\u786e\u5b9a');\n      alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n    }\n  } else {\n    alreadyExistsAlert.message = `\u786e\u5b9a\u8981\u5b89\u88c5${widget.title}\u5417\uff1f`;\n    alreadyExistsAlert.addAction('\u786e\u5b9a');\n    alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n  }\n  if ((await alreadyExistsAlert.presentAlert()) === -1) return false;\n  await downloadWidget(widget);\n}\n\nconst present = async () => {\n  let data = args.queryParameters;\n  if (data.name && data.scriptURL && data.version) {\n    await getLocalStoreWidget(data);\n  } else {\n    const a = new Alert();\n    a.title = data.scriptURL;\n    a.message = '\u8be5\u811a\u672c\u4e0d\u5728 App \u4e2d\u6267\u884c\uff0c\u8bf7\u4e0d\u7528\u8fd0\u884c\u8fd9\u6bb5\u7a0b\u5e8f';\n    a.addAction('\u786e\u5b9a');\n    a.addCancelAction('\u53d6\u6d88');\n    await a.presentAlert();\n    return false;\n  }\n};\n\nif (config.runsInApp) {\n  await present();\n}\n\nScript.complete();\n",
         h = a('0lfv'),
         y = a('bIAK'),
         x = a('I5X1'),
-        _ = a('La0L'),
-        j = a.n(_);
-      a('J/SH');
+        j = a('La0L'),
+        _ = a.n(j);
+      a('YEiO');
       g['a'].use([f['a']]);
       var O = () => {
         var e = Object(m['l'])(),
@@ -60,7 +60,7 @@
           a = e.author,
           g = Object(h['c'])(a, t),
           f = Object(x['a'])('initialiseModel', (e) => e),
-          _ = f.isScriptable,
+          j = f.isScriptable,
           O = Object(d['useState'])('\u6682\u65e0\u66f4\u65b0'),
           S = Object(o['a'])(O, 2),
           A = S[0],
@@ -85,7 +85,7 @@
             icon: u.a.createElement(l['a'], { type: 'left' }),
             onLeftClick: () => p['a'].goBack(),
           }),
-          !_ &&
+          !j &&
             u.a.createElement(
               'div',
               { style: { marginTop: 10 } },
@@ -112,13 +112,13 @@
           g
             ? u.a.createElement(
                 'div',
-                { className: j.a.container },
+                { className: _.a.container },
                 u.a.createElement(
                   r['a'],
                   { full: !0 },
                   u.a.createElement(r['a'].Header, {
                     title: '\u7ec4\u4ef6\u4fe1\u606f',
-                    extra: _
+                    extra: j
                       ? u.a.createElement(v['CustomerIcon'], {
                           icon: 'https://img.icons8.com/clouds/344/download-2.png',
                           onClick: () => {
@@ -151,7 +151,7 @@
                   }),
                   u.a.createElement(
                     r['a'].Body,
-                    { className: j.a.container_body },
+                    { className: _.a.container_body },
                     u.a.createElement(
                       n['a'],
                       { align: 'start', justify: 'start' },
@@ -159,7 +159,7 @@
                         'div',
                         null,
                         u.a.createElement('img', {
-                          className: j.a.appImg,
+                          className: _.a.appImg,
                           src: g.thumb,
                           alt: g.name,
                         }),
@@ -179,7 +179,7 @@
                           u.a.createElement(
                             'div',
                             null,
-                            u.a.createElement('h3', { className: j.a.appTitle }, g.title),
+                            u.a.createElement('h3', { className: _.a.appTitle }, g.title),
                             u.a.createElement(
                               'div',
                               { style: { textAlign: 'center', fontSize: 12 } },
@@ -190,7 +190,7 @@
                           u.a.createElement(
                             n['a'].Item,
                             null,
-                            u.a.createElement('div', { className: j.a.appDesc }, g.description),
+                            u.a.createElement('div', { className: _.a.appDesc }, g.description),
                           ),
                         ),
                       ),
@@ -213,7 +213,7 @@
                 g.images &&
                   u.a.createElement(
                     'div',
-                    { className: j.a.photos },
+                    { className: _.a.photos },
                     u.a.createElement(
                       r['a'],
                       { full: !0 },
@@ -222,11 +222,11 @@
                         r['a'].Body,
                         null,
                         u.a.createElement(
-                          E['a'],
+                          b['a'],
                           { scrollbar: { draggable: !0 }, spaceBetween: 10, slidesPerView: 1.2 },
                           g.images.map((e, t) =>
                             u.a.createElement(
-                              b['a'],
+                              E['a'],
                               { key: 'img'.concat(t) },
                               u.a.createElement('img', {
                                 style: { maxWidth: '100%', width: 'auto' },
@@ -279,10 +279,10 @@
         a.d(t, 'c', function () {
           return d;
         });
-      var n = a('o0o1'),
+      var n = a('SDju'),
         r = a.n(n),
-        c = (a('HVTF'), a('OT5E')),
-        i = a('HaE+'),
+        c = (a('P0Cl'), a('oB33')),
+        i = a('YLUp'),
         l = a('9kvl'),
         s = (function () {
           var e = Object(i['a'])(
@@ -413,38 +413,38 @@
         a.d(t, 'CustomerIcon', function () {
           return N;
         });
-      a('mw1O');
-      var n = a('nJCp'),
-        r = a('VTBJ'),
-        c = (a('tLCQ'), a('XYLF')),
-        i = a('o0o1'),
+      a('vu4r');
+      var n = a('aLjh'),
+        r = a('arx1'),
+        c = (a('ka6A'), a('JqU2')),
+        i = a('SDju'),
         l = a.n(i),
-        s = a('HaE+'),
-        o = (a('RFiq'), a('ZyfH')),
-        d = a('ODXe'),
-        u = (a('pYJI'), a('EIQY')),
-        m = (a('QE6f'), a('Xo8F')),
-        p = (a('B8GA'), a('8dL9')),
-        g = a('wx14'),
-        f = a('Ff2n'),
-        E = (a('puyI'), a('xZH1')),
-        b = a('q1tI'),
-        v = a.n(b),
-        w = a('wYyv'),
+        s = a('YLUp'),
+        o = (a('2f0q'), a('0OHd')),
+        d = a('DREN'),
+        u = (a('KNKI'), a('Qm4I')),
+        m = (a('JHCA'), a('vTGJ')),
+        p = (a('xx5R'), a('1eom')),
+        g = a('hF+B'),
+        f = a('Nx7n'),
+        b = (a('6Yi/'), a('aJ6J')),
+        E = a('xwgP'),
+        v = a.n(E),
+        w = a('F61N'),
         h = a.n(w),
-        y = a('YJCA'),
+        y = a('Wu6v'),
         x = a('R0pf'),
-        _ = a.n(x),
-        j = a('0lfv'),
+        j = a.n(x),
+        _ = a('0lfv'),
         O = a('diY3'),
         S = a('bIAK'),
-        A = E['a'].prompt,
-        N = Object(b['forwardRef'])((e, t) => {
+        A = b['a'].prompt,
+        N = Object(E['forwardRef'])((e, t) => {
           var a = e.icon,
             n = Object(f['a'])(e, ['icon']);
           return v.a.createElement(
             'img',
-            Object(g['a'])({ ref: t, className: _.a.icon, alt: '', src: a }, n),
+            Object(g['a'])({ ref: t, className: j.a.icon, alt: '', src: a }, n),
           );
         }),
         k = Object(y['c'])((e) => {
@@ -455,14 +455,14 @@
             size: 'small',
           });
         }),
-        I = (e) => {
+        C = (e) => {
           var t = e.dataSource,
             a = e.update,
             n = e.setLoading;
           return v.a.createElement(
             u['a'],
             {
-              className: _.a.subList,
+              className: j.a.subList,
               autoClose: !0,
               right: [
                 {
@@ -471,7 +471,7 @@
                     n(!0),
                     Object(O['a'])(t.url)
                       .then(() => {
-                        var e = Object(j['b'])();
+                        var e = Object(_['b'])();
                         a(e);
                       })
                       .finally(() => {
@@ -483,8 +483,8 @@
                 {
                   text: '\u5220\u9664',
                   onPress: () => {
-                    var e = Object(j['b'])();
-                    delete e[t.url], Object(j['d'])(e), a(e);
+                    var e = Object(_['b'])();
+                    delete e[t.url], Object(_['d'])(e), a(e);
                   },
                   style: { backgroundColor: 'red', color: 'white' },
                 },
@@ -494,21 +494,21 @@
             v.a.createElement(
               m['a'],
               null,
-              v.a.createElement('img', { className: _.a.avatar, alt: '', src: t.icon }),
+              v.a.createElement('img', { className: j.a.avatar, alt: '', src: t.icon }),
               v.a.createElement(
                 'div',
                 null,
                 v.a.createElement(
                   m['a'],
-                  { className: _.a.user_info, direction: 'column', justify: 'start' },
+                  { className: j.a.user_info, direction: 'column', justify: 'start' },
                   v.a.createElement(
                     'div',
-                    { className: _.a.user_title },
+                    { className: j.a.user_title },
                     t.author,
                     ' \u7ec4\u4ef6',
                   ),
                   v.a.createElement('div', null, t.repo),
-                  v.a.createElement('div', { className: _.a.user_text }, '@', t.author),
+                  v.a.createElement('div', { className: j.a.user_text }, '@', t.author),
                 ),
               ),
               v.a.createElement(k, { counts: t.counts }),
@@ -527,13 +527,13 @@
             ),
           );
         },
-        C = Object(y['b'])((e) => v.a.createElement(I, e)),
+        I = Object(y['b'])((e) => v.a.createElement(C, e)),
         L = Object(y['a'])((e) => {
           var t = e.children;
           return v.a.createElement('div', null, t);
         });
       t['default'] = () => {
-        var e = Object(j['b'])(),
+        var e = Object(_['b'])(),
           t = v.a.useState(e),
           a = Object(d['a'])(t, 2),
           i = a[0],
@@ -544,17 +544,17 @@
           f = p[1];
         return v.a.createElement(
           n['a'],
-          { className: _.a.container },
+          { className: j.a.container },
           v.a.createElement(o['a'], { toast: !0, animating: g }),
           v.a.createElement(
             c['a'],
             null,
             v.a.createElement(c['a'].Header, {
-              className: _.a.widgetTitle,
+              className: j.a.widgetTitle,
               title: '\u7ec4\u4ef6\u8ba2\u9605('.concat(Object.keys(i).length, ')'),
               extra: v.a.createElement(
                 'div',
-                { className: _.a.extra },
+                { className: j.a.extra },
                 v.a.createElement(N, {
                   icon: 'https://img.icons8.com/clouds/344/cloud-refresh.png',
                   onClick: Object(s['a'])(
@@ -575,7 +575,7 @@
                               a++, (e.next = 3);
                               break;
                             case 10:
-                              u(Object(j['b'])()), f(!1);
+                              u(Object(_['b'])()), f(!1);
                             case 12:
                             case 'end':
                               return e.stop();
@@ -600,7 +600,7 @@
                                     case 0:
                                       return f(!0), (e.next = 3), Object(O['a'])(t);
                                     case 3:
-                                      u(Object(j['b'])()), f(!1);
+                                      u(Object(_['b'])()), f(!1);
                                     case 5:
                                     case 'end':
                                       return e.stop();
@@ -625,7 +625,7 @@
                 L,
                 {
                   useDragHandle: !0,
-                  helperClass: _.a['row-dragging'],
+                  helperClass: j.a['row-dragging'],
                   onSortEnd: (t) => {
                     var a = t.oldIndex,
                       n = t.newIndex,
@@ -635,7 +635,7 @@
                     c.forEach((t) => {
                       l[t] = e[t];
                     }),
-                      Object(j['d'])(l),
+                      Object(_['d'])(l),
                       u(l);
                   },
                 },
@@ -647,7 +647,7 @@
                           {},
                           { counts: a.apps.length, url: e },
                         );
-                      return v.a.createElement(C, {
+                      return v.a.createElement(I, {
                         key: e,
                         index: t,
                         dataSource: n,
