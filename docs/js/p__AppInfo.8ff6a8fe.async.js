@@ -43,11 +43,11 @@
         g = a('QF4/'),
         f = a('gQRb'),
         b = a('crqR'),
-        E = a('pFj+'),
-        v = a('i7U8'),
-        w =
+        w = a('pFj+'),
+        E = a('i7U8'),
+        h =
           "// Variables used by Scriptable.\n// These must be at the very top of the file. Do not edit.\n// icon-color: teal; icon-glyph: book-open;\n\nlet fm;\ntry {\n  fm = FileManager.iCloud();\n} catch (e) {\n  console.log('\u8bbe\u7f6e\u6587\u4ef6\u7f13\u5b58\u8def\u5f84\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5 iCloud \u6743\u9650\u662f\u5426\u5f00\u542f');\n  console.error(e);\n  fm = FileManager.local();\n}\nconst RootPath = fm.documentsDirectory();\n\nconst saveFileName = (fileName) => {\n  const hasSuffix = fileName.lastIndexOf('.') + 1;\n  return !hasSuffix ? `${fileName}.js` : fileName;\n};\n\nconst write = (fileName, content, version = '') => {\n  let file = saveFileName(fileName);\n  const filePath = fm.joinPath(RootPath, file);\n  fm.writeString(filePath, `${content}\\n//version:${version}`);\n  return true;\n};\n\nconst saveFile = async ({ moduleName, url, version }) => {\n  const req = new Request(encodeURI(url));\n  const content = await req.loadString();\n  write(`${moduleName}`, content, version);\n  return true;\n};\n\nasync function downloadWidget(widget) {\n  const text = '\u4e0b\u8f7d';\n  const a = new Alert();\n  try {\n    await saveFile({\n      moduleName: widget.name,\n      url: widget.scriptURL,\n      version: widget.version,\n    });\n    if (widget.depend) {\n      const depend = JSON.parse(widget.depend);\n      for (const dependElement of depend) {\n        await saveFile({\n          moduleName: dependElement.name,\n          url: dependElement.scriptURL,\n        });\n        console.log(`\u4f9d\u8d56\uff1a${dependElement.name}\u4e0b\u8f7d\u6210\u529f`);\n      }\n    }\n    a.message = `\u7ec4\u4ef6\u811a\u672c${widget.title}${text}\u6210\u529f\uff0c\u8bf7\u5728\u7ec4\u4ef6\u5217\u8868\u4e2d\u627e\u5230${widget.name}\u8fd0\u884c\uff01`;\n  } catch (e) {\n    console.log(e);\n    a.message = `\u7ec4\u4ef6\u811a\u672c${widget.title}${text}\u5931\u8d25!`;\n  }\n  a.addCancelAction('\u786e\u5b9a');\n  await a.presentAlert();\n  return true;\n}\n\nasync function getLocalStoreWidget(widget) {\n  const scriptPath = fm.joinPath(RootPath, `${widget.name}.js`);\n  const scriptExists = fm.fileExists(scriptPath);\n  const alreadyExistsAlert = new Alert();\n  if (scriptExists) {\n    const scriptContent = fm.readString(scriptPath);\n    const m = scriptContent.match(/version:(.*)/m);\n    if (m && m[1]) {\n      if (m[1] !== widget.version) {\n        alreadyExistsAlert.message = `\u68c0\u6d4b${widget.title}\u5b58\u5728\u65b0\u7248\u672c\uff0c\u662f\u5426\u66f4\u65b0\uff1f`;\n        alreadyExistsAlert.addAction('\u66f4\u65b0');\n        alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n      } else {\n        alreadyExistsAlert.message = `${widget.title}\u5df2\u7ecf\u662f\u6700\u65b0\u7248\u672c\uff0c\u9700\u8981\u7ee7\u7eed\u4e0b\u8f7d\u5417\uff1f`;\n        alreadyExistsAlert.addAction('\u786e\u5b9a');\n        alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n      }\n    } else {\n      alreadyExistsAlert.message = `\u786e\u5b9a\u8981\u5b89\u88c5${widget.title}\u5417\uff1f`;\n      alreadyExistsAlert.addAction('\u786e\u5b9a');\n      alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n    }\n  } else {\n    alreadyExistsAlert.message = `\u786e\u5b9a\u8981\u5b89\u88c5${widget.title}\u5417\uff1f`;\n    alreadyExistsAlert.addAction('\u786e\u5b9a');\n    alreadyExistsAlert.addCancelAction('\u53d6\u6d88');\n  }\n  if ((await alreadyExistsAlert.presentAlert()) === -1) return false;\n  await downloadWidget(widget);\n}\n\nconst present = async () => {\n  let data = args.queryParameters;\n  if (data.name && data.scriptURL && data.version) {\n    await getLocalStoreWidget(data);\n  } else {\n    const a = new Alert();\n    a.title = data.scriptURL;\n    a.message = '\u8be5\u811a\u672c\u4e0d\u5728 App \u4e2d\u6267\u884c\uff0c\u8bf7\u4e0d\u7528\u8fd0\u884c\u8fd9\u6bb5\u7a0b\u5e8f';\n    a.addAction('\u786e\u5b9a');\n    a.addCancelAction('\u53d6\u6d88');\n    await a.presentAlert();\n    return false;\n  }\n};\n\nif (config.runsInApp) {\n  await present();\n}\n\nScript.complete();\n",
-        h = a('0lfv'),
+        v = a('0lfv'),
         y = a('bIAK'),
         x = a('I5X1'),
         j = a('La0L'),
@@ -58,7 +58,7 @@
         var e = Object(m['l'])(),
           t = e.appId,
           a = e.author,
-          g = Object(h['c'])(a, t),
+          g = Object(v['c'])(a, t),
           f = Object(x['a'])('initialiseModel', (e) => e),
           j = f.isScriptable,
           O = Object(d['useState'])('\u6682\u65e0\u66f4\u65b0'),
@@ -98,9 +98,12 @@
                     'span',
                     {
                       onClick: () => {
-                        window.Clipboard.copy(w);
-                        var e = document.createElement('a');
-                        (e.href = 'scriptable:///add'), e.click();
+                        window.Clipboard.copy(h),
+                          (window.location.href = 'scriptable:///add'),
+                          window.setTimeout(() => {
+                            window.location.href =
+                              'https://apps.apple.com/us/app/scriptable/id1405459188';
+                          }, 2e3);
                       },
                     },
                     '\u590d\u5236',
@@ -119,7 +122,7 @@
                   u.a.createElement(r['a'].Header, {
                     title: '\u7ec4\u4ef6\u4fe1\u606f',
                     extra: j
-                      ? u.a.createElement(v['CustomerIcon'], {
+                      ? u.a.createElement(E['CustomerIcon'], {
                           icon: 'https://img.icons8.com/clouds/344/download-2.png',
                           onClick: () => {
                             var e = new CustomEvent('catalog-event', {
@@ -134,17 +137,22 @@
                           },
                         })
                       : u.a.createElement(
-                          'a',
+                          'span',
                           {
-                            href: 'scriptable:///run?scriptName=WebStore&title='
-                              .concat(g.title, '&name=')
-                              .concat(g.name, '&scriptURL=')
-                              .concat(g.scriptURL, '&version=')
-                              .concat(g.version)
-                              .concat(k),
-                            download: ''.concat(g.name, '.js'),
+                            onClick: () => {
+                              (window.location.href = 'scriptable:///run?scriptName=WebStore&title='
+                                .concat(g.title, '&name=')
+                                .concat(g.name, '&scriptURL=')
+                                .concat(g.scriptURL, '&version=')
+                                .concat(g.version)
+                                .concat(k)),
+                                window.setTimeout(() => {
+                                  window.location.href =
+                                    'https://apps.apple.com/us/app/scriptable/id1405459188';
+                                }, 2e3);
+                            },
                           },
-                          u.a.createElement(v['CustomerIcon'], {
+                          u.a.createElement(E['CustomerIcon'], {
                             icon: 'https://img.icons8.com/clouds/344/download-2.png',
                           }),
                         ),
@@ -226,7 +234,7 @@
                           { scrollbar: { draggable: !0 }, spaceBetween: 10, slidesPerView: 1.2 },
                           g.images.map((e, t) =>
                             u.a.createElement(
-                              E['a'],
+                              w['a'],
                               { key: 'img'.concat(t) },
                               u.a.createElement('img', {
                                 style: { maxWidth: '100%', width: 'auto' },
@@ -428,10 +436,10 @@
         g = a('hF+B'),
         f = a('Nx7n'),
         b = (a('6Yi/'), a('aJ6J')),
-        E = a('xwgP'),
-        v = a.n(E),
-        w = a('F61N'),
-        h = a.n(w),
+        w = a('xwgP'),
+        E = a.n(w),
+        h = a('F61N'),
+        v = a.n(h),
         y = a('Wu6v'),
         x = a('R0pf'),
         j = a.n(x),
@@ -439,17 +447,17 @@
         O = a('diY3'),
         S = a('bIAK'),
         A = b['a'].prompt,
-        N = Object(E['forwardRef'])((e, t) => {
+        N = Object(w['forwardRef'])((e, t) => {
           var a = e.icon,
             n = Object(f['a'])(e, ['icon']);
-          return v.a.createElement(
+          return E.a.createElement(
             'img',
             Object(g['a'])({ ref: t, className: j.a.icon, alt: '', src: a }, n),
           );
         }),
         k = Object(y['c'])((e) => {
           var t = e.counts;
-          return v.a.createElement(p['a'], {
+          return E.a.createElement(p['a'], {
             style: { userSelect: 'none' },
             text: t,
             size: 'small',
@@ -459,7 +467,7 @@
           var t = e.dataSource,
             a = e.update,
             n = e.setLoading;
-          return v.a.createElement(
+          return E.a.createElement(
             u['a'],
             {
               className: j.a.subList,
@@ -491,34 +499,34 @@
               ],
               style: { marginBottom: 10, padding: '10px 0' },
             },
-            v.a.createElement(
+            E.a.createElement(
               m['a'],
               null,
-              v.a.createElement('img', { className: j.a.avatar, alt: '', src: t.icon }),
-              v.a.createElement(
+              E.a.createElement('img', { className: j.a.avatar, alt: '', src: t.icon }),
+              E.a.createElement(
                 'div',
                 null,
-                v.a.createElement(
+                E.a.createElement(
                   m['a'],
                   { className: j.a.user_info, direction: 'column', justify: 'start' },
-                  v.a.createElement(
+                  E.a.createElement(
                     'div',
                     { className: j.a.user_title },
                     t.author,
                     ' \u7ec4\u4ef6',
                   ),
-                  v.a.createElement('div', null, t.repo),
-                  v.a.createElement('div', { className: j.a.user_text }, '@', t.author),
+                  E.a.createElement('div', null, t.repo),
+                  E.a.createElement('div', { className: j.a.user_text }, '@', t.author),
                 ),
               ),
-              v.a.createElement(k, { counts: t.counts }),
-              v.a.createElement(
+              E.a.createElement(k, { counts: t.counts }),
+              E.a.createElement(
                 'div',
                 { style: { marginLeft: 'auto' } },
-                v.a.createElement(
+                E.a.createElement(
                   'a',
                   { href: t.repo, target: '_blank' },
-                  v.a.createElement(N, {
+                  E.a.createElement(N, {
                     icon: 'https://img.icons8.com/clouds/344/github.png',
                     style: { width: '3rem', height: '3rem' },
                   }),
@@ -527,35 +535,35 @@
             ),
           );
         },
-        I = Object(y['b'])((e) => v.a.createElement(C, e)),
+        I = Object(y['b'])((e) => E.a.createElement(C, e)),
         L = Object(y['a'])((e) => {
           var t = e.children;
-          return v.a.createElement('div', null, t);
+          return E.a.createElement('div', null, t);
         });
       t['default'] = () => {
         var e = Object(_['b'])(),
-          t = v.a.useState(e),
+          t = E.a.useState(e),
           a = Object(d['a'])(t, 2),
           i = a[0],
           u = a[1],
-          m = v.a.useState(!1),
+          m = E.a.useState(!1),
           p = Object(d['a'])(m, 2),
           g = p[0],
           f = p[1];
-        return v.a.createElement(
+        return E.a.createElement(
           n['a'],
           { className: j.a.container },
-          v.a.createElement(o['a'], { toast: !0, animating: g }),
-          v.a.createElement(
+          E.a.createElement(o['a'], { toast: !0, animating: g }),
+          E.a.createElement(
             c['a'],
             null,
-            v.a.createElement(c['a'].Header, {
+            E.a.createElement(c['a'].Header, {
               className: j.a.widgetTitle,
               title: '\u7ec4\u4ef6\u8ba2\u9605('.concat(Object.keys(i).length, ')'),
-              extra: v.a.createElement(
+              extra: E.a.createElement(
                 'div',
                 { className: j.a.extra },
-                v.a.createElement(N, {
+                E.a.createElement(N, {
                   icon: 'https://img.icons8.com/clouds/344/cloud-refresh.png',
                   onClick: Object(s['a'])(
                     l.a.mark(function e() {
@@ -584,7 +592,7 @@
                     }),
                   ),
                 }),
-                v.a.createElement(N, {
+                E.a.createElement(N, {
                   icon: 'https://img.icons8.com/clouds/344/add.png',
                   onClick: () =>
                     A('\u8f93\u5165\u7ec4\u4ef6\u8ba2\u9605\u5730\u5740', '', [
@@ -618,10 +626,10 @@
                 }),
               ),
             }),
-            v.a.createElement(
+            E.a.createElement(
               c['a'].Body,
               { style: { minHeight: 100 } },
-              v.a.createElement(
+              E.a.createElement(
                 L,
                 {
                   useDragHandle: !0,
@@ -630,7 +638,7 @@
                     var a = t.oldIndex,
                       n = t.newIndex,
                       r = Object.keys(i),
-                      c = h()(r, a, n),
+                      c = v()(r, a, n),
                       l = {};
                     c.forEach((t) => {
                       l[t] = e[t];
@@ -647,7 +655,7 @@
                           {},
                           { counts: a.apps.length, url: e },
                         );
-                      return v.a.createElement(I, {
+                      return E.a.createElement(I, {
                         key: e,
                         index: t,
                         dataSource: n,
@@ -655,7 +663,7 @@
                         setLoading: f,
                       });
                     })
-                  : v.a.createElement(
+                  : E.a.createElement(
                       S['a'],
                       { style: { height: '5rem' } },
                       '\u6682\u672a\u6dfb\u52a0\u76f8\u5173\u8ba2\u9605',

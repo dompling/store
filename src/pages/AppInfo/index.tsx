@@ -52,9 +52,10 @@ const AppInfo: FC<IRouteComponentProps> = () => {
               <span
                 onClick={() => {
                   window.Clipboard.copy(webStore);
-                  const a: any = document.createElement('a');
-                  a.href = 'scriptable:///add';
-                  a.click();
+                  window.location.href = 'scriptable:///add';
+                  window.setTimeout(() => {
+                    window.location.href = 'https://apps.apple.com/us/app/scriptable/id1405459188';
+                  }, 2000);
                 }}
               >
                 复制
@@ -87,12 +88,17 @@ const AppInfo: FC<IRouteComponentProps> = () => {
                     }}
                   />
                 ) : (
-                  <a
-                    href={`scriptable:///run?scriptName=WebStore&title=${appInfo.title}&name=${appInfo.name}&scriptURL=${appInfo.scriptURL}&version=${appInfo.version}${depend}`}
-                    download={`${appInfo.name}.js`}
+                  <span
+                    onClick={() => {
+                      window.location.href = `scriptable:///run?scriptName=WebStore&title=${appInfo.title}&name=${appInfo.name}&scriptURL=${appInfo.scriptURL}&version=${appInfo.version}${depend}`;
+                      window.setTimeout(() => {
+                        window.location.href =
+                          'https://apps.apple.com/us/app/scriptable/id1405459188';
+                      }, 2000);
+                    }}
                   >
                     <CustomerIcon icon={'https://img.icons8.com/clouds/344/download-2.png'} />
-                  </a>
+                  </span>
                 )
               }
             />
