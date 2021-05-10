@@ -15,7 +15,7 @@
         d = n.n(h),
         f = n('0dFU'),
         p = n.n(f),
-        g = n('iczh'),
+        g = n('jK+o'),
         v = n.n(g),
         b = n('xwgP'),
         m = function (e, t) {
@@ -217,8 +217,8 @@
         }
         return t;
       }
-      var G = { all: O, vertical: w, horizontal: x },
-        W = (function (e) {
+      var A = { all: O, vertical: w, horizontal: x },
+        G = (function (e) {
           function t(e) {
             a()(this, t);
             var n = u()(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));
@@ -459,7 +459,7 @@
                   ? 'pan-y'
                   : 'auto';
               }),
-              (n.directionSetting = G[e.direction]),
+              (n.directionSetting = A[e.direction]),
               n
             );
           }
@@ -494,8 +494,8 @@
             t
           );
         })(f['Component']);
-      t['a'] = W;
-      W.defaultProps = { enableRotate: !1, enablePinch: !1, direction: 'all' };
+      t['a'] = G;
+      G.defaultProps = { enableRotate: !1, enablePinch: !1, direction: 'all' };
     },
     F61N: function (e, t, n) {
       'use strict';
@@ -525,7 +525,7 @@
         l = n.n(s),
         c = n('0dFU'),
         u = n.n(c),
-        h = n('iczh'),
+        h = n('jK+o'),
         d = n.n(h),
         f = n('bS4n'),
         p = n.n(f),
@@ -852,9 +852,9 @@
         n.d(t, 'c', function () {
           return X;
         });
-      var o = n('hF+B'),
-        i = n('DREN'),
-        r = n('fdbh');
+      var o = n('DJqP'),
+        i = n('Wval'),
+        r = n('Va47');
       function a(e) {
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? Object(arguments[t]) : {},
@@ -871,19 +871,19 @@
         }
         return e;
       }
-      var s = n('MD6V'),
-        l = n('rPbD'),
-        c = n('x78M'),
-        u = n('/Ytf'),
-        h = n('43jC'),
-        d = n('IDEi'),
+      var s = n('EiJX'),
+        l = n('o7aH'),
+        c = n('rBpl'),
+        u = n('OALN'),
+        h = n('51Kb'),
+        d = n('7XlJ'),
         f = n('xwgP'),
         p = n('EH+i'),
         g = n.n(p),
         v = n('fK+4'),
         b = n('dVxg'),
         m = n.n(b),
-        y = n('WMiQ'),
+        y = n('5+eA'),
         x = (function () {
           function e() {
             Object(s['a'])(this, e), Object(r['a'])(this, 'refs', {});
@@ -1021,18 +1021,18 @@
       function L(e) {
         return (e.touches && e.touches.length) || (e.changedTouches && e.changedTouches.length);
       }
-      function G(e, t) {
+      function A(e, t) {
         var n =
           arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : { left: 0, top: 0 };
         if (e) {
           var o = { left: n.left + e.offsetLeft, top: n.top + e.offsetTop };
-          return e.parentNode === t ? o : G(e.parentNode, t, o);
+          return e.parentNode === t ? o : A(e.parentNode, t, o);
         }
       }
-      function W(e, t, n) {
+      function G(e, t, n) {
         return e < n && e > t ? e - 1 : e > n && e < t ? e + 1 : e;
       }
-      function A(e) {
+      function W(e) {
         var t = e.lockOffset,
           n = e.width,
           o = e.height,
@@ -1070,8 +1070,8 @@
           s = a[0],
           l = a[1];
         return [
-          A({ height: t, lockOffset: s, width: n }),
-          A({ height: t, lockOffset: l, width: n }),
+          W({ height: t, lockOffset: s, width: n }),
+          W({ height: t, lockOffset: l, width: n }),
         ];
       }
       function K(e) {
@@ -1082,17 +1082,17 @@
           return n.test(t[e]);
         });
       }
-      function B(e) {
-        return e instanceof HTMLElement ? (K(e) ? e : B(e.parentNode)) : null;
-      }
       function H(e) {
+        return e instanceof HTMLElement ? (K(e) ? e : H(e.parentNode)) : null;
+      }
+      function B(e) {
         var t = window.getComputedStyle(e);
         return 'grid' === t.display
           ? { x: P(t.gridColumnGap), y: P(t.gridRowGap) }
           : { x: 0, y: 0 };
       }
-      var F = { TAB: 9, ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
-        U = {
+      var U = { TAB: 9, ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
+        F = {
           Anchor: 'A',
           Button: 'BUTTON',
           Canvas: 'CANVAS',
@@ -1111,7 +1111,7 @@
             if (
               ('file' !== e.type && (e.value = n[t].value),
               'radio' === e.type && e.name && (e.name = '__sortableClone__'.concat(e.name)),
-              e.tagName === U.Canvas && n[t].width > 0 && n[t].height > 0)
+              e.tagName === F.Canvas && n[t].width > 0 && n[t].height > 0)
             ) {
               var o = e.getContext('2d');
               o.drawImage(n[t], 0, 0);
@@ -1125,46 +1125,47 @@
           n,
           i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : { withRef: !1 };
         return (
-          (n = t = (function (t) {
-            function n() {
+          (n = t =
+            (function (t) {
+              function n() {
+                return (
+                  Object(s['a'])(this, n),
+                  Object(c['a'])(this, Object(u['a'])(n).apply(this, arguments))
+                );
+              }
               return (
-                Object(s['a'])(this, n),
-                Object(c['a'])(this, Object(u['a'])(n).apply(this, arguments))
+                Object(h['a'])(n, t),
+                Object(l['a'])(n, [
+                  {
+                    key: 'componentDidMount',
+                    value: function () {
+                      var e = Object(v['findDOMNode'])(this);
+                      e.sortableHandle = !0;
+                    },
+                  },
+                  {
+                    key: 'getWrappedInstance',
+                    value: function () {
+                      return (
+                        m()(
+                          i.withRef,
+                          'To access the wrapped instance, you need to pass in {withRef: true} as the second argument of the SortableHandle() call',
+                        ),
+                        this.refs.wrappedInstance
+                      );
+                    },
+                  },
+                  {
+                    key: 'render',
+                    value: function () {
+                      var t = i.withRef ? 'wrappedInstance' : null;
+                      return Object(f['createElement'])(e, Object(o['a'])({ ref: t }, this.props));
+                    },
+                  },
+                ]),
+                n
               );
-            }
-            return (
-              Object(h['a'])(n, t),
-              Object(l['a'])(n, [
-                {
-                  key: 'componentDidMount',
-                  value: function () {
-                    var e = Object(v['findDOMNode'])(this);
-                    e.sortableHandle = !0;
-                  },
-                },
-                {
-                  key: 'getWrappedInstance',
-                  value: function () {
-                    return (
-                      m()(
-                        i.withRef,
-                        'To access the wrapped instance, you need to pass in {withRef: true} as the second argument of the SortableHandle() call',
-                      ),
-                      this.refs.wrappedInstance
-                    );
-                  },
-                },
-                {
-                  key: 'render',
-                  value: function () {
-                    var t = i.withRef ? 'wrappedInstance' : null;
-                    return Object(f['createElement'])(e, Object(o['a'])({ ref: t }, this.props));
-                  },
-                },
-              ]),
-              n
-            );
-          })(f['Component'])),
+            })(f['Component'])),
           Object(r['a'])(t, 'displayName', R('sortableHandle', e)),
           n
         );
@@ -1236,7 +1237,7 @@
         return { height: t.offsetHeight, width: t.offsetWidth };
       }
       function J(e) {
-        var t = [U.Input, U.Textarea, U.Select, U.Option, U.Button];
+        var t = [F.Input, F.Textarea, F.Select, F.Option, F.Button];
         return (
           -1 !== t.indexOf(e.target.tagName) ||
           !!k(e.target, function (e) {
@@ -1285,11 +1286,11 @@
           useWindowAsScrollContainer: g.a.bool,
         },
         $ = {
-          lift: [F.SPACE],
-          drop: [F.SPACE],
-          cancel: [F.ESC],
-          up: [F.UP, F.LEFT],
-          down: [F.DOWN, F.RIGHT],
+          lift: [U.SPACE],
+          drop: [U.SPACE],
+          cancel: [U.ESC],
+          up: [U.UP, U.LEFT],
+          down: [U.DOWN, U.RIGHT],
         },
         Z = {
           axis: 'y',
@@ -1326,673 +1327,684 @@
           n,
           p = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : { withRef: !1 };
         return (
-          (n = t = (function (t) {
-            function n(e) {
-              var t;
-              return (
-                Object(s['a'])(this, n),
-                (t = Object(c['a'])(this, Object(u['a'])(n).call(this, e))),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'state', {}),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleStart', function (e) {
-                  var n = t.props,
-                    o = n.distance,
-                    i = n.shouldCancelStart;
-                  if (2 !== e.button && !i(e)) {
-                    (t.touched = !0), (t.position = D(e));
-                    var r = k(e.target, function (e) {
-                      return null != e.sortableInfo;
-                    });
-                    if (r && r.sortableInfo && t.nodeIsChild(r) && !t.state.sorting) {
-                      var a = t.props.useDragHandle,
-                        s = r.sortableInfo,
-                        l = s.index,
-                        c = s.collection,
-                        u = s.disabled;
-                      if (u) return;
-                      if (a && !k(e.target, Y)) return;
-                      (t.manager.active = { collection: c, index: l }),
-                        L(e) || e.target.tagName !== U.Anchor || e.preventDefault(),
-                        o ||
-                          (0 === t.props.pressDelay
-                            ? t.handlePress(e)
-                            : (t.pressTimer = setTimeout(function () {
-                                return t.handlePress(e);
-                              }, t.props.pressDelay)));
-                    }
-                  }
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'nodeIsChild', function (e) {
-                  return e.sortableInfo.manager === t.manager;
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleMove', function (e) {
-                  var n = t.props,
-                    o = n.distance,
-                    i = n.pressThreshold;
-                  if (!t.state.sorting && t.touched && !t._awaitingUpdateBeforeSortStart) {
-                    var r = D(e),
-                      a = { x: t.position.x - r.x, y: t.position.y - r.y },
-                      s = Math.abs(a.x) + Math.abs(a.y);
-                    (t.delta = a),
-                      o || (i && !(s >= i))
-                        ? o && s >= o && t.manager.isActive() && t.handlePress(e)
-                        : (clearTimeout(t.cancelTimer), (t.cancelTimer = setTimeout(t.cancel, 0)));
-                  }
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleEnd', function () {
-                  (t.touched = !1), t.cancel();
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'cancel', function () {
-                  var e = t.props.distance,
-                    n = t.state.sorting;
-                  n || (e || clearTimeout(t.pressTimer), (t.manager.active = null));
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handlePress', function (e) {
-                  try {
-                    var n = t.manager.getActive(),
-                      o = (function () {
-                        if (n) {
-                          var o = function () {
-                              var n = f.sortableInfo.index,
-                                o = M(f),
-                                i = H(t.container),
-                                u = t.scrollContainer.getBoundingClientRect(),
-                                v = s({ index: n, node: f, collection: p });
-                              if (
-                                ((t.node = f),
-                                (t.margin = o),
-                                (t.gridGap = i),
-                                (t.width = v.width),
-                                (t.height = v.height),
-                                (t.marginOffset = {
-                                  x: t.margin.left + t.margin.right + t.gridGap.x,
-                                  y: Math.max(t.margin.top, t.margin.bottom, t.gridGap.y),
-                                }),
-                                (t.boundingClientRect = f.getBoundingClientRect()),
-                                (t.containerBoundingRect = u),
-                                (t.index = n),
-                                (t.newIndex = n),
-                                (t.axis = { x: r.indexOf('x') >= 0, y: r.indexOf('y') >= 0 }),
-                                (t.offsetEdge = G(f, t.container)),
-                                (t.initialOffset = D(
-                                  g
-                                    ? a({}, e, {
-                                        pageX: t.boundingClientRect.left,
-                                        pageY: t.boundingClientRect.top,
-                                      })
-                                    : e,
-                                )),
-                                (t.initialScroll = {
-                                  left: t.scrollContainer.scrollLeft,
-                                  top: t.scrollContainer.scrollTop,
-                                }),
-                                (t.initialWindowScroll = {
-                                  left: window.pageXOffset,
-                                  top: window.pageYOffset,
-                                }),
-                                (t.helper = t.helperContainer.appendChild(z(f))),
-                                T(t.helper, {
-                                  boxSizing: 'border-box',
-                                  height: ''.concat(t.height, 'px'),
-                                  left: ''.concat(t.boundingClientRect.left - o.left, 'px'),
-                                  pointerEvents: 'none',
-                                  position: 'fixed',
-                                  top: ''.concat(t.boundingClientRect.top - o.top, 'px'),
-                                  width: ''.concat(t.width, 'px'),
-                                }),
-                                g && t.helper.focus(),
-                                c &&
-                                  ((t.sortableGhost = f),
-                                  T(f, { opacity: 0, visibility: 'hidden' })),
-                                (t.minTranslate = {}),
-                                (t.maxTranslate = {}),
-                                g)
-                              ) {
-                                var b = d
-                                    ? {
-                                        top: 0,
-                                        left: 0,
-                                        width: t.contentWindow.innerWidth,
-                                        height: t.contentWindow.innerHeight,
-                                      }
-                                    : t.containerBoundingRect,
-                                  m = b.top,
-                                  y = b.left,
-                                  x = b.width,
-                                  w = b.height,
-                                  O = m + w,
-                                  C = y + x;
-                                t.axis.x &&
-                                  ((t.minTranslate.x = y - t.boundingClientRect.left),
-                                  (t.maxTranslate.x = C - (t.boundingClientRect.left + t.width))),
-                                  t.axis.y &&
-                                    ((t.minTranslate.y = m - t.boundingClientRect.top),
-                                    (t.maxTranslate.y = O - (t.boundingClientRect.top + t.height)));
-                              } else
-                                t.axis.x &&
-                                  ((t.minTranslate.x =
-                                    (d ? 0 : u.left) - t.boundingClientRect.left - t.width / 2),
-                                  (t.maxTranslate.x =
-                                    (d ? t.contentWindow.innerWidth : u.left + u.width) -
-                                    t.boundingClientRect.left -
-                                    t.width / 2)),
-                                  t.axis.y &&
-                                    ((t.minTranslate.y =
-                                      (d ? 0 : u.top) - t.boundingClientRect.top - t.height / 2),
-                                    (t.maxTranslate.y =
-                                      (d ? t.contentWindow.innerHeight : u.top + u.height) -
-                                      t.boundingClientRect.top -
-                                      t.height / 2));
-                              l &&
-                                l.split(' ').forEach(function (e) {
-                                  return t.helper.classList.add(e);
-                                }),
-                                (t.listenerNode = e.touches ? f : t.contentWindow),
-                                g
-                                  ? (t.listenerNode.addEventListener('wheel', t.handleKeyEnd, !0),
-                                    t.listenerNode.addEventListener(
-                                      'mousedown',
-                                      t.handleKeyEnd,
-                                      !0,
-                                    ),
-                                    t.listenerNode.addEventListener('keydown', t.handleKeyDown))
-                                  : (S.move.forEach(function (e) {
-                                      return t.listenerNode.addEventListener(
-                                        e,
-                                        t.handleSortMove,
-                                        !1,
-                                      );
-                                    }),
-                                    S.end.forEach(function (e) {
-                                      return t.listenerNode.addEventListener(
-                                        e,
-                                        t.handleSortEnd,
-                                        !1,
-                                      );
-                                    })),
-                                t.setState({ sorting: !0, sortingIndex: n }),
-                                h &&
-                                  h(
-                                    {
-                                      node: f,
-                                      index: n,
-                                      collection: p,
-                                      isKeySorting: g,
-                                      nodes: t.manager.getOrderedRefs(),
-                                      helper: t.helper,
-                                    },
-                                    e,
-                                  ),
-                                g && t.keyMove(0);
-                            },
-                            i = t.props,
-                            r = i.axis,
-                            s = i.getHelperDimensions,
-                            l = i.helperClass,
-                            c = i.hideSortableGhost,
-                            u = i.updateBeforeSortStart,
-                            h = i.onSortStart,
-                            d = i.useWindowAsScrollContainer,
-                            f = n.node,
-                            p = n.collection,
-                            g = t.manager.isKeySorting,
-                            v = (function () {
-                              if ('function' === typeof u) {
-                                t._awaitingUpdateBeforeSortStart = !0;
-                                var n = ne(
-                                  function () {
-                                    var t = f.sortableInfo.index;
-                                    return Promise.resolve(
-                                      u({ collection: p, index: t, node: f, isKeySorting: g }, e),
-                                    ).then(function () {});
-                                  },
-                                  function (e, n) {
-                                    if (((t._awaitingUpdateBeforeSortStart = !1), e)) throw n;
-                                    return n;
-                                  },
-                                );
-                                if (n && n.then) return n.then(function () {});
-                              }
-                            })();
-                          return v && v.then ? v.then(o) : o(v);
-                        }
-                      })();
-                    return Promise.resolve(o && o.then ? o.then(function () {}) : void 0);
-                  } catch (i) {
-                    return Promise.reject(i);
-                  }
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleSortMove', function (e) {
-                  var n = t.props.onSortMove;
-                  'function' === typeof e.preventDefault && e.preventDefault(),
-                    t.updateHelperPosition(e),
-                    t.animateNodes(),
-                    t.autoscroll(),
-                    n && n(e);
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleSortEnd', function (e) {
-                  var n = t.props,
-                    o = n.hideSortableGhost,
-                    i = n.onSortEnd,
-                    r = t.manager,
-                    a = r.active.collection,
-                    s = r.isKeySorting,
-                    l = t.manager.getOrderedRefs();
-                  t.listenerNode &&
-                    (s
-                      ? (t.listenerNode.removeEventListener('wheel', t.handleKeyEnd, !0),
-                        t.listenerNode.removeEventListener('mousedown', t.handleKeyEnd, !0),
-                        t.listenerNode.removeEventListener('keydown', t.handleKeyDown))
-                      : (S.move.forEach(function (e) {
-                          return t.listenerNode.removeEventListener(e, t.handleSortMove);
-                        }),
-                        S.end.forEach(function (e) {
-                          return t.listenerNode.removeEventListener(e, t.handleSortEnd);
-                        }))),
-                    t.helper.parentNode.removeChild(t.helper),
-                    o && t.sortableGhost && T(t.sortableGhost, { opacity: '', visibility: '' });
-                  for (var c = 0, u = l.length; c < u; c++) {
-                    var h = l[c],
-                      d = h.node;
-                    (h.edgeOffset = null),
-                      (h.boundingClientRect = null),
-                      E(d, null),
-                      j(d, null),
-                      (h.translate = null);
-                  }
-                  t.autoScroller.clear(),
-                    (t.manager.active = null),
-                    (t.manager.isKeySorting = !1),
-                    t.setState({ sorting: !1, sortingIndex: null }),
-                    'function' === typeof i &&
-                      i(
-                        {
-                          collection: a,
-                          newIndex: t.newIndex,
-                          oldIndex: t.index,
-                          isKeySorting: s,
-                          nodes: l,
-                        },
-                        e,
-                      ),
-                    (t.touched = !1);
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'autoscroll', function () {
-                  var e = t.props.disableAutoscroll,
-                    n = t.manager.isKeySorting;
-                  if (e) t.autoScroller.clear();
-                  else {
-                    if (n) {
-                      var o = a({}, t.translate),
-                        i = 0,
-                        r = 0;
-                      return (
-                        t.axis.x &&
-                          ((o.x = Math.min(
-                            t.maxTranslate.x,
-                            Math.max(t.minTranslate.x, t.translate.x),
-                          )),
-                          (i = t.translate.x - o.x)),
-                        t.axis.y &&
-                          ((o.y = Math.min(
-                            t.maxTranslate.y,
-                            Math.max(t.minTranslate.y, t.translate.y),
-                          )),
-                          (r = t.translate.y - o.y)),
-                        (t.translate = o),
-                        E(t.helper, t.translate),
-                        (t.scrollContainer.scrollLeft += i),
-                        void (t.scrollContainer.scrollTop += r)
-                      );
-                    }
-                    t.autoScroller.update({
-                      height: t.height,
-                      maxTranslate: t.maxTranslate,
-                      minTranslate: t.minTranslate,
-                      translate: t.translate,
-                      width: t.width,
-                    });
-                  }
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'onAutoScroll', function (e) {
-                  (t.translate.x += e.left), (t.translate.y += e.top), t.animateNodes();
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleKeyDown', function (e) {
-                  var n = e.keyCode,
-                    o = t.props,
-                    i = o.shouldCancelStart,
-                    r = o.keyCodes,
-                    s = void 0 === r ? {} : r,
-                    l = a({}, $, s);
-                  (t.manager.active && !t.manager.isKeySorting) ||
-                    !(
-                      t.manager.active ||
-                      (l.lift.includes(n) && !i(e) && t.isValidSortingTarget(e))
-                    ) ||
-                    (e.stopPropagation(),
-                    e.preventDefault(),
-                    l.lift.includes(n) && !t.manager.active
-                      ? t.keyLift(e)
-                      : l.drop.includes(n) && t.manager.active
-                      ? t.keyDrop(e)
-                      : l.cancel.includes(n)
-                      ? ((t.newIndex = t.manager.active.index), t.keyDrop(e))
-                      : l.up.includes(n)
-                      ? t.keyMove(-1)
-                      : l.down.includes(n) && t.keyMove(1));
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'keyLift', function (e) {
-                  var n = e.target,
-                    o = k(n, function (e) {
-                      return null != e.sortableInfo;
-                    }),
-                    i = o.sortableInfo,
-                    r = i.index,
-                    a = i.collection;
-                  (t.initialFocusedNode = n),
-                    (t.manager.isKeySorting = !0),
-                    (t.manager.active = { index: r, collection: a }),
-                    t.handlePress(e);
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'keyMove', function (e) {
-                  var n = t.manager.getOrderedRefs(),
-                    o = n[n.length - 1].node.sortableInfo.index,
-                    i = t.newIndex + e,
-                    r = t.newIndex;
-                  if (!(i < 0 || i > o)) {
-                    (t.prevIndex = r), (t.newIndex = i);
-                    var a = W(t.newIndex, t.prevIndex, t.index),
-                      s = n.find(function (e) {
-                        var t = e.node;
-                        return t.sortableInfo.index === a;
-                      }),
-                      l = s.node,
-                      c = t.containerScrollDelta,
-                      u = s.boundingClientRect || N(l, c),
-                      h = s.translate || { x: 0, y: 0 },
-                      d = { top: u.top + h.y - c.top, left: u.left + h.x - c.left },
-                      f = r < i,
-                      p = {
-                        x: f && t.axis.x ? l.offsetWidth - t.width : 0,
-                        y: f && t.axis.y ? l.offsetHeight - t.height : 0,
-                      };
-                    t.handleSortMove({
-                      pageX: d.left + p.x,
-                      pageY: d.top + p.y,
-                      ignoreTransition: 0 === e,
-                    });
-                  }
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'keyDrop', function (e) {
-                  t.handleSortEnd(e), t.initialFocusedNode && t.initialFocusedNode.focus();
-                }),
-                Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleKeyEnd', function (e) {
-                  t.manager.active && t.keyDrop(e);
-                }),
-                Object(r['a'])(
-                  Object(d['a'])(Object(d['a'])(t)),
-                  'isValidSortingTarget',
-                  function (e) {
-                    var n = t.props.useDragHandle,
-                      o = e.target,
-                      i = k(o, function (e) {
+          (n = t =
+            (function (t) {
+              function n(e) {
+                var t;
+                return (
+                  Object(s['a'])(this, n),
+                  (t = Object(c['a'])(this, Object(u['a'])(n).call(this, e))),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'state', {}),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleStart', function (e) {
+                    var n = t.props,
+                      o = n.distance,
+                      i = n.shouldCancelStart;
+                    if (2 !== e.button && !i(e)) {
+                      (t.touched = !0), (t.position = D(e));
+                      var r = k(e.target, function (e) {
                         return null != e.sortableInfo;
                       });
-                    return (
-                      i && i.sortableInfo && !i.sortableInfo.disabled && (n ? Y(o) : o.sortableInfo)
-                    );
-                  },
-                ),
-                te(e),
-                (t.manager = new x()),
-                (t.events = { end: t.handleEnd, move: t.handleMove, start: t.handleStart }),
-                t
-              );
-            }
-            return (
-              Object(h['a'])(n, t),
-              Object(l['a'])(n, [
-                {
-                  key: 'getChildContext',
-                  value: function () {
-                    return { manager: this.manager };
-                  },
-                },
-                {
-                  key: 'componentDidMount',
-                  value: function () {
-                    var e = this,
-                      t = this.props.useWindowAsScrollContainer,
-                      n = this.getContainer();
-                    Promise.resolve(n).then(function (n) {
-                      (e.container = n), (e.document = e.container.ownerDocument || document);
-                      var o = e.props.contentWindow || e.document.defaultView || window;
-                      (e.contentWindow = 'function' === typeof o ? o() : o),
-                        (e.scrollContainer = t
-                          ? e.document.scrollingElement || e.document.documentElement
-                          : B(e.container) || e.container),
-                        (e.autoScroller = new V(e.scrollContainer, e.onAutoScroll)),
-                        Object.keys(e.events).forEach(function (t) {
-                          return S[t].forEach(function (n) {
-                            return e.container.addEventListener(n, e.events[t], !1);
-                          });
-                        }),
-                        e.container.addEventListener('keydown', e.handleKeyDown);
-                    });
-                  },
-                },
-                {
-                  key: 'componentWillUnmount',
-                  value: function () {
-                    var e = this;
-                    this.helper &&
-                      this.helper.parentNode &&
-                      this.helper.parentNode.removeChild(this.helper),
-                      this.container &&
-                        (Object.keys(this.events).forEach(function (t) {
-                          return S[t].forEach(function (n) {
-                            return e.container.removeEventListener(n, e.events[t]);
-                          });
-                        }),
-                        this.container.removeEventListener('keydown', this.handleKeyDown));
-                  },
-                },
-                {
-                  key: 'updateHelperPosition',
-                  value: function (e) {
-                    var t = this.props,
-                      n = t.lockAxis,
-                      o = t.lockOffset,
-                      r = t.lockToContainerEdges,
-                      a = t.transitionDuration,
-                      s = t.keyboardSortingTransitionDuration,
-                      l = void 0 === s ? a : s,
-                      c = this.manager.isKeySorting,
-                      u = e.ignoreTransition,
-                      h = D(e),
-                      d = { x: h.x - this.initialOffset.x, y: h.y - this.initialOffset.y };
-                    if (
-                      ((d.y -= window.pageYOffset - this.initialWindowScroll.top),
-                      (d.x -= window.pageXOffset - this.initialWindowScroll.left),
-                      (this.translate = d),
-                      r)
-                    ) {
-                      var f = _({ height: this.height, lockOffset: o, width: this.width }),
-                        p = Object(i['a'])(f, 2),
-                        g = p[0],
-                        v = p[1],
-                        b = { x: this.width / 2 - g.x, y: this.height / 2 - g.y },
-                        m = { x: this.width / 2 - v.x, y: this.height / 2 - v.y };
-                      (d.x = I(this.minTranslate.x + b.x, this.maxTranslate.x - m.x, d.x)),
-                        (d.y = I(this.minTranslate.y + b.y, this.maxTranslate.y - m.y, d.y));
+                      if (r && r.sortableInfo && t.nodeIsChild(r) && !t.state.sorting) {
+                        var a = t.props.useDragHandle,
+                          s = r.sortableInfo,
+                          l = s.index,
+                          c = s.collection,
+                          u = s.disabled;
+                        if (u) return;
+                        if (a && !k(e.target, Y)) return;
+                        (t.manager.active = { collection: c, index: l }),
+                          L(e) || e.target.tagName !== F.Anchor || e.preventDefault(),
+                          o ||
+                            (0 === t.props.pressDelay
+                              ? t.handlePress(e)
+                              : (t.pressTimer = setTimeout(function () {
+                                  return t.handlePress(e);
+                                }, t.props.pressDelay)));
+                      }
                     }
-                    'x' === n ? (d.y = 0) : 'y' === n && (d.x = 0),
-                      c && l && !u && j(this.helper, l),
-                      E(this.helper, d);
-                  },
-                },
-                {
-                  key: 'animateNodes',
-                  value: function () {
-                    var e = this.props,
-                      t = e.transitionDuration,
-                      n = e.hideSortableGhost,
-                      o = e.onSortOver,
-                      i = this.containerScrollDelta,
-                      r = this.windowScrollDelta,
-                      a = this.manager.getOrderedRefs(),
-                      s = {
-                        left: this.offsetEdge.left + this.translate.x + i.left,
-                        top: this.offsetEdge.top + this.translate.y + i.top,
-                      },
-                      l = this.manager.isKeySorting,
-                      c = this.newIndex;
-                    this.newIndex = null;
-                    for (var u = 0, h = a.length; u < h; u++) {
-                      var d = a[u].node,
-                        f = d.sortableInfo.index,
-                        p = d.offsetWidth,
-                        g = d.offsetHeight,
-                        v = {
-                          height: this.height > g ? g / 2 : this.height / 2,
-                          width: this.width > p ? p / 2 : this.width / 2,
-                        },
-                        b = l && f > this.index && f <= c,
-                        m = l && f < this.index && f >= c,
-                        y = { x: 0, y: 0 },
-                        x = a[u].edgeOffset;
-                      x ||
-                        ((x = G(d, this.container)),
-                        (a[u].edgeOffset = x),
-                        l && (a[u].boundingClientRect = N(d, i)));
-                      var w = u < a.length - 1 && a[u + 1],
-                        O = u > 0 && a[u - 1];
-                      w &&
-                        !w.edgeOffset &&
-                        ((w.edgeOffset = G(w.node, this.container)),
-                        l && (w.boundingClientRect = N(w.node, i))),
-                        f !== this.index
-                          ? (t && j(d, t),
-                            this.axis.x
-                              ? this.axis.y
-                                ? m ||
-                                  (f < this.index &&
-                                    ((s.left + r.left - v.width <= x.left &&
-                                      s.top + r.top <= x.top + v.height) ||
-                                      s.top + r.top + v.height <= x.top))
-                                  ? ((y.x = this.width + this.marginOffset.x),
-                                    x.left + y.x > this.containerBoundingRect.width - v.width &&
-                                      w &&
-                                      ((y.x = w.edgeOffset.left - x.left),
-                                      (y.y = w.edgeOffset.top - x.top)),
-                                    null === this.newIndex && (this.newIndex = f))
-                                  : (b ||
-                                      (f > this.index &&
-                                        ((s.left + r.left + v.width >= x.left &&
-                                          s.top + r.top + v.height >= x.top) ||
-                                          s.top + r.top + v.height >= x.top + g))) &&
-                                    ((y.x = -(this.width + this.marginOffset.x)),
-                                    x.left + y.x < this.containerBoundingRect.left + v.width &&
-                                      O &&
-                                      ((y.x = O.edgeOffset.left - x.left),
-                                      (y.y = O.edgeOffset.top - x.top)),
-                                    (this.newIndex = f))
-                                : b || (f > this.index && s.left + r.left + v.width >= x.left)
-                                ? ((y.x = -(this.width + this.marginOffset.x)), (this.newIndex = f))
-                                : (m || (f < this.index && s.left + r.left <= x.left + v.width)) &&
-                                  ((y.x = this.width + this.marginOffset.x),
-                                  null == this.newIndex && (this.newIndex = f))
-                              : this.axis.y &&
-                                (b || (f > this.index && s.top + r.top + v.height >= x.top)
-                                  ? ((y.y = -(this.height + this.marginOffset.y)),
-                                    (this.newIndex = f))
-                                  : (m || (f < this.index && s.top + r.top <= x.top + v.height)) &&
-                                    ((y.y = this.height + this.marginOffset.y),
-                                    null == this.newIndex && (this.newIndex = f))),
-                            E(d, y),
-                            (a[u].translate = y))
-                          : n &&
-                            ((this.sortableGhost = d), T(d, { opacity: 0, visibility: 'hidden' }));
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'nodeIsChild', function (e) {
+                    return e.sortableInfo.manager === t.manager;
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleMove', function (e) {
+                    var n = t.props,
+                      o = n.distance,
+                      i = n.pressThreshold;
+                    if (!t.state.sorting && t.touched && !t._awaitingUpdateBeforeSortStart) {
+                      var r = D(e),
+                        a = { x: t.position.x - r.x, y: t.position.y - r.y },
+                        s = Math.abs(a.x) + Math.abs(a.y);
+                      (t.delta = a),
+                        o || (i && !(s >= i))
+                          ? o && s >= o && t.manager.isActive() && t.handlePress(e)
+                          : (clearTimeout(t.cancelTimer),
+                            (t.cancelTimer = setTimeout(t.cancel, 0)));
                     }
-                    null == this.newIndex && (this.newIndex = this.index), l && (this.newIndex = c);
-                    var S = l ? this.prevIndex : c;
-                    o &&
-                      this.newIndex !== S &&
-                      o({
-                        collection: this.manager.active.collection,
-                        index: this.index,
-                        newIndex: this.newIndex,
-                        oldIndex: S,
-                        isKeySorting: l,
-                        nodes: a,
-                        helper: this.helper,
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleEnd', function () {
+                    (t.touched = !1), t.cancel();
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'cancel', function () {
+                    var e = t.props.distance,
+                      n = t.state.sorting;
+                    n || (e || clearTimeout(t.pressTimer), (t.manager.active = null));
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handlePress', function (e) {
+                    try {
+                      var n = t.manager.getActive(),
+                        o = (function () {
+                          if (n) {
+                            var o = function () {
+                                var n = f.sortableInfo.index,
+                                  o = M(f),
+                                  i = B(t.container),
+                                  u = t.scrollContainer.getBoundingClientRect(),
+                                  v = s({ index: n, node: f, collection: p });
+                                if (
+                                  ((t.node = f),
+                                  (t.margin = o),
+                                  (t.gridGap = i),
+                                  (t.width = v.width),
+                                  (t.height = v.height),
+                                  (t.marginOffset = {
+                                    x: t.margin.left + t.margin.right + t.gridGap.x,
+                                    y: Math.max(t.margin.top, t.margin.bottom, t.gridGap.y),
+                                  }),
+                                  (t.boundingClientRect = f.getBoundingClientRect()),
+                                  (t.containerBoundingRect = u),
+                                  (t.index = n),
+                                  (t.newIndex = n),
+                                  (t.axis = { x: r.indexOf('x') >= 0, y: r.indexOf('y') >= 0 }),
+                                  (t.offsetEdge = A(f, t.container)),
+                                  (t.initialOffset = D(
+                                    g
+                                      ? a({}, e, {
+                                          pageX: t.boundingClientRect.left,
+                                          pageY: t.boundingClientRect.top,
+                                        })
+                                      : e,
+                                  )),
+                                  (t.initialScroll = {
+                                    left: t.scrollContainer.scrollLeft,
+                                    top: t.scrollContainer.scrollTop,
+                                  }),
+                                  (t.initialWindowScroll = {
+                                    left: window.pageXOffset,
+                                    top: window.pageYOffset,
+                                  }),
+                                  (t.helper = t.helperContainer.appendChild(z(f))),
+                                  T(t.helper, {
+                                    boxSizing: 'border-box',
+                                    height: ''.concat(t.height, 'px'),
+                                    left: ''.concat(t.boundingClientRect.left - o.left, 'px'),
+                                    pointerEvents: 'none',
+                                    position: 'fixed',
+                                    top: ''.concat(t.boundingClientRect.top - o.top, 'px'),
+                                    width: ''.concat(t.width, 'px'),
+                                  }),
+                                  g && t.helper.focus(),
+                                  c &&
+                                    ((t.sortableGhost = f),
+                                    T(f, { opacity: 0, visibility: 'hidden' })),
+                                  (t.minTranslate = {}),
+                                  (t.maxTranslate = {}),
+                                  g)
+                                ) {
+                                  var b = d
+                                      ? {
+                                          top: 0,
+                                          left: 0,
+                                          width: t.contentWindow.innerWidth,
+                                          height: t.contentWindow.innerHeight,
+                                        }
+                                      : t.containerBoundingRect,
+                                    m = b.top,
+                                    y = b.left,
+                                    x = b.width,
+                                    w = b.height,
+                                    O = m + w,
+                                    C = y + x;
+                                  t.axis.x &&
+                                    ((t.minTranslate.x = y - t.boundingClientRect.left),
+                                    (t.maxTranslate.x = C - (t.boundingClientRect.left + t.width))),
+                                    t.axis.y &&
+                                      ((t.minTranslate.y = m - t.boundingClientRect.top),
+                                      (t.maxTranslate.y =
+                                        O - (t.boundingClientRect.top + t.height)));
+                                } else
+                                  t.axis.x &&
+                                    ((t.minTranslate.x =
+                                      (d ? 0 : u.left) - t.boundingClientRect.left - t.width / 2),
+                                    (t.maxTranslate.x =
+                                      (d ? t.contentWindow.innerWidth : u.left + u.width) -
+                                      t.boundingClientRect.left -
+                                      t.width / 2)),
+                                    t.axis.y &&
+                                      ((t.minTranslate.y =
+                                        (d ? 0 : u.top) - t.boundingClientRect.top - t.height / 2),
+                                      (t.maxTranslate.y =
+                                        (d ? t.contentWindow.innerHeight : u.top + u.height) -
+                                        t.boundingClientRect.top -
+                                        t.height / 2));
+                                l &&
+                                  l.split(' ').forEach(function (e) {
+                                    return t.helper.classList.add(e);
+                                  }),
+                                  (t.listenerNode = e.touches ? f : t.contentWindow),
+                                  g
+                                    ? (t.listenerNode.addEventListener('wheel', t.handleKeyEnd, !0),
+                                      t.listenerNode.addEventListener(
+                                        'mousedown',
+                                        t.handleKeyEnd,
+                                        !0,
+                                      ),
+                                      t.listenerNode.addEventListener('keydown', t.handleKeyDown))
+                                    : (S.move.forEach(function (e) {
+                                        return t.listenerNode.addEventListener(
+                                          e,
+                                          t.handleSortMove,
+                                          !1,
+                                        );
+                                      }),
+                                      S.end.forEach(function (e) {
+                                        return t.listenerNode.addEventListener(
+                                          e,
+                                          t.handleSortEnd,
+                                          !1,
+                                        );
+                                      })),
+                                  t.setState({ sorting: !0, sortingIndex: n }),
+                                  h &&
+                                    h(
+                                      {
+                                        node: f,
+                                        index: n,
+                                        collection: p,
+                                        isKeySorting: g,
+                                        nodes: t.manager.getOrderedRefs(),
+                                        helper: t.helper,
+                                      },
+                                      e,
+                                    ),
+                                  g && t.keyMove(0);
+                              },
+                              i = t.props,
+                              r = i.axis,
+                              s = i.getHelperDimensions,
+                              l = i.helperClass,
+                              c = i.hideSortableGhost,
+                              u = i.updateBeforeSortStart,
+                              h = i.onSortStart,
+                              d = i.useWindowAsScrollContainer,
+                              f = n.node,
+                              p = n.collection,
+                              g = t.manager.isKeySorting,
+                              v = (function () {
+                                if ('function' === typeof u) {
+                                  t._awaitingUpdateBeforeSortStart = !0;
+                                  var n = ne(
+                                    function () {
+                                      var t = f.sortableInfo.index;
+                                      return Promise.resolve(
+                                        u({ collection: p, index: t, node: f, isKeySorting: g }, e),
+                                      ).then(function () {});
+                                    },
+                                    function (e, n) {
+                                      if (((t._awaitingUpdateBeforeSortStart = !1), e)) throw n;
+                                      return n;
+                                    },
+                                  );
+                                  if (n && n.then) return n.then(function () {});
+                                }
+                              })();
+                            return v && v.then ? v.then(o) : o(v);
+                          }
+                        })();
+                      return Promise.resolve(o && o.then ? o.then(function () {}) : void 0);
+                    } catch (i) {
+                      return Promise.reject(i);
+                    }
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleSortMove', function (e) {
+                    var n = t.props.onSortMove;
+                    'function' === typeof e.preventDefault && e.preventDefault(),
+                      t.updateHelperPosition(e),
+                      t.animateNodes(),
+                      t.autoscroll(),
+                      n && n(e);
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleSortEnd', function (e) {
+                    var n = t.props,
+                      o = n.hideSortableGhost,
+                      i = n.onSortEnd,
+                      r = t.manager,
+                      a = r.active.collection,
+                      s = r.isKeySorting,
+                      l = t.manager.getOrderedRefs();
+                    t.listenerNode &&
+                      (s
+                        ? (t.listenerNode.removeEventListener('wheel', t.handleKeyEnd, !0),
+                          t.listenerNode.removeEventListener('mousedown', t.handleKeyEnd, !0),
+                          t.listenerNode.removeEventListener('keydown', t.handleKeyDown))
+                        : (S.move.forEach(function (e) {
+                            return t.listenerNode.removeEventListener(e, t.handleSortMove);
+                          }),
+                          S.end.forEach(function (e) {
+                            return t.listenerNode.removeEventListener(e, t.handleSortEnd);
+                          }))),
+                      t.helper.parentNode.removeChild(t.helper),
+                      o && t.sortableGhost && T(t.sortableGhost, { opacity: '', visibility: '' });
+                    for (var c = 0, u = l.length; c < u; c++) {
+                      var h = l[c],
+                        d = h.node;
+                      (h.edgeOffset = null),
+                        (h.boundingClientRect = null),
+                        E(d, null),
+                        j(d, null),
+                        (h.translate = null);
+                    }
+                    t.autoScroller.clear(),
+                      (t.manager.active = null),
+                      (t.manager.isKeySorting = !1),
+                      t.setState({ sorting: !1, sortingIndex: null }),
+                      'function' === typeof i &&
+                        i(
+                          {
+                            collection: a,
+                            newIndex: t.newIndex,
+                            oldIndex: t.index,
+                            isKeySorting: s,
+                            nodes: l,
+                          },
+                          e,
+                        ),
+                      (t.touched = !1);
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'autoscroll', function () {
+                    var e = t.props.disableAutoscroll,
+                      n = t.manager.isKeySorting;
+                    if (e) t.autoScroller.clear();
+                    else {
+                      if (n) {
+                        var o = a({}, t.translate),
+                          i = 0,
+                          r = 0;
+                        return (
+                          t.axis.x &&
+                            ((o.x = Math.min(
+                              t.maxTranslate.x,
+                              Math.max(t.minTranslate.x, t.translate.x),
+                            )),
+                            (i = t.translate.x - o.x)),
+                          t.axis.y &&
+                            ((o.y = Math.min(
+                              t.maxTranslate.y,
+                              Math.max(t.minTranslate.y, t.translate.y),
+                            )),
+                            (r = t.translate.y - o.y)),
+                          (t.translate = o),
+                          E(t.helper, t.translate),
+                          (t.scrollContainer.scrollLeft += i),
+                          void (t.scrollContainer.scrollTop += r)
+                        );
+                      }
+                      t.autoScroller.update({
+                        height: t.height,
+                        maxTranslate: t.maxTranslate,
+                        minTranslate: t.minTranslate,
+                        translate: t.translate,
+                        width: t.width,
                       });
-                  },
-                },
-                {
-                  key: 'getWrappedInstance',
-                  value: function () {
-                    return (
-                      m()(
-                        p.withRef,
-                        'To access the wrapped instance, you need to pass in {withRef: true} as the second argument of the SortableContainer() call',
-                      ),
-                      this.refs.wrappedInstance
-                    );
-                  },
-                },
-                {
-                  key: 'getContainer',
-                  value: function () {
-                    var e = this.props.getContainer;
-                    return 'function' !== typeof e
-                      ? Object(v['findDOMNode'])(this)
-                      : e(p.withRef ? this.getWrappedInstance() : void 0);
-                  },
-                },
-                {
-                  key: 'render',
-                  value: function () {
-                    var t = p.withRef ? 'wrappedInstance' : null;
-                    return Object(f['createElement'])(
-                      e,
-                      Object(o['a'])({ ref: t }, O(this.props, ee)),
-                    );
-                  },
-                },
-                {
-                  key: 'helperContainer',
-                  get: function () {
-                    var e = this.props.helperContainer;
-                    return 'function' === typeof e
-                      ? e()
-                      : this.props.helperContainer || this.document.body;
-                  },
-                },
-                {
-                  key: 'containerScrollDelta',
-                  get: function () {
-                    var e = this.props.useWindowAsScrollContainer;
-                    return e
-                      ? { left: 0, top: 0 }
-                      : {
-                          left: this.scrollContainer.scrollLeft - this.initialScroll.left,
-                          top: this.scrollContainer.scrollTop - this.initialScroll.top,
+                    }
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'onAutoScroll', function (e) {
+                    (t.translate.x += e.left), (t.translate.y += e.top), t.animateNodes();
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleKeyDown', function (e) {
+                    var n = e.keyCode,
+                      o = t.props,
+                      i = o.shouldCancelStart,
+                      r = o.keyCodes,
+                      s = void 0 === r ? {} : r,
+                      l = a({}, $, s);
+                    (t.manager.active && !t.manager.isKeySorting) ||
+                      !(
+                        t.manager.active ||
+                        (l.lift.includes(n) && !i(e) && t.isValidSortingTarget(e))
+                      ) ||
+                      (e.stopPropagation(),
+                      e.preventDefault(),
+                      l.lift.includes(n) && !t.manager.active
+                        ? t.keyLift(e)
+                        : l.drop.includes(n) && t.manager.active
+                        ? t.keyDrop(e)
+                        : l.cancel.includes(n)
+                        ? ((t.newIndex = t.manager.active.index), t.keyDrop(e))
+                        : l.up.includes(n)
+                        ? t.keyMove(-1)
+                        : l.down.includes(n) && t.keyMove(1));
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'keyLift', function (e) {
+                    var n = e.target,
+                      o = k(n, function (e) {
+                        return null != e.sortableInfo;
+                      }),
+                      i = o.sortableInfo,
+                      r = i.index,
+                      a = i.collection;
+                    (t.initialFocusedNode = n),
+                      (t.manager.isKeySorting = !0),
+                      (t.manager.active = { index: r, collection: a }),
+                      t.handlePress(e);
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'keyMove', function (e) {
+                    var n = t.manager.getOrderedRefs(),
+                      o = n[n.length - 1].node.sortableInfo.index,
+                      i = t.newIndex + e,
+                      r = t.newIndex;
+                    if (!(i < 0 || i > o)) {
+                      (t.prevIndex = r), (t.newIndex = i);
+                      var a = G(t.newIndex, t.prevIndex, t.index),
+                        s = n.find(function (e) {
+                          var t = e.node;
+                          return t.sortableInfo.index === a;
+                        }),
+                        l = s.node,
+                        c = t.containerScrollDelta,
+                        u = s.boundingClientRect || N(l, c),
+                        h = s.translate || { x: 0, y: 0 },
+                        d = { top: u.top + h.y - c.top, left: u.left + h.x - c.left },
+                        f = r < i,
+                        p = {
+                          x: f && t.axis.x ? l.offsetWidth - t.width : 0,
+                          y: f && t.axis.y ? l.offsetHeight - t.height : 0,
                         };
+                      t.handleSortMove({
+                        pageX: d.left + p.x,
+                        pageY: d.top + p.y,
+                        ignoreTransition: 0 === e,
+                      });
+                    }
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'keyDrop', function (e) {
+                    t.handleSortEnd(e), t.initialFocusedNode && t.initialFocusedNode.focus();
+                  }),
+                  Object(r['a'])(Object(d['a'])(Object(d['a'])(t)), 'handleKeyEnd', function (e) {
+                    t.manager.active && t.keyDrop(e);
+                  }),
+                  Object(r['a'])(
+                    Object(d['a'])(Object(d['a'])(t)),
+                    'isValidSortingTarget',
+                    function (e) {
+                      var n = t.props.useDragHandle,
+                        o = e.target,
+                        i = k(o, function (e) {
+                          return null != e.sortableInfo;
+                        });
+                      return (
+                        i &&
+                        i.sortableInfo &&
+                        !i.sortableInfo.disabled &&
+                        (n ? Y(o) : o.sortableInfo)
+                      );
+                    },
+                  ),
+                  te(e),
+                  (t.manager = new x()),
+                  (t.events = { end: t.handleEnd, move: t.handleMove, start: t.handleStart }),
+                  t
+                );
+              }
+              return (
+                Object(h['a'])(n, t),
+                Object(l['a'])(n, [
+                  {
+                    key: 'getChildContext',
+                    value: function () {
+                      return { manager: this.manager };
+                    },
                   },
-                },
-                {
-                  key: 'windowScrollDelta',
-                  get: function () {
-                    return {
-                      left: this.contentWindow.pageXOffset - this.initialWindowScroll.left,
-                      top: this.contentWindow.pageYOffset - this.initialWindowScroll.top,
-                    };
+                  {
+                    key: 'componentDidMount',
+                    value: function () {
+                      var e = this,
+                        t = this.props.useWindowAsScrollContainer,
+                        n = this.getContainer();
+                      Promise.resolve(n).then(function (n) {
+                        (e.container = n), (e.document = e.container.ownerDocument || document);
+                        var o = e.props.contentWindow || e.document.defaultView || window;
+                        (e.contentWindow = 'function' === typeof o ? o() : o),
+                          (e.scrollContainer = t
+                            ? e.document.scrollingElement || e.document.documentElement
+                            : H(e.container) || e.container),
+                          (e.autoScroller = new V(e.scrollContainer, e.onAutoScroll)),
+                          Object.keys(e.events).forEach(function (t) {
+                            return S[t].forEach(function (n) {
+                              return e.container.addEventListener(n, e.events[t], !1);
+                            });
+                          }),
+                          e.container.addEventListener('keydown', e.handleKeyDown);
+                      });
+                    },
                   },
-                },
-              ]),
-              n
-            );
-          })(f['Component'])),
+                  {
+                    key: 'componentWillUnmount',
+                    value: function () {
+                      var e = this;
+                      this.helper &&
+                        this.helper.parentNode &&
+                        this.helper.parentNode.removeChild(this.helper),
+                        this.container &&
+                          (Object.keys(this.events).forEach(function (t) {
+                            return S[t].forEach(function (n) {
+                              return e.container.removeEventListener(n, e.events[t]);
+                            });
+                          }),
+                          this.container.removeEventListener('keydown', this.handleKeyDown));
+                    },
+                  },
+                  {
+                    key: 'updateHelperPosition',
+                    value: function (e) {
+                      var t = this.props,
+                        n = t.lockAxis,
+                        o = t.lockOffset,
+                        r = t.lockToContainerEdges,
+                        a = t.transitionDuration,
+                        s = t.keyboardSortingTransitionDuration,
+                        l = void 0 === s ? a : s,
+                        c = this.manager.isKeySorting,
+                        u = e.ignoreTransition,
+                        h = D(e),
+                        d = { x: h.x - this.initialOffset.x, y: h.y - this.initialOffset.y };
+                      if (
+                        ((d.y -= window.pageYOffset - this.initialWindowScroll.top),
+                        (d.x -= window.pageXOffset - this.initialWindowScroll.left),
+                        (this.translate = d),
+                        r)
+                      ) {
+                        var f = _({ height: this.height, lockOffset: o, width: this.width }),
+                          p = Object(i['a'])(f, 2),
+                          g = p[0],
+                          v = p[1],
+                          b = { x: this.width / 2 - g.x, y: this.height / 2 - g.y },
+                          m = { x: this.width / 2 - v.x, y: this.height / 2 - v.y };
+                        (d.x = I(this.minTranslate.x + b.x, this.maxTranslate.x - m.x, d.x)),
+                          (d.y = I(this.minTranslate.y + b.y, this.maxTranslate.y - m.y, d.y));
+                      }
+                      'x' === n ? (d.y = 0) : 'y' === n && (d.x = 0),
+                        c && l && !u && j(this.helper, l),
+                        E(this.helper, d);
+                    },
+                  },
+                  {
+                    key: 'animateNodes',
+                    value: function () {
+                      var e = this.props,
+                        t = e.transitionDuration,
+                        n = e.hideSortableGhost,
+                        o = e.onSortOver,
+                        i = this.containerScrollDelta,
+                        r = this.windowScrollDelta,
+                        a = this.manager.getOrderedRefs(),
+                        s = {
+                          left: this.offsetEdge.left + this.translate.x + i.left,
+                          top: this.offsetEdge.top + this.translate.y + i.top,
+                        },
+                        l = this.manager.isKeySorting,
+                        c = this.newIndex;
+                      this.newIndex = null;
+                      for (var u = 0, h = a.length; u < h; u++) {
+                        var d = a[u].node,
+                          f = d.sortableInfo.index,
+                          p = d.offsetWidth,
+                          g = d.offsetHeight,
+                          v = {
+                            height: this.height > g ? g / 2 : this.height / 2,
+                            width: this.width > p ? p / 2 : this.width / 2,
+                          },
+                          b = l && f > this.index && f <= c,
+                          m = l && f < this.index && f >= c,
+                          y = { x: 0, y: 0 },
+                          x = a[u].edgeOffset;
+                        x ||
+                          ((x = A(d, this.container)),
+                          (a[u].edgeOffset = x),
+                          l && (a[u].boundingClientRect = N(d, i)));
+                        var w = u < a.length - 1 && a[u + 1],
+                          O = u > 0 && a[u - 1];
+                        w &&
+                          !w.edgeOffset &&
+                          ((w.edgeOffset = A(w.node, this.container)),
+                          l && (w.boundingClientRect = N(w.node, i))),
+                          f !== this.index
+                            ? (t && j(d, t),
+                              this.axis.x
+                                ? this.axis.y
+                                  ? m ||
+                                    (f < this.index &&
+                                      ((s.left + r.left - v.width <= x.left &&
+                                        s.top + r.top <= x.top + v.height) ||
+                                        s.top + r.top + v.height <= x.top))
+                                    ? ((y.x = this.width + this.marginOffset.x),
+                                      x.left + y.x > this.containerBoundingRect.width - v.width &&
+                                        w &&
+                                        ((y.x = w.edgeOffset.left - x.left),
+                                        (y.y = w.edgeOffset.top - x.top)),
+                                      null === this.newIndex && (this.newIndex = f))
+                                    : (b ||
+                                        (f > this.index &&
+                                          ((s.left + r.left + v.width >= x.left &&
+                                            s.top + r.top + v.height >= x.top) ||
+                                            s.top + r.top + v.height >= x.top + g))) &&
+                                      ((y.x = -(this.width + this.marginOffset.x)),
+                                      x.left + y.x < this.containerBoundingRect.left + v.width &&
+                                        O &&
+                                        ((y.x = O.edgeOffset.left - x.left),
+                                        (y.y = O.edgeOffset.top - x.top)),
+                                      (this.newIndex = f))
+                                  : b || (f > this.index && s.left + r.left + v.width >= x.left)
+                                  ? ((y.x = -(this.width + this.marginOffset.x)),
+                                    (this.newIndex = f))
+                                  : (m ||
+                                      (f < this.index && s.left + r.left <= x.left + v.width)) &&
+                                    ((y.x = this.width + this.marginOffset.x),
+                                    null == this.newIndex && (this.newIndex = f))
+                                : this.axis.y &&
+                                  (b || (f > this.index && s.top + r.top + v.height >= x.top)
+                                    ? ((y.y = -(this.height + this.marginOffset.y)),
+                                      (this.newIndex = f))
+                                    : (m ||
+                                        (f < this.index && s.top + r.top <= x.top + v.height)) &&
+                                      ((y.y = this.height + this.marginOffset.y),
+                                      null == this.newIndex && (this.newIndex = f))),
+                              E(d, y),
+                              (a[u].translate = y))
+                            : n &&
+                              ((this.sortableGhost = d),
+                              T(d, { opacity: 0, visibility: 'hidden' }));
+                      }
+                      null == this.newIndex && (this.newIndex = this.index),
+                        l && (this.newIndex = c);
+                      var S = l ? this.prevIndex : c;
+                      o &&
+                        this.newIndex !== S &&
+                        o({
+                          collection: this.manager.active.collection,
+                          index: this.index,
+                          newIndex: this.newIndex,
+                          oldIndex: S,
+                          isKeySorting: l,
+                          nodes: a,
+                          helper: this.helper,
+                        });
+                    },
+                  },
+                  {
+                    key: 'getWrappedInstance',
+                    value: function () {
+                      return (
+                        m()(
+                          p.withRef,
+                          'To access the wrapped instance, you need to pass in {withRef: true} as the second argument of the SortableContainer() call',
+                        ),
+                        this.refs.wrappedInstance
+                      );
+                    },
+                  },
+                  {
+                    key: 'getContainer',
+                    value: function () {
+                      var e = this.props.getContainer;
+                      return 'function' !== typeof e
+                        ? Object(v['findDOMNode'])(this)
+                        : e(p.withRef ? this.getWrappedInstance() : void 0);
+                    },
+                  },
+                  {
+                    key: 'render',
+                    value: function () {
+                      var t = p.withRef ? 'wrappedInstance' : null;
+                      return Object(f['createElement'])(
+                        e,
+                        Object(o['a'])({ ref: t }, O(this.props, ee)),
+                      );
+                    },
+                  },
+                  {
+                    key: 'helperContainer',
+                    get: function () {
+                      var e = this.props.helperContainer;
+                      return 'function' === typeof e
+                        ? e()
+                        : this.props.helperContainer || this.document.body;
+                    },
+                  },
+                  {
+                    key: 'containerScrollDelta',
+                    get: function () {
+                      var e = this.props.useWindowAsScrollContainer;
+                      return e
+                        ? { left: 0, top: 0 }
+                        : {
+                            left: this.scrollContainer.scrollLeft - this.initialScroll.left,
+                            top: this.scrollContainer.scrollTop - this.initialScroll.top,
+                          };
+                    },
+                  },
+                  {
+                    key: 'windowScrollDelta',
+                    get: function () {
+                      return {
+                        left: this.contentWindow.pageXOffset - this.initialWindowScroll.left,
+                        top: this.contentWindow.pageYOffset - this.initialWindowScroll.top,
+                      };
+                    },
+                  },
+                ]),
+                n
+              );
+            })(f['Component'])),
           Object(r['a'])(t, 'displayName', R('sortableList', e)),
           Object(r['a'])(t, 'defaultProps', Z),
           Object(r['a'])(t, 'propTypes', Q),
@@ -2011,95 +2023,96 @@
           n,
           i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : { withRef: !1 };
         return (
-          (n = t = (function (t) {
-            function n() {
+          (n = t =
+            (function (t) {
+              function n() {
+                return (
+                  Object(s['a'])(this, n),
+                  Object(c['a'])(this, Object(u['a'])(n).apply(this, arguments))
+                );
+              }
               return (
-                Object(s['a'])(this, n),
-                Object(c['a'])(this, Object(u['a'])(n).apply(this, arguments))
+                Object(h['a'])(n, t),
+                Object(l['a'])(n, [
+                  {
+                    key: 'componentDidMount',
+                    value: function () {
+                      this.register();
+                    },
+                  },
+                  {
+                    key: 'componentDidUpdate',
+                    value: function (e) {
+                      this.node &&
+                        (e.index !== this.props.index &&
+                          (this.node.sortableInfo.index = this.props.index),
+                        e.disabled !== this.props.disabled &&
+                          (this.node.sortableInfo.disabled = this.props.disabled)),
+                        e.collection !== this.props.collection &&
+                          (this.unregister(e.collection), this.register());
+                    },
+                  },
+                  {
+                    key: 'componentWillUnmount',
+                    value: function () {
+                      this.unregister();
+                    },
+                  },
+                  {
+                    key: 'register',
+                    value: function () {
+                      var e = this.props,
+                        t = e.collection,
+                        n = e.disabled,
+                        o = e.index,
+                        i = Object(v['findDOMNode'])(this);
+                      (i.sortableInfo = {
+                        collection: t,
+                        disabled: n,
+                        index: o,
+                        manager: this.context.manager,
+                      }),
+                        (this.node = i),
+                        (this.ref = { node: i }),
+                        this.context.manager.add(t, this.ref);
+                    },
+                  },
+                  {
+                    key: 'unregister',
+                    value: function () {
+                      var e =
+                        arguments.length > 0 && void 0 !== arguments[0]
+                          ? arguments[0]
+                          : this.props.collection;
+                      this.context.manager.remove(e, this.ref);
+                    },
+                  },
+                  {
+                    key: 'getWrappedInstance',
+                    value: function () {
+                      return (
+                        m()(
+                          i.withRef,
+                          'To access the wrapped instance, you need to pass in {withRef: true} as the second argument of the SortableElement() call',
+                        ),
+                        this.refs.wrappedInstance
+                      );
+                    },
+                  },
+                  {
+                    key: 'render',
+                    value: function () {
+                      var t = i.withRef ? 'wrappedInstance' : null;
+                      return Object(f['createElement'])(
+                        e,
+                        Object(o['a'])({ ref: t }, O(this.props, re)),
+                      );
+                    },
+                  },
+                ]),
+                n
               );
-            }
-            return (
-              Object(h['a'])(n, t),
-              Object(l['a'])(n, [
-                {
-                  key: 'componentDidMount',
-                  value: function () {
-                    this.register();
-                  },
-                },
-                {
-                  key: 'componentDidUpdate',
-                  value: function (e) {
-                    this.node &&
-                      (e.index !== this.props.index &&
-                        (this.node.sortableInfo.index = this.props.index),
-                      e.disabled !== this.props.disabled &&
-                        (this.node.sortableInfo.disabled = this.props.disabled)),
-                      e.collection !== this.props.collection &&
-                        (this.unregister(e.collection), this.register());
-                  },
-                },
-                {
-                  key: 'componentWillUnmount',
-                  value: function () {
-                    this.unregister();
-                  },
-                },
-                {
-                  key: 'register',
-                  value: function () {
-                    var e = this.props,
-                      t = e.collection,
-                      n = e.disabled,
-                      o = e.index,
-                      i = Object(v['findDOMNode'])(this);
-                    (i.sortableInfo = {
-                      collection: t,
-                      disabled: n,
-                      index: o,
-                      manager: this.context.manager,
-                    }),
-                      (this.node = i),
-                      (this.ref = { node: i }),
-                      this.context.manager.add(t, this.ref);
-                  },
-                },
-                {
-                  key: 'unregister',
-                  value: function () {
-                    var e =
-                      arguments.length > 0 && void 0 !== arguments[0]
-                        ? arguments[0]
-                        : this.props.collection;
-                    this.context.manager.remove(e, this.ref);
-                  },
-                },
-                {
-                  key: 'getWrappedInstance',
-                  value: function () {
-                    return (
-                      m()(
-                        i.withRef,
-                        'To access the wrapped instance, you need to pass in {withRef: true} as the second argument of the SortableElement() call',
-                      ),
-                      this.refs.wrappedInstance
-                    );
-                  },
-                },
-                {
-                  key: 'render',
-                  value: function () {
-                    var t = i.withRef ? 'wrappedInstance' : null;
-                    return Object(f['createElement'])(
-                      e,
-                      Object(o['a'])({ ref: t }, O(this.props, re)),
-                    );
-                  },
-                },
-              ]),
-              n
-            );
-          })(f['Component'])),
+            })(f['Component'])),
           Object(r['a'])(t, 'displayName', R('sortableElement', e)),
           Object(r['a'])(t, 'contextTypes', { manager: g.a.object.isRequired }),
           Object(r['a'])(t, 'propTypes', ie),

@@ -24,7 +24,7 @@
         f = n.n(p),
         m = n('0dFU'),
         d = n.n(m),
-        v = n('iczh'),
+        v = n('jK+o'),
         h = n.n(v),
         y = n('xwgP'),
         g = function (e, t) {
@@ -235,7 +235,7 @@
         y = n.n(h),
         g = n('0dFU'),
         b = n.n(g),
-        C = n('iczh'),
+        C = n('jK+o'),
         N = n.n(C),
         w = n('zXgj'),
         x = (function (e) {
@@ -614,8 +614,8 @@
         })(o.a.Component),
         M = T;
       T.defaultProps = { visible: !1, prefixCls: 'rmc-dialog', onClose: _ };
-      var z = n('eVHG'),
-        A = function (e, t) {
+      var A = n('eVHG'),
+        z = function (e, t) {
           var n = {};
           for (var r in e)
             Object.prototype.hasOwnProperty.call(e, r) && t.indexOf(r) < 0 && (n[r] = e[r]);
@@ -657,7 +657,7 @@
                     t.preventDefault(), e.onPress && e.onPress();
                   };
                   return r['createElement'](
-                    z['a'],
+                    A['a'],
                     { activeClassName: t + '-button-active', key: n },
                     r['createElement'](
                       'a',
@@ -687,7 +687,7 @@
                     y = n.transparent,
                     g = n.popup,
                     b = n.animationType,
-                    C = A(n, [
+                    C = z(n, [
                       'prefixCls',
                       'className',
                       'wrapClassName',
@@ -1104,7 +1104,7 @@
         l = n.n(s),
         c = n('0dFU'),
         u = n.n(c),
-        p = n('iczh'),
+        p = n('jK+o'),
         f = n.n(p),
         m = n('xwgP'),
         d = (function (e) {
@@ -1153,7 +1153,7 @@
         f = n.n(p),
         m = n('xwgP'),
         d = n.n(m),
-        v = n('iczh'),
+        v = n('jK+o'),
         h = n.n(v),
         y = (function (e) {
           function t() {
@@ -1260,7 +1260,7 @@
         f = n.n(p),
         m = n('0dFU'),
         d = n.n(m),
-        v = n('iczh'),
+        v = n('jK+o'),
         h = n.n(v),
         y = n('xwgP'),
         g = function (e, t) {

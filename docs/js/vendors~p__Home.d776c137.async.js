@@ -19,7 +19,7 @@
         h = n.n(p),
         d = n('EH+i'),
         f = n.n(d),
-        v = n('iczh'),
+        v = n('jK+o'),
         g = n.n(v),
         y = (function () {
           function e(e, t) {
@@ -356,12 +356,12 @@
       function B(e, t) {
         if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function');
       }
-      function z(e, t) {
+      function X(e, t) {
         if (!e)
           throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
         return !t || ('object' !== typeof t && 'function' !== typeof t) ? e : t;
       }
-      function X(e, t) {
+      function z(e, t) {
         if ('function' !== typeof t && null !== t)
           throw new TypeError(
             'Super expression must either be null or a function, not ' + typeof t,
@@ -375,10 +375,10 @@
         var t = e;
         return Array.isArray(t) || (t = t ? [t] : []), t;
       }
-      var F = (function (e) {
+      var K = (function (e) {
         function t(e) {
           B(this, t);
-          var n = z(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e)),
+          var n = X(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e)),
             i = n.props,
             r = i.activeKey,
             o = i.defaultActiveKey,
@@ -393,7 +393,7 @@
           );
         }
         return (
-          X(t, e),
+          z(t, e),
           D(t, [
             {
               key: 'componentWillReceiveProps',
@@ -487,7 +487,7 @@
           t
         );
       })(p['Component']);
-      (F.propTypes = {
+      (K.propTypes = {
         children: f.a.any,
         prefixCls: f.a.string,
         activeKey: f.a.oneOfType([f.a.string, f.a.arrayOf(f.a.string)]),
@@ -499,16 +499,16 @@
         style: f.a.object,
         destroyInactivePanel: f.a.bool,
       }),
-        (F.defaultProps = {
+        (K.defaultProps = {
           prefixCls: 'rc-collapse',
           onChange: function () {},
           accordion: !1,
           destroyInactivePanel: !1,
         }),
-        (F.Panel = M);
-      var U = F,
-        Y = U,
-        K = U.Panel,
+        (K.Panel = M);
+      var F = K,
+        Y = F,
+        U = F.Panel,
         H = (function (e) {
           function t() {
             return (
@@ -530,7 +530,7 @@
           );
         })(p['Component']);
       t['a'] = H;
-      (H.Panel = K), (H.defaultProps = { prefixCls: 'am-accordion' });
+      (H.Panel = U), (H.defaultProps = { prefixCls: 'am-accordion' });
     },
     '5qKr': function (e, t, n) {
       'use strict';
@@ -550,7 +550,7 @@
         h = n.n(p),
         d = n('0dFU'),
         f = n.n(d),
-        v = n('iczh'),
+        v = n('jK+o'),
         g = n.n(v),
         y = n('xwgP'),
         m = n.n(y),
@@ -1723,7 +1723,7 @@
         dotActiveStyle: {},
       };
       var B = n('vTGJ'),
-        z = function (e, t) {
+        X = function (e, t) {
           var n = {};
           for (var i in e)
             Object.prototype.hasOwnProperty.call(e, i) && t.indexOf(i) < 0 && (n[i] = e[i]);
@@ -1734,7 +1734,7 @@
           }
           return n;
         },
-        X = (function (e) {
+        z = (function (e) {
           function t() {
             l()(this, t);
             var e = h()(this, (t.__proto__ || Object.getPrototypeOf(t)).apply(this, arguments));
@@ -1868,7 +1868,7 @@
                     u =
                       (t.activeStyle,
                       t.activeClassName,
-                      z(t, [
+                      X(t, [
                         'prefixCls',
                         'className',
                         'data',
@@ -1883,7 +1883,7 @@
                     d =
                       (u.onClick,
                       u.renderItem,
-                      z(u, ['columnNum', 'carouselMaxRow', 'onClick', 'renderItem'])),
+                      X(u, ['columnNum', 'carouselMaxRow', 'onClick', 'renderItem'])),
                     f = this.state.initialSlideWidth;
                   (p = p), (h = h);
                   var v = (o && o.length) || 0,
@@ -1919,8 +1919,8 @@
             t
           );
         })(y['Component']);
-      t['a'] = X;
-      X.defaultProps = {
+      t['a'] = z;
+      z.defaultProps = {
         data: [],
         hasLine: !0,
         isCarousel: !1,
@@ -1981,7 +1981,7 @@
         h = n.n(p),
         d = n('0dFU'),
         f = n.n(d),
-        v = n('iczh'),
+        v = n('jK+o'),
         g = n.n(v),
         y = n('xwgP'),
         m = n('EH+i'),
@@ -2321,7 +2321,7 @@
           (e.exports.polyfill = function (e) {
             e || (e = r), (e.requestAnimationFrame = s), (e.cancelAnimationFrame = l);
           });
-      }.call(this, n('CGAg')));
+      }.call(this, n('qYsL')));
     },
     'S/2G': function (e, t, n) {},
     VfKq: function (e, t, n) {},
@@ -2346,7 +2346,7 @@
         h = n.n(p),
         d = n('xwgP'),
         f = n.n(d),
-        v = n('iczh'),
+        v = n('jK+o'),
         g = n.n(v),
         y = (function (e) {
           function t() {
@@ -2456,7 +2456,7 @@
         h = n.n(p),
         d = n('0dFU'),
         f = n.n(d),
-        v = n('iczh'),
+        v = n('jK+o'),
         g = n.n(v),
         y = n('xwgP'),
         m = function (e, t) {

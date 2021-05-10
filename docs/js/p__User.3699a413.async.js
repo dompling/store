@@ -10,20 +10,20 @@
           return n;
         }),
         a.d(t, 'd', function () {
-          return i;
+          return o;
         }),
         a.d(t, 'a', function () {
-          return o;
+          return i;
         });
       var r = () => JSON.parse(localStorage.getItem('dataSource') || '{}'),
         n = (e, t) => {
           var a = r(),
             n = Object.keys(a).find((t) => a[t].author === e) || '',
-            i = a[n].apps || [];
-          return i.find((e) => e.name === t);
+            o = a[n].apps || [];
+          return o.find((e) => e.name === t);
         },
-        i = (e) => localStorage.setItem('dataSource', JSON.stringify(e)),
-        o = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
+        o = (e) => localStorage.setItem('dataSource', JSON.stringify(e)),
+        i = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
     },
     DIa4: function (e, t, a) {
       'use strict';
@@ -31,33 +31,31 @@
       a('vu4r');
       var r = a('aLjh'),
         n = (a('ka6A'), a('JqU2')),
-        i = (a('P0Cl'), a('oB33')),
-        o = a('SDju'),
-        c = a.n(o),
-        l = a('YLUp'),
-        s = (a('JHCA'), a('vTGJ')),
-        u = (a('zr+F'), a('VuRx'), a('6ato')),
+        o = (a('P0Cl'), a('oB33')),
+        i = a('SDO5'),
+        c = (a('JHCA'), a('vTGJ')),
+        l = (a('zr+F'), a('VuRx'), a('6ato')),
+        s = a.n(l),
+        u = a('2dj7'),
         p = a.n(u),
-        m = a('2dj7'),
+        m = a('Xtzg'),
         d = a.n(m),
-        f = a('Xtzg'),
+        f = a('0dFU'),
         v = a.n(f),
-        h = a('0dFU'),
+        h = a('jK+o'),
         b = a.n(h),
-        y = a('iczh'),
+        y = a('xwgP'),
         g = a.n(y),
-        w = a('xwgP'),
-        x = a.n(w),
-        O = (function (e) {
+        w = (function (e) {
           function t() {
             return (
-              p()(this, t),
-              v()(this, (t.__proto__ || Object.getPrototypeOf(t)).apply(this, arguments))
+              s()(this, t),
+              d()(this, (t.__proto__ || Object.getPrototypeOf(t)).apply(this, arguments))
             );
           }
           return (
-            b()(t, e),
-            d()(t, [
+            v()(t, e),
+            p()(t, [
               {
                 key: 'render',
                 value: function () {
@@ -66,25 +64,25 @@
                     a = e.size,
                     r = e.className,
                     n = e.style,
-                    i = e.onClick,
-                    o = g()(t, t + '-' + a, r);
-                  return w['createElement']('div', { className: o, style: n, onClick: i });
+                    o = e.onClick,
+                    i = b()(t, t + '-' + a, r);
+                  return y['createElement']('div', { className: i, style: n, onClick: o });
                 },
               },
             ]),
             t
           );
-        })(w['Component']),
-        S = O;
-      O.defaultProps = { prefixCls: 'am-whitespace', size: 'md' };
+        })(y['Component']),
+        x = w;
+      w.defaultProps = { prefixCls: 'am-whitespace', size: 'md' };
       a('6Yi/');
-      var j = a('aJ6J'),
-        E = (a('o171'), a('bS4n')),
+      var O = a('aJ6J'),
+        S = (a('o171'), a('bS4n')),
+        j = a.n(S),
+        E = a('/umX'),
         k = a.n(E),
-        C = a('/umX'),
-        N = a.n(C),
-        _ = a('eVHG'),
-        J = function (e, t) {
+        C = a('eVHG'),
+        N = function (e, t) {
           var a = {};
           for (var r in e)
             Object.prototype.hasOwnProperty.call(e, r) && t.indexOf(r) < 0 && (a[r] = e[r]);
@@ -95,20 +93,20 @@
           }
           return a;
         },
-        z = (function (e) {
+        _ = (function (e) {
           function t() {
             return (
-              p()(this, t),
-              v()(this, (t.__proto__ || Object.getPrototypeOf(t)).apply(this, arguments))
+              s()(this, t),
+              d()(this, (t.__proto__ || Object.getPrototypeOf(t)).apply(this, arguments))
             );
           }
           return (
-            b()(t, e),
-            d()(t, [
+            v()(t, e),
+            p()(t, [
               {
                 key: 'render',
                 value: function () {
-                  return w['createElement'](
+                  return y['createElement'](
                     'div',
                     { className: 'am-list-brief', style: this.props.style },
                     this.props.children,
@@ -118,25 +116,25 @@
             ]),
             t
           );
-        })(w['Component']),
-        P = (function (e) {
+        })(y['Component']),
+        J = (function (e) {
           function t(e) {
-            p()(this, t);
-            var a = v()(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));
+            s()(this, t);
+            var a = d()(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));
             return (
               (a.onClick = function (e) {
                 var t = a.props,
                   r = t.onClick,
                   n = t.platform,
-                  i = 'android' === n;
-                if (r && i) {
+                  o = 'android' === n;
+                if (r && o) {
                   a.debounceTimeout &&
                     (clearTimeout(a.debounceTimeout), (a.debounceTimeout = null));
-                  var o = e.currentTarget,
-                    c = Math.max(o.offsetHeight, o.offsetWidth),
+                  var i = e.currentTarget,
+                    c = Math.max(i.offsetHeight, i.offsetWidth),
                     l = e.currentTarget.getBoundingClientRect(),
-                    s = e.clientX - l.left - o.offsetWidth / 2,
-                    u = e.clientY - l.top - o.offsetWidth / 2,
+                    s = e.clientX - l.left - i.offsetWidth / 2,
+                    u = e.clientY - l.top - i.offsetWidth / 2,
                     p = { width: c + 'px', height: c + 'px', left: s + 'px', top: u + 'px' };
                   a.setState({ coverRippleStyle: p, RippleClicked: !0 }, function () {
                     a.debounceTimeout = setTimeout(function () {
@@ -151,8 +149,8 @@
             );
           }
           return (
-            b()(t, e),
-            d()(t, [
+            v()(t, e),
+            p()(t, [
               {
                 key: 'componentWillUnmount',
                 value: function () {
@@ -168,8 +166,8 @@
                     a,
                     r = this,
                     n = this.props,
-                    i = n.prefixCls,
-                    o = n.className,
+                    o = n.prefixCls,
+                    i = n.className,
                     c = n.activeStyle,
                     l = n.error,
                     s = n.align,
@@ -180,8 +178,8 @@
                     f = n.thumb,
                     v = n.extra,
                     h = n.arrow,
-                    b = n.onClick,
-                    y = J(n, [
+                    g = n.onClick,
+                    w = N(n, [
                       'prefixCls',
                       'className',
                       'activeStyle',
@@ -196,69 +194,69 @@
                       'arrow',
                       'onClick',
                     ]),
-                    x = (y.platform, J(y, ['platform'])),
+                    x = (w.platform, N(w, ['platform'])),
                     O = this.state,
                     S = O.coverRippleStyle,
-                    j = O.RippleClicked,
-                    E = g()(
-                      i + '-item',
-                      o,
+                    E = O.RippleClicked,
+                    _ = b()(
+                      o + '-item',
+                      i,
                       ((e = {}),
-                      N()(e, i + '-item-disabled', p),
-                      N()(e, i + '-item-error', l),
-                      N()(e, i + '-item-top', 'top' === s),
-                      N()(e, i + '-item-middle', 'middle' === s),
-                      N()(e, i + '-item-bottom', 'bottom' === s),
+                      k()(e, o + '-item-disabled', p),
+                      k()(e, o + '-item-error', l),
+                      k()(e, o + '-item-top', 'top' === s),
+                      k()(e, o + '-item-middle', 'middle' === s),
+                      k()(e, o + '-item-bottom', 'bottom' === s),
                       e),
                     ),
-                    C = g()(i + '-ripple', N()({}, i + '-ripple-animate', j)),
-                    z = g()(
-                      i + '-line',
-                      ((t = {}), N()(t, i + '-line-multiple', d), N()(t, i + '-line-wrap', u), t),
+                    J = b()(o + '-ripple', k()({}, o + '-ripple-animate', E)),
+                    z = b()(
+                      o + '-line',
+                      ((t = {}), k()(t, o + '-line-multiple', d), k()(t, o + '-line-wrap', u), t),
                     ),
-                    P = g()(
-                      i + '-arrow',
+                    P = b()(
+                      o + '-arrow',
                       ((a = {}),
-                      N()(a, i + '-arrow-horizontal', 'horizontal' === h),
-                      N()(a, i + '-arrow-vertical', 'down' === h || 'up' === h),
-                      N()(a, i + '-arrow-vertical-up', 'up' === h),
+                      k()(a, o + '-arrow-horizontal', 'horizontal' === h),
+                      k()(a, o + '-arrow-vertical', 'down' === h || 'up' === h),
+                      k()(a, o + '-arrow-vertical-up', 'up' === h),
                       a),
                     ),
-                    T = w['createElement'](
+                    T = y['createElement'](
                       'div',
-                      k()({}, x, {
+                      j()({}, x, {
                         onClick: function (e) {
                           r.onClick(e);
                         },
-                        className: E,
+                        className: _,
                       }),
                       f
-                        ? w['createElement'](
+                        ? y['createElement'](
                             'div',
-                            { className: i + '-thumb' },
-                            'string' === typeof f ? w['createElement']('img', { src: f }) : f,
+                            { className: o + '-thumb' },
+                            'string' === typeof f ? y['createElement']('img', { src: f }) : f,
                           )
                         : null,
-                      w['createElement'](
+                      y['createElement'](
                         'div',
                         { className: z },
-                        void 0 !== m && w['createElement']('div', { className: i + '-content' }, m),
-                        void 0 !== v && w['createElement']('div', { className: i + '-extra' }, v),
-                        h && w['createElement']('div', { className: P, 'aria-hidden': 'true' }),
+                        void 0 !== m && y['createElement']('div', { className: o + '-content' }, m),
+                        void 0 !== v && y['createElement']('div', { className: o + '-extra' }, v),
+                        h && y['createElement']('div', { className: P, 'aria-hidden': 'true' }),
                       ),
-                      w['createElement']('div', { style: S, className: C }),
+                      y['createElement']('div', { style: S, className: J }),
                     ),
                     I = {};
                   return (
                     Object.keys(x).forEach(function (e) {
                       /onTouch/i.test(e) && ((I[e] = x[e]), delete x[e]);
                     }),
-                    w['createElement'](
-                      _['a'],
-                      k()({}, I, {
-                        disabled: p || !b,
+                    y['createElement'](
+                      C['a'],
+                      j()({}, I, {
+                        disabled: p || !g,
                         activeStyle: c,
-                        activeClassName: i + '-item-active',
+                        activeClassName: o + '-item-active',
                       }),
                       T,
                     )
@@ -268,8 +266,8 @@
             ]),
             t
           );
-        })(w['Component']);
-      (P.defaultProps = {
+        })(y['Component']);
+      (J.defaultProps = {
         prefixCls: 'am-list',
         align: 'middle',
         error: !1,
@@ -277,9 +275,9 @@
         wrap: !1,
         platform: 'ios',
       }),
-        (P.Brief = z);
-      var T = P,
-        I = function (e, t) {
+        (J.Brief = _);
+      var z = J,
+        P = function (e, t) {
           var a = {};
           for (var r in e)
             Object.prototype.hasOwnProperty.call(e, r) && t.indexOf(r) < 0 && (a[r] = e[r]);
@@ -290,16 +288,16 @@
           }
           return a;
         },
-        R = (function (e) {
+        T = (function (e) {
           function t() {
             return (
-              p()(this, t),
-              v()(this, (t.__proto__ || Object.getPrototypeOf(t)).apply(this, arguments))
+              s()(this, t),
+              d()(this, (t.__proto__ || Object.getPrototypeOf(t)).apply(this, arguments))
             );
           }
           return (
-            b()(t, e),
-            d()(t, [
+            v()(t, e),
+            p()(t, [
               {
                 key: 'render',
                 value: function () {
@@ -308,9 +306,9 @@
                     a = e.children,
                     r = e.className,
                     n = e.style,
-                    i = e.renderHeader,
-                    o = e.renderFooter,
-                    c = I(e, [
+                    o = e.renderHeader,
+                    i = e.renderFooter,
+                    c = P(e, [
                       'prefixCls',
                       'children',
                       'className',
@@ -318,23 +316,23 @@
                       'renderHeader',
                       'renderFooter',
                     ]),
-                    l = g()(t, r);
-                  return w['createElement'](
+                    l = b()(t, r);
+                  return y['createElement'](
                     'div',
-                    k()({ className: l, style: n }, c),
-                    i
-                      ? w['createElement'](
+                    j()({ className: l, style: n }, c),
+                    o
+                      ? y['createElement'](
                           'div',
                           { className: t + '-header' },
-                          'function' === typeof i ? i() : i,
+                          'function' === typeof o ? o() : o,
                         )
                       : null,
-                    a ? w['createElement']('div', { className: t + '-body' }, a) : null,
-                    o
-                      ? w['createElement'](
+                    a ? y['createElement']('div', { className: t + '-body' }, a) : null,
+                    i
+                      ? y['createElement'](
                           'div',
                           { className: t + '-footer' },
-                          'function' === typeof o ? o() : o,
+                          'function' === typeof i ? i() : i,
                         )
                       : null,
                   );
@@ -343,59 +341,61 @@
             ]),
             t
           );
-        })(w['Component']),
-        B = R;
-      (R.Item = T), (R.defaultProps = { prefixCls: 'am-list' });
-      var L = a('I5X1'),
-        U = a('EkL2'),
-        H = a.n(U),
-        V = a('bIAK'),
-        X = a('diY3'),
-        Y = a('0lfv'),
-        W = a('D2RX'),
-        D = B.Item,
-        F = j['a'].prompt,
-        M = () => {
+        })(y['Component']),
+        I = T;
+      (T.Item = z), (T.defaultProps = { prefixCls: 'am-list' });
+      var R = a('4Wd/'),
+        B = a.n(R),
+        L = a('I5X1'),
+        H = a('EkL2'),
+        V = a.n(H),
+        W = a('bIAK'),
+        U = a('diY3'),
+        X = a('0lfv'),
+        D = a('D2RX'),
+        F = I.Item,
+        M = O['a'].prompt,
+        Y = () => {
           var e = Object(L['a'])('boxjsModel', (e) => e),
-            t = Object(W['b'])(X['c'], { manual: !0 }),
-            a = Object(Y['b'])();
+            t = Object(D['b'])(U['c'], { manual: !0 }),
+            a = Object(X['b'])();
           return e.data.usercfgs
-            ? x.a.createElement(
+            ? g.a.createElement(
                 r['a'],
                 { size: 'sm' },
-                x.a.createElement(S, { size: 'lg' }),
-                x.a.createElement(S, { size: 'lg' }),
-                x.a.createElement(S, { size: 'lg' }),
-                x.a.createElement(S, { size: 'lg' }),
-                x.a.createElement(
+                g.a.createElement(x, { size: 'lg' }),
+                g.a.createElement(x, { size: 'lg' }),
+                g.a.createElement(x, { size: 'lg' }),
+                g.a.createElement(x, { size: 'lg' }),
+                g.a.createElement(
                   n['a'],
                   null,
-                  x.a.createElement(
+                  g.a.createElement(
                     n['a'].Body,
-                    { className: H.a.container },
-                    x.a.createElement(
-                      s['a'],
-                      { justify: 'center', direction: 'column', className: H.a.avatarView },
-                      x.a.createElement('img', {
+                    { className: V.a.container },
+                    g.a.createElement(
+                      c['a'],
+                      { justify: 'center', direction: 'column', className: V.a.avatarView },
+                      g.a.createElement('img', {
                         alt: '\u5934\u50cf',
-                        src: e.data.usercfgs.icon || Y['a'],
-                        className: H.a.avatar,
+                        src: e.data.usercfgs.icon || X['a'],
+                        className: V.a.avatar,
                       }),
-                      x.a.createElement('span', null, e.data.usercfgs.name),
+                      g.a.createElement('span', null, e.data.usercfgs.name),
                     ),
-                    x.a.createElement(S, { size: 'lg' }),
-                    x.a.createElement(
-                      B,
+                    g.a.createElement(x, { size: 'lg' }),
+                    g.a.createElement(
+                      I,
                       null,
-                      x.a.createElement(
-                        D,
+                      g.a.createElement(
+                        F,
                         {
                           thumb: 'https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png',
                           arrow: 'horizontal',
-                          onClick: Object(l['a'])(
-                            c.a.mark(function r() {
-                              var n, i;
-                              return c.a.wrap(function (r) {
+                          onClick: Object(i['a'])(
+                            B.a.mark(function r() {
+                              var n, o;
+                              return B.a.wrap(function (r) {
                                 while (1)
                                   switch ((r.prev = r.next)) {
                                     case 0:
@@ -415,9 +415,9 @@
                                         t.run(n)
                                       );
                                     case 4:
-                                      (i = r.sent),
+                                      (o = r.sent),
                                         window.loadingEvent.detail.setLoading(!1, ''),
-                                        i && e.setBoxJS(i);
+                                        o && e.setBoxJS(o);
                                     case 7:
                                     case 'end':
                                       return r.stop();
@@ -428,15 +428,15 @@
                         },
                         '\u5907\u4efd\u8ba2\u9605',
                       ),
-                      x.a.createElement(
-                        D,
+                      g.a.createElement(
+                        F,
                         {
                           thumb: 'https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png',
                           onClick: () => {
                             e.data.datas.scriptable
-                              ? (Object(Y['d'])(JSON.parse(e.data.datas.scriptable)),
-                                i['a'].success('\u6062\u590d\u6210\u529f'))
-                              : i['a'].fail('\u6682\u672a\u627e\u5230\u5907\u4efd\u8ba2\u9605');
+                              ? (Object(X['d'])(JSON.parse(e.data.datas.scriptable)),
+                                o['a'].success('\u6062\u590d\u6210\u529f'))
+                              : o['a'].fail('\u6682\u672a\u627e\u5230\u5907\u4efd\u8ba2\u9605');
                           },
                           arrow: 'horizontal',
                         },
@@ -446,14 +446,14 @@
                   ),
                 ),
               )
-            : x.a.createElement(
-                V['a'],
+            : g.a.createElement(
+                W['a'],
                 null,
-                x.a.createElement(
+                g.a.createElement(
                   'div',
                   {
                     onClick: () => {
-                      F(
+                      M(
                         'BoxJS\u57df\u540d\u8bbe\u7f6e',
                         '',
                         [
@@ -461,14 +461,14 @@
                           {
                             text: '\u786e\u5b9a',
                             onPress: (function () {
-                              var e = Object(l['a'])(
-                                c.a.mark(function e(t) {
-                                  return c.a.wrap(function (e) {
+                              var e = Object(i['a'])(
+                                B.a.mark(function e(t) {
+                                  return B.a.wrap(function (e) {
                                     while (1)
                                       switch ((e.prev = e.next)) {
                                         case 0:
                                           localStorage.setItem('boxjs', t),
-                                            i['a'].success(
+                                            o['a'].success(
                                               '\u8bbe\u7f6e\u6210\u529f\n\u5f53\u524d BoxJS \u57df\u540d\u4e3a\uff1a'.concat(
                                                 t,
                                               ),
@@ -493,8 +493,8 @@
                     },
                   },
                   'BoxJS \u8fde\u63a5\u5931\u8d25',
-                  x.a.createElement(S, { size: 'lg' }),
-                  x.a.createElement(
+                  g.a.createElement(x, { size: 'lg' }),
+                  g.a.createElement(
                     'span',
                     { style: { color: 'red' } },
                     ' \u70b9\u51fb\u8bbe\u7f6e BoxJS \u57df\u540d',
@@ -502,7 +502,7 @@
                 ),
               );
         };
-      t['default'] = M;
+      t['default'] = Y;
     },
     EkL2: function (e, t, a) {
       e.exports = {
@@ -523,16 +523,17 @@
         a.d(t, 'c', function () {
           return u;
         });
-      var r = a('SDju'),
-        n = a.n(r),
-        i = (a('P0Cl'), a('oB33')),
-        o = a('YLUp'),
+      a('P0Cl');
+      var r = a('oB33'),
+        n = a('SDO5'),
+        o = a('4Wd/'),
+        i = a.n(o),
         c = a('9kvl'),
         l = (function () {
-          var e = Object(o['a'])(
-            n.a.mark(function e(t) {
-              var a, r;
-              return n.a.wrap(function (e) {
+          var e = Object(n['a'])(
+            i.a.mark(function e(t) {
+              var a, n;
+              return i.a.wrap(function (e) {
                 while (1)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -541,12 +542,12 @@
                       a = e.sent;
                       try {
                         a.scriptable
-                          ? ((r = JSON.parse(localStorage.getItem('dataSource') || '{}')),
-                            (r[t] = a),
-                            localStorage.setItem('dataSource', JSON.stringify(r)))
-                          : i['a'].fail('\u8ba2\u9605\u5730\u5740\u9519\u8bef');
-                      } catch (n) {
-                        i['a'].fail(JSON.stringify(n));
+                          ? ((n = JSON.parse(localStorage.getItem('dataSource') || '{}')),
+                            (n[t] = a),
+                            localStorage.setItem('dataSource', JSON.stringify(n)))
+                          : r['a'].fail('\u8ba2\u9605\u5730\u5740\u9519\u8bef');
+                      } catch (o) {
+                        r['a'].fail(JSON.stringify(o));
                       }
                     case 4:
                     case 'end':
@@ -560,10 +561,10 @@
           };
         })(),
         s = (function () {
-          var e = Object(o['a'])(
-            n.a.mark(function e() {
+          var e = Object(n['a'])(
+            i.a.mark(function e() {
               var t;
-              return n.a.wrap(
+              return i.a.wrap(
                 function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
@@ -602,10 +603,10 @@
           };
         })(),
         u = (function () {
-          var e = Object(o['a'])(
-            n.a.mark(function e(t) {
+          var e = Object(n['a'])(
+            i.a.mark(function e(t) {
               var a;
-              return n.a.wrap(
+              return i.a.wrap(
                 function (e) {
                   while (1)
                     switch ((e.prev = e.next)) {
@@ -624,7 +625,7 @@
                       case 3:
                         return (
                           (a = e.sent),
-                          i['a'].success('\u5907\u4efd\u6210\u529f'),
+                          r['a'].success('\u5907\u4efd\u6210\u529f'),
                           e.abrupt('return', a)
                         );
                       case 8:
@@ -632,7 +633,7 @@
                           (e.prev = 8),
                           (e.t0 = e['catch'](0)),
                           console.log(e.t0),
-                          i['a'].fail('\u5907\u4efd\u5931\u8d25'),
+                          r['a'].fail('\u5907\u4efd\u5931\u8d25'),
                           e.abrupt('return', !1)
                         );
                       case 13:

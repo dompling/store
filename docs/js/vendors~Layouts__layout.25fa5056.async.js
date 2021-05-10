@@ -64,7 +64,7 @@
         p = n.n(f),
         h = n('0dFU'),
         v = n.n(h),
-        b = n('iczh'),
+        b = n('jK+o'),
         d = n.n(b),
         g = n('xwgP'),
         m = function (t, e) {
@@ -270,8 +270,8 @@
         }
         return e;
       }
-      var z = { all: C, vertical: P, horizontal: y },
-        A = (function (t) {
+      var A = { all: C, vertical: P, horizontal: y },
+        z = (function (t) {
           function e(t) {
             i()(this, e);
             var n = l()(this, (e.__proto__ || Object.getPrototypeOf(e)).call(this, t));
@@ -512,7 +512,7 @@
                   ? 'pan-y'
                   : 'auto';
               }),
-              (n.directionSetting = z[t.direction]),
+              (n.directionSetting = A[t.direction]),
               n
             );
           }
@@ -547,8 +547,8 @@
             e
           );
         })(h['Component']);
-      e['a'] = A;
-      A.defaultProps = { enableRotate: !1, enablePinch: !1, direction: 'all' };
+      e['a'] = z;
+      z.defaultProps = { enableRotate: !1, enablePinch: !1, direction: 'all' };
     },
     BBVc: function (t, e, n) {
       'use strict';
@@ -1471,9 +1471,9 @@
             e
           );
         })(h['PureComponent']),
-        z = N;
+        A = N;
       (N.DefaultTabBar = G), (N.defaultProps = { prefixCls: 'am-tabs' });
-      var A = n('1eom'),
+      var z = n('1eom'),
         V = (function (t) {
           function e() {
             i()(this, e);
@@ -1498,14 +1498,14 @@
                       });
                 return r
                   ? h['createElement'](
-                      A['a'],
+                      z['a'],
                       { text: r, className: c + '-badge tab-badge' },
                       ' ',
                       l,
                       ' ',
                     )
                   : n
-                  ? h['createElement'](A['a'], { dot: !0, className: c + '-badge tab-dot' }, l)
+                  ? h['createElement'](z['a'], { dot: !0, className: c + '-badge tab-dot' }, l)
                   : l;
               }),
               (t.onClick = function () {
@@ -1650,7 +1650,7 @@
                     'div',
                     { className: e },
                     h['createElement'](
-                      z,
+                      A,
                       {
                         tabs: c,
                         renderTabBar: this.renderTabBar,
