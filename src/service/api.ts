@@ -22,7 +22,7 @@ export const fetchJSONStore = async (url: string) => {
 
 export const getBoxJS = async (): Promise<any | boolean> => {
   const response = await request<{ datas: Record<string, any> }>(
-    `http://${localStorage.getItem('boxjs') || 'boxjs.net'}/query/boxdata`,
+    `//${localStorage.getItem('boxjs') || 'boxjs.net'}/query/boxdata`,
   );
   try {
     return response;

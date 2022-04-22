@@ -134,7 +134,7 @@
                         return (
                           (t.next = 2),
                           Object(u['c'])(
-                            'http://'.concat(
+                            '//'.concat(
                               localStorage.getItem('boxjs') || 'boxjs.net',
                               '/query/boxdata',
                             ),

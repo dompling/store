@@ -42,8 +42,8 @@
         d = a.n(m),
         f = a('0dFU'),
         v = a.n(f),
-        h = a('jK+o'),
-        b = a.n(h),
+        b = a('jK+o'),
+        h = a.n(b),
         y = a('xwgP'),
         g = a.n(y),
         w = (function (e) {
@@ -65,7 +65,7 @@
                     r = e.className,
                     n = e.style,
                     o = e.onClick,
-                    i = b()(t, t + '-' + a, r);
+                    i = h()(t, t + '-' + a, r);
                   return y['createElement']('div', { className: i, style: n, onClick: o });
                 },
               },
@@ -177,7 +177,7 @@
                     d = n.multipleLine,
                     f = n.thumb,
                     v = n.extra,
-                    h = n.arrow,
+                    b = n.arrow,
                     g = n.onClick,
                     w = N(n, [
                       'prefixCls',
@@ -198,7 +198,7 @@
                     O = this.state,
                     S = O.coverRippleStyle,
                     E = O.RippleClicked,
-                    _ = b()(
+                    _ = h()(
                       o + '-item',
                       i,
                       ((e = {}),
@@ -209,17 +209,17 @@
                       k()(e, o + '-item-bottom', 'bottom' === s),
                       e),
                     ),
-                    J = b()(o + '-ripple', k()({}, o + '-ripple-animate', E)),
-                    z = b()(
+                    J = h()(o + '-ripple', k()({}, o + '-ripple-animate', E)),
+                    z = h()(
                       o + '-line',
                       ((t = {}), k()(t, o + '-line-multiple', d), k()(t, o + '-line-wrap', u), t),
                     ),
-                    P = b()(
+                    P = h()(
                       o + '-arrow',
                       ((a = {}),
-                      k()(a, o + '-arrow-horizontal', 'horizontal' === h),
-                      k()(a, o + '-arrow-vertical', 'down' === h || 'up' === h),
-                      k()(a, o + '-arrow-vertical-up', 'up' === h),
+                      k()(a, o + '-arrow-horizontal', 'horizontal' === b),
+                      k()(a, o + '-arrow-vertical', 'down' === b || 'up' === b),
+                      k()(a, o + '-arrow-vertical-up', 'up' === b),
                       a),
                     ),
                     T = y['createElement'](
@@ -242,7 +242,7 @@
                         { className: z },
                         void 0 !== m && y['createElement']('div', { className: o + '-content' }, m),
                         void 0 !== v && y['createElement']('div', { className: o + '-extra' }, v),
-                        h && y['createElement']('div', { className: P, 'aria-hidden': 'true' }),
+                        b && y['createElement']('div', { className: P, 'aria-hidden': 'true' }),
                       ),
                       y['createElement']('div', { style: S, className: J }),
                     ),
@@ -316,7 +316,7 @@
                       'renderHeader',
                       'renderFooter',
                     ]),
-                    l = b()(t, r);
+                    l = h()(t, r);
                   return y['createElement'](
                     'div',
                     j()({ className: l, style: n }, c),
@@ -572,7 +572,7 @@
                         return (
                           (e.next = 2),
                           Object(c['c'])(
-                            'http://'.concat(
+                            '//'.concat(
                               localStorage.getItem('boxjs') || 'boxjs.net',
                               '/query/boxdata',
                             ),
