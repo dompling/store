@@ -370,10 +370,7 @@
                           (e.prev = 0),
                           (e.next = 3),
                           Object(l['c'])(
-                            'http://'.concat(
-                              localStorage.getItem('boxjs') || 'boxjs.net',
-                              '/api/save',
-                            ),
+                            '//'.concat(localStorage.getItem('boxjs') || 'boxjs.net', '/api/save'),
                             { method: 'POST', data: t },
                           )
                         );

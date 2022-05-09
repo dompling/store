@@ -49,8 +49,8 @@
           v = Object(r['a'])(f, 2),
           w = v[0],
           m = v[1],
-          h = Object(i['b'])(s['b'], { manual: !0 }),
-          g = Object(l['a'])('boxjsModel', (t) => t);
+          g = Object(i['b'])(s['b'], { manual: !0 }),
+          h = Object(l['a'])('boxjsModel', (t) => t);
         return (
           Object(o['useEffect'])(() => {
             (window.loadingEvent = new CustomEvent('setLoading', {
@@ -60,15 +60,15 @@
                 },
               },
             })),
-              h.run().then((t) => {
-                t && g.setBoxJS(t);
+              g.run().then((t) => {
+                t && h.setBoxJS(t);
               });
           }, []),
           u.a.createElement(
             u.a.Fragment,
             null,
             u.a.createElement(a['a'], { toast: !0, text: ''.concat(w, '...'), animating: p }),
-            h.loading ? u.a.createElement(d['b'], null) : u.a.createElement('main', null, e),
+            g.loading ? u.a.createElement(d['b'], null) : u.a.createElement('main', null, e),
           )
         );
       };
@@ -177,10 +177,7 @@
                           (t.prev = 0),
                           (t.next = 3),
                           Object(u['c'])(
-                            'http://'.concat(
-                              localStorage.getItem('boxjs') || 'boxjs.net',
-                              '/api/save',
-                            ),
+                            '//'.concat(localStorage.getItem('boxjs') || 'boxjs.net', '/api/save'),
                             { method: 'POST', data: e },
                           )
                         );
