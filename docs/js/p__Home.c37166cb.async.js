@@ -3,17 +3,14 @@
   {
     '0lfv': function (e, t, a) {
       'use strict';
-      a.d(t, 'b', function () {
+      a.d(t, 'a', function () {
         return r;
       }),
-        a.d(t, 'c', function () {
+        a.d(t, 'b', function () {
           return n;
         }),
-        a.d(t, 'd', function () {
+        a.d(t, 'c', function () {
           return c;
-        }),
-        a.d(t, 'a', function () {
-          return s;
         });
       var r = () => JSON.parse(localStorage.getItem('dataSource') || '{}'),
         n = (e, t) => {
@@ -22,8 +19,7 @@
             c = a[n].apps || [];
           return c.find((e) => e.name === t);
         },
-        c = (e) => localStorage.setItem('dataSource', JSON.stringify(e)),
-        s = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
+        c = (e) => localStorage.setItem('dataSource', JSON.stringify(e));
     },
     diY3: function (e, t, a) {
       'use strict';
@@ -189,14 +185,14 @@
         l = a('4Wd/'),
         o = a.n(l),
         m = a('xwgP'),
-        p = a.n(m),
-        _ = a('bIAK'),
-        b = a('0lfv'),
-        f = a('DndG'),
+        _ = a.n(m),
+        p = a('bIAK'),
+        f = a('0lfv'),
+        b = a('DndG'),
         d = a('D2RX'),
         v = a('diY3'),
-        h = a('yXpV'),
-        O = a.n(h),
+        O = a('yXpV'),
+        h = a.n(O),
         g = (function () {
           var e = Object(u['a'])(
             o.a.mark(function e() {
@@ -205,7 +201,7 @@
                 while (1)
                   switch ((e.prev = e.next)) {
                     case 0:
-                      (t = Object(b['b'])()), (a = Object.keys(t)), (r = 0), (n = a);
+                      (t = Object(f['a'])()), (a = Object.keys(t)), (r = 0), (n = a);
                     case 3:
                       if (!(r < n.length)) {
                         e.next = 10;
@@ -227,8 +223,8 @@
           };
         })();
       t['default'] = () => {
-        var e = Object(b['b'])(),
-          t = p.a.useState(e),
+        var e = Object(f['a'])(),
+          t = _.a.useState(e),
           a = Object(i['a'])(t, 2),
           u = a[0],
           l = a[1],
@@ -236,16 +232,16 @@
         return (
           Object(m['useEffect'])(() => {
             g().then(() => {
-              l(Object(b['b'])());
+              l(Object(f['a'])());
             });
           }, [l]),
-          p.a.createElement(
+          _.a.createElement(
             'div',
-            { className: O.a.container },
-            p.a.createElement(
+            { className: h.a.container },
+            _.a.createElement(
               'div',
-              { className: O.a.search },
-              p.a.createElement(c['a'], {
+              { className: h.a.search },
+              _.a.createElement(c['a'], {
                 placeholder: '\u8bf7\u8f93\u5165',
                 onClear: () => l(e),
                 onChange: (t) => {
@@ -262,7 +258,7 @@
               }),
             ),
             Object.keys(o).length
-              ? p.a.createElement(
+              ? _.a.createElement(
                   r['a'],
                   { defaultActiveKey: Object.keys(o) },
                   Object.keys(o).map((e) => {
@@ -271,39 +267,39 @@
                       c = a.apps,
                       s = a.author,
                       i = a.icon;
-                    return p.a.createElement(
+                    return _.a.createElement(
                       r['a'].Panel,
                       {
                         key: e,
-                        header: p.a.createElement(
+                        header: _.a.createElement(
                           'div',
-                          { className: O.a.avatar },
-                          p.a.createElement('img', { className: O.a.avatar_img, src: i, alt: '' }),
+                          { className: h.a.avatar },
+                          _.a.createElement('img', { className: h.a.avatar_img, src: i, alt: '' }),
                           s,
                         ),
                       },
-                      p.a.createElement(n['a'], {
+                      _.a.createElement(n['a'], {
                         data: c,
                         columnNum: 4,
                         square: !1,
                         hasLine: !1,
                         renderItem: (e) => {
                           var t = e;
-                          return p.a.createElement(
-                            f['a'],
+                          return _.a.createElement(
+                            b['a'],
                             { to: '/app/info/'.concat(s, '/').concat(t.name) },
-                            p.a.createElement(
+                            _.a.createElement(
                               'div',
-                              { className: O.a.list_item },
-                              p.a.createElement('img', {
+                              { className: h.a.list_item },
+                              _.a.createElement('img', {
                                 alt: '',
                                 src: t.thumb,
-                                className: O.a.list_item_img,
+                                className: h.a.list_item_img,
                               }),
-                              p.a.createElement(
+                              _.a.createElement(
                                 'div',
-                                { className: O.a.list_item_desc },
-                                p.a.createElement('span', null, t.title),
+                                { className: h.a.list_item_desc },
+                                _.a.createElement('span', null, t.title),
                               ),
                             ),
                           );
@@ -312,7 +308,7 @@
                     );
                   }),
                 )
-              : p.a.createElement(_['a'], null, '\u6682\u65e0\u6570\u636e'),
+              : _.a.createElement(p['a'], null, '\u6682\u65e0\u6570\u636e'),
           )
         );
       };

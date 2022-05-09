@@ -3,17 +3,14 @@
   {
     '0lfv': function (e, t, a) {
       'use strict';
-      a.d(t, 'b', function () {
+      a.d(t, 'a', function () {
         return r;
       }),
-        a.d(t, 'c', function () {
+        a.d(t, 'b', function () {
           return n;
         }),
-        a.d(t, 'd', function () {
+        a.d(t, 'c', function () {
           return c;
-        }),
-        a.d(t, 'a', function () {
-          return s;
         });
       var r = () => JSON.parse(localStorage.getItem('dataSource') || '{}'),
         n = (e, t) => {
@@ -22,8 +19,7 @@
             c = a[n].apps || [];
           return c.find((e) => e.name === t);
         },
-        c = (e) => localStorage.setItem('dataSource', JSON.stringify(e)),
-        s = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
+        c = (e) => localStorage.setItem('dataSource', JSON.stringify(e));
     },
     R0pf: function (e, t, a) {
       e.exports = {
@@ -195,8 +191,8 @@
         m = a('DJqP'),
         p = a('M+ez'),
         b = (a('6Yi/'), a('aJ6J')),
-        g = a('4Wd/'),
-        f = a.n(g),
+        f = a('4Wd/'),
+        g = a.n(f),
         h = a('xwgP'),
         v = a.n(h),
         O = a('F61N'),
@@ -240,7 +236,7 @@
                     r(!0),
                     Object(y['a'])(t.url)
                       .then(() => {
-                        var e = Object(E['b'])();
+                        var e = Object(E['a'])();
                         a(e);
                       })
                       .finally(() => {
@@ -252,8 +248,8 @@
                 {
                   text: '\u5220\u9664',
                   onPress: () => {
-                    var e = Object(E['b'])();
-                    delete e[t.url], Object(E['d'])(e), a(e);
+                    var e = Object(E['a'])();
+                    delete e[t.url], Object(E['c'])(e), a(e);
                   },
                   style: { backgroundColor: 'red', color: 'white' },
                 },
@@ -302,7 +298,7 @@
           return v.a.createElement('div', null, t);
         });
       t['default'] = () => {
-        var e = Object(E['b'])(),
+        var e = Object(E['a'])(),
           t = v.a.useState(e),
           a = Object(u['a'])(t, 2),
           i = a[0],
@@ -327,9 +323,9 @@
                 v.a.createElement(N, {
                   icon: 'https://img.icons8.com/clouds/344/cloud-refresh.png',
                   onClick: Object(s['a'])(
-                    f.a.mark(function e() {
+                    g.a.mark(function e() {
                       var t, a, r, n;
-                      return f.a.wrap(function (e) {
+                      return g.a.wrap(function (e) {
                         while (1)
                           switch ((e.prev = e.next)) {
                             case 0:
@@ -344,7 +340,7 @@
                               a++, (e.next = 3);
                               break;
                             case 10:
-                              l(Object(E['b'])()), b(!1);
+                              l(Object(E['a'])()), b(!1);
                             case 12:
                             case 'end':
                               return e.stop();
@@ -362,14 +358,14 @@
                         text: '\u786e\u5b9a',
                         onPress: (function () {
                           var e = Object(s['a'])(
-                            f.a.mark(function e(t) {
-                              return f.a.wrap(function (e) {
+                            g.a.mark(function e(t) {
+                              return g.a.wrap(function (e) {
                                 while (1)
                                   switch ((e.prev = e.next)) {
                                     case 0:
                                       return b(!0), (e.next = 3), Object(y['a'])(t);
                                     case 3:
-                                      l(Object(E['b'])()), b(!1);
+                                      l(Object(E['a'])()), b(!1);
                                     case 5:
                                     case 'end':
                                       return e.stop();
@@ -404,7 +400,7 @@
                     c.forEach((t) => {
                       s[t] = e[t];
                     }),
-                      Object(E['d'])(s),
+                      Object(E['c'])(s),
                       l(s);
                   },
                 },
