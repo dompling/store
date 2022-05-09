@@ -4,8 +4,9 @@ import { useModel } from '@@/plugin-model/useModel';
 import styles from '@/pages/User/index.module.less';
 import { NoneText } from '@/components/PageLoading';
 import { saveCache } from '@/service/api';
-import { avatar_url, getSubscribe, setSubscribe } from '@/utils';
+import { getSubscribe, setSubscribe } from '@/utils';
 import { useRequest } from '@umijs/hooks';
+import avatar_url from '@/assets/icon.png';
 
 const { Item } = List;
 const { prompt } = Modal;
@@ -24,8 +25,8 @@ const Index = () => {
           <Flex justify={'center'} direction={'column'} className={styles.avatarView}>
             <img
               alt={'头像'}
-              src={BoxJS.data.usercfgs.icon || avatar_url}
               className={styles.avatar}
+              src={BoxJS.data.usercfgs.icon || avatar_url}
             />
             <span>{BoxJS.data.usercfgs.name}</span>
           </Flex>

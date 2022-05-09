@@ -4,7 +4,7 @@ import { TabBar } from 'antd-mobile';
 import type { IRouteComponentProps } from 'umi';
 import { history, useModel } from 'umi';
 import styles from './layout.module.less';
-import { avatar_url } from '@/utils';
+import avatar_url from '@/assets/icon.png';
 
 const MenuIcon: FC<{ icon: string }> = ({ icon }) => {
   return <div className={`${styles.tabBarIcon} ${styles[icon]}`} />;
