@@ -1,6 +1,5 @@
 import { request } from 'umi';
 import { Toast } from 'antd-mobile';
-import { useModel } from '@@/plugin-model/useModel';
 
 export const fetchJSONStore = async (url: string) => {
   const response = await request<API.subscribe>(url, { method: 'get' });
@@ -34,13 +33,10 @@ export const getBoxJS = async (): Promise<any | boolean> => {
 
 export const saveCache = async (data: any): Promise<any | boolean> => {
   try {
-    const response = await request(
-      `http://${localStorage.getItem('boxjs') || 'boxjs.net'}/api/save`,
-      {
-        method: 'POST',
-        data,
-      },
-    );
+    const response = await request(`//${localStorage.getItem('boxjs') || 'boxjs.net'}/api/save`, {
+      method: 'POST',
+      data,
+    });
     Toast.success('备份成功');
     return response;
   } catch (e) {
