@@ -9,7 +9,7 @@ const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
 const precomposed = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
 // @ts-ignore
 export default defineConfig({
-  outputPath: 'docs',
+  outputPath: 'dist',
   favicon: productPath + 'favicon.ico',
   nodeModulesTransform: {
     type: 'none',
@@ -55,6 +55,10 @@ export default defineConfig({
     },
   ],
   links: [
+    {
+      rel: 'manifest',
+      href: './manifest.json',
+    },
     {
       rel: 'apple-touch-icon',
       href: precomposed,

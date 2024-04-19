@@ -1,0 +1,8 @@
+{
+  "name": "WidgetStore",
+  "short_name": "WidgetStore",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait"
+}
