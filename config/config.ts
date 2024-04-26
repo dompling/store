@@ -4,7 +4,7 @@ import { defineConfig } from 'umi';
 import px2rem from 'postcss-plugin-px2rem';
 import routers from './routers';
 
-const productPath = process.env.NODE_ENV === 'production' ? '/store/' : '/';
+const productPath = process.env.NODE_ENV === 'production' ? '/' : '/';
 // const precomposed = 'https://img.icons8.com/nolan/452/windows-10.png';
 const precomposed = 'https://gitee.com/scriptableJS/store/raw/master/public/icon.png';
 // @ts-ignore
@@ -23,7 +23,7 @@ export default defineConfig({
   },
   fastRefresh: {},
   hash: true,
-  history: { type: 'hash' },
+  history: { type: 'browser' },
   chainWebpack: (config) => {
     const isDev = process.env.NODE_ENV === 'development';
     const hash = !isDev ? '.[contenthash:8]' : '';
@@ -57,7 +57,7 @@ export default defineConfig({
   links: [
     {
       rel: 'manifest',
-      href: './manifest.json',
+      href: '/manifest.json',
     },
     {
       rel: 'apple-touch-icon',
